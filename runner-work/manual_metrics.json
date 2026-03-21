@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "source": "scratch-simulator",
+  "operation": "run_until",
+  "request_path": "",
+  "run_duration_sec": 1,
+  "dl_throughput_mbps": 0.0,
+  "ul_throughput_mbps": 0.0,
+  "grants_dl": 0,
+  "grants_ul": 0,
+  "prb_util": 0.0,
+  "bler": 0.0
+}

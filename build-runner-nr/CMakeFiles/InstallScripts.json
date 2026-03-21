@@ -1,0 +1,31 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/ns3-dev-link/build-runner-nr/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/antenna/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/applications/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/buildings/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/config-store/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/core/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/flow-monitor/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/internet/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/mobility/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/network/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/nr/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/point-to-point/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/propagation/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/spectrum/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/stats/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/bridge/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/traffic-control/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/internet-apps/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/virtual-net-device/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/src/csma/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/examples/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/scratch/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/scratch/nested-subdir/cmake_install.cmake",
+		"C:/ns3-dev-link/build-runner-nr/utils/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

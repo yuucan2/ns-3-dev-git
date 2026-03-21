@@ -1,0 +1,13 @@
+exec_prefix="C:/Program Files (x86)/NS3/bin"
+libdir="C:/Program Files (x86)/NS3/lib"
+includedir="C:/Program Files (x86)/NS3/include"
+
+Name: ns3-spectrum
+Description: 
+URL: 
+Version: 3.dev
+Requires:  ns3-propagation ns3-antenna
+Requires.private: 
+Cflags: -I"${includedir}" 
+Libs: -L"${libdir}" -lns3-dev-spectrum  -lns3-dev-propagation -lns3-dev-antenna
+Libs.private: -L"${libdir}" 

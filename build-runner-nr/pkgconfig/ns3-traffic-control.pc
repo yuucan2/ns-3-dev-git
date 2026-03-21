@@ -1,0 +1,13 @@
+exec_prefix="C:/Program Files (x86)/NS3/bin"
+libdir="C:/Program Files (x86)/NS3/lib"
+includedir="C:/Program Files (x86)/NS3/include"
+
+Name: ns3-traffic-control
+Description: 
+URL: 
+Version: 3.dev
+Requires:  ns3-network ns3-core
+Requires.private: 
+Cflags: -I"${includedir}" 
+Libs: -L"${libdir}" -lns3-dev-traffic-control  -lns3-dev-network -lns3-dev-core
+Libs.private: -L"${libdir}" 

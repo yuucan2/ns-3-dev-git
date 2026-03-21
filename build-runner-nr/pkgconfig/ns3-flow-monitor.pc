@@ -1,0 +1,13 @@
+exec_prefix="C:/Program Files (x86)/NS3/bin"
+libdir="C:/Program Files (x86)/NS3/lib"
+includedir="C:/Program Files (x86)/NS3/include"
+
+Name: ns3-flow-monitor
+Description: 
+URL: 
+Version: 3.dev
+Requires:  ns3-internet ns3-stats
+Requires.private: 
+Cflags: -I"${includedir}" 
+Libs: -L"${libdir}" -lns3-dev-flow-monitor  -lns3-dev-internet -lns3-dev-stats
+Libs.private: -L"${libdir}" 

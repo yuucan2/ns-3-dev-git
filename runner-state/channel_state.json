@@ -1,0 +1,84 @@
+{
+  "schema_version": "ns3_runner_channel_state_v1",
+  "scenario_mode": "RuleBased",
+  "operation": "configure_channel_and_offsets",
+  "payload": {
+    "profile": {
+      "cell_type": [
+        "TN",
+        "TN",
+        "NTN"
+      ],
+      "gnb_positions_m": [
+        [
+          0,
+          0,
+          35
+        ],
+        [
+          9000,
+          0,
+          35
+        ],
+        [
+          22700.84653014317,
+          4967.352382273879,
+          600000
+        ]
+      ],
+      "delay_offset_slots": [
+        0,
+        0,
+        8
+      ],
+      "subcarrier_spacing_hz": 30000,
+      "total_bandwidth_hz": 40000000.0,
+      "carrier_frequency_hz": 2000000000.0,
+      "transmit_power_dbm": [
+        40,
+        40,
+        45
+      ],
+      "allowed_serving_cells": [
+        true,
+        true,
+        true
+      ],
+      "channel_model": "3GPP TR 38.901",
+      "channel_scenario": "RMa",
+      "enable_tn_ntn_channel_split": true,
+      "enable_fixed_channel_seed": false,
+      "channel_seed": 0,
+      "runner_control_delay_model": {
+        "schema_version": "runner_control_delay_model_v1",
+        "enable_unified_ntn_link_model": true,
+        "delay_offset_slots": [
+          0,
+          0,
+          8
+        ],
+        "base_scheduling_delay_k1": 8,
+        "base_scheduling_delay_k2": 8,
+        "delay_offset_k1_multiplier": 1,
+        "delay_offset_k2_multiplier": 1,
+        "rrc_lead_time_sec": 0.08,
+        "rrc_lead_time_range_sec": [
+          0.03,
+          0.08
+        ],
+        "ntn_simple_distance_m": 600000,
+        "ntn_one_way_propagation_delay_sec": 0.0020013845711889123,
+        "cu_du_propagation_delay_sec": [
+          0,
+          0,
+          0
+        ],
+        "prb_delay_path_count": 3,
+        "ho_delay_path_count": 7,
+        "control_transport_mode": "legacy"
+      }
+    },
+    "num_gnbs": 3,
+    "num_ues": 6
+  }
+}
