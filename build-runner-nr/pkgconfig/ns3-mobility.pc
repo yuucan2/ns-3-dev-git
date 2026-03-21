@@ -6,8 +6,8 @@ Name: ns3-mobility
 Description: 
 URL: 
 Version: 3.dev
-Requires:  ns3-network
+Requires:  ns3-antenna ns3-network
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-mobility  -lns3-dev-network
+Libs: -L"${libdir}" -lns3-dev-mobility  -lns3-dev-antenna -lns3-dev-network
 Libs.private: -L"${libdir}" 

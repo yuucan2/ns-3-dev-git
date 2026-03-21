@@ -61,6 +61,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/antenna/model/phased-array-model.h"
     "C:/ns3-dev-link/src/antenna/model/three-gpp-antenna-model.h"
     "C:/ns3-dev-link/src/antenna/model/uniform-planar-array.h"
+    "C:/ns3-dev-link/src/antenna/utils/symmetric-adjacency-matrix.h"
     "C:/ns3-dev-link/build/include/ns3/antenna-module.h"
     )
 endif()

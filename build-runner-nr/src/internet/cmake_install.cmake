@@ -178,6 +178,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/internet/model/udp-socket.h"
     "C:/ns3-dev-link/src/internet/model/windowed-filter.h"
     "C:/ns3-dev-link/build/include/ns3/internet-module.h"
+    "C:/ns3-dev-link/build/include/ns3/internet-export.h"
     )
 endif()
 

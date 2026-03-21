@@ -65,6 +65,7 @@ endfunction()
 
 # Scan *.cc files in ns-3-dev/scratch and build a target for each
 file(GLOB single_source_file_scratches CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/[^.]*.cc)
+list(REMOVE_ITEM single_source_file_scratches ${CMAKE_CURRENT_SOURCE_DIR}/runner-control-delay-model.cc)
 foreach(scratch_src ${single_source_file_scratches})
   create_scratch(${scratch_src})
 endforeach()
@@ -96,6 +97,7 @@ foreach(subdir ${scratch_subdirectories})
     # Otherwise we pick all the files in the subdirectory
     # and create a scratch for them automatically
     file(GLOB scratch_sources CONFIGURE_DEPENDS ${subdir}/[^.]*.cc)
+    list(REMOVE_ITEM scratch_sources ${CMAKE_CURRENT_SOURCE_DIR}/runner-control-delay-model.cc)
     create_scratch("${scratch_sources}")
   endif()
 endforeach()

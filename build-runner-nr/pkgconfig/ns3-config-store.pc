@@ -6,8 +6,8 @@ Name: ns3-config-store
 Description: 
 URL: 
 Version: 3.dev
-Requires:  ns3-core ns3-network
+Requires:  ns3-core
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-config-store  -lns3-dev-core -lns3-dev-network
+Libs: -L"${libdir}" -lns3-dev-config-store  -lns3-dev-core
 Libs.private: -L"${libdir}" 

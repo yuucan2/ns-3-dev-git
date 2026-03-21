@@ -38,27 +38,98 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
+  # Include the install script for the subdirectory.
   include("C:/ns3-dev-link/build-runner-nr/src/antenna/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/applications/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/buildings/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/config-store/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/core/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/flow-monitor/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/internet/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/mobility/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/network/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/nr/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/point-to-point/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/propagation/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/spectrum/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/stats/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/bridge/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/traffic-control/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/internet-apps/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/virtual-net-device/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/src/csma/cmake_install.cmake")
+endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/applications/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/buildings/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/config-store/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/core/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/flow-monitor/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/internet/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/mobility/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/network/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/nr/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/point-to-point/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/propagation/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/spectrum/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/stats/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/bridge/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/traffic-control/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/internet-apps/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/virtual-net-device/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/csma/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT

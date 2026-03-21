@@ -53,6 +53,7 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ns3" TYPE FILE FILES
+    "C:/ns3-dev-link/build/include/ns3/core-config.h"
     "C:/ns3-dev-link/src/core/model/int64x64-128.h"
     "C:/ns3-dev-link/src/core/helper/csv-reader.h"
     "C:/ns3-dev-link/src/core/helper/event-garbage-collector.h"
@@ -75,6 +76,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/core/model/config.h"
     "C:/ns3-dev-link/src/core/model/default-deleter.h"
     "C:/ns3-dev-link/src/core/model/default-simulator-impl.h"
+    "C:/ns3-dev-link/src/core/model/demangle.h"
     "C:/ns3-dev-link/src/core/model/deprecated.h"
     "C:/ns3-dev-link/src/core/model/des-metrics.h"
     "C:/ns3-dev-link/src/core/model/double.h"
@@ -91,7 +93,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/core/model/hash-murmur3.h"
     "C:/ns3-dev-link/src/core/model/hash.h"
     "C:/ns3-dev-link/src/core/model/heap-scheduler.h"
-    "C:/ns3-dev-link/src/core/model/int-to-type.h"
     "C:/ns3-dev-link/src/core/model/int64x64-double.h"
     "C:/ns3-dev-link/src/core/model/int64x64.h"
     "C:/ns3-dev-link/src/core/model/integer.h"
@@ -121,6 +122,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/core/model/rng-stream.h"
     "C:/ns3-dev-link/src/core/model/scheduler.h"
     "C:/ns3-dev-link/src/core/model/show-progress.h"
+    "C:/ns3-dev-link/src/core/model/shuffle.h"
     "C:/ns3-dev-link/src/core/model/simple-ref-count.h"
     "C:/ns3-dev-link/src/core/model/simulation-singleton.h"
     "C:/ns3-dev-link/src/core/model/simulator-impl.h"
@@ -144,7 +146,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/core/model/type-name.h"
     "C:/ns3-dev-link/src/core/model/type-traits.h"
     "C:/ns3-dev-link/src/core/model/uinteger.h"
-    "C:/ns3-dev-link/src/core/model/unused.h"
+    "C:/ns3-dev-link/src/core/model/uniform-random-bit-generator.h"
     "C:/ns3-dev-link/src/core/model/valgrind.h"
     "C:/ns3-dev-link/src/core/model/vector.h"
     "C:/ns3-dev-link/src/core/model/warnings.h"
@@ -153,9 +155,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/core/model/wall-clock-synchronizer.h"
     "C:/ns3-dev-link/src/core/model/val-array.h"
     "C:/ns3-dev-link/src/core/model/matrix-array.h"
-    "C:/ns3-dev-link/build/include/ns3/config-store-config.h"
-    "C:/ns3-dev-link/build/include/ns3/core-config.h"
     "C:/ns3-dev-link/build/include/ns3/core-module.h"
+    "C:/ns3-dev-link/build/include/ns3/core-export.h"
     )
 endif()
 

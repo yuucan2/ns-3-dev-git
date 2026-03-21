@@ -6,8 +6,8 @@ Name: ns3-buildings
 Description: 
 URL: 
 Version: 3.dev
-Requires:  ns3-mobility ns3-propagation
+Requires:  ns3-propagation
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-buildings  -lns3-dev-mobility -lns3-dev-propagation
+Libs: -L"${libdir}" -lns3-dev-buildings  -lns3-dev-propagation
 Libs.private: -L"${libdir}" 

@@ -90,7 +90,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/spectrum/model/trace-fading-loss-model.h"
     "C:/ns3-dev-link/src/spectrum/model/tv-spectrum-transmitter.h"
     "C:/ns3-dev-link/src/spectrum/model/waveform-generator.h"
-    "C:/ns3-dev-link/src/spectrum/model/wifi-spectrum-value-helper.h"
     "C:/ns3-dev-link/src/spectrum/test/spectrum-test.h"
     "C:/ns3-dev-link/build/include/ns3/spectrum-module.h"
     )

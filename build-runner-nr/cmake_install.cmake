@@ -37,6 +37,26 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/msys64/ucrt64/bin/objdump.exe")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/src/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/examples/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/scratch/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/ns3-dev-link/build-runner-nr/utils/cmake_install.cmake")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/ns3-dev-link/build-runner-nr/pkgconfig/ns3-csma.pc")
 endif()
@@ -141,15 +161,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/build-runner-nr/ns3Config.cmake"
     "C:/ns3-dev-link/build-runner-nr/ns3ConfigVersion.cmake"
     )
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/ns3-dev-link/build-runner-nr/src/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/examples/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/scratch/cmake_install.cmake")
-  include("C:/ns3-dev-link/build-runner-nr/utils/cmake_install.cmake")
-
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT

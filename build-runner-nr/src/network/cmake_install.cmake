@@ -54,6 +54,7 @@ endif()
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ns3" TYPE FILE FILES
     "C:/ns3-dev-link/src/network/helper/application-container.h"
+    "C:/ns3-dev-link/src/network/helper/application-helper.h"
     "C:/ns3-dev-link/src/network/helper/delay-jitter-estimation.h"
     "C:/ns3-dev-link/src/network/helper/net-device-container.h"
     "C:/ns3-dev-link/src/network/helper/node-container.h"
@@ -80,7 +81,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/network/model/tag-buffer.h"
     "C:/ns3-dev-link/src/network/model/tag.h"
     "C:/ns3-dev-link/src/network/model/trailer.h"
-    "C:/ns3-dev-link/src/network/test/header-serialization-test.h"
     "C:/ns3-dev-link/src/network/utils/address-utils.h"
     "C:/ns3-dev-link/src/network/utils/bit-deserializer.h"
     "C:/ns3-dev-link/src/network/utils/bit-serializer.h"
@@ -94,6 +94,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/network/utils/ethernet-trailer.h"
     "C:/ns3-dev-link/src/network/utils/flow-id-tag.h"
     "C:/ns3-dev-link/src/network/utils/generic-phy.h"
+    "C:/ns3-dev-link/src/network/utils/header-serialization-test.h"
     "C:/ns3-dev-link/src/network/utils/inet-socket-address.h"
     "C:/ns3-dev-link/src/network/utils/inet6-socket-address.h"
     "C:/ns3-dev-link/src/network/utils/ipv4-address.h"

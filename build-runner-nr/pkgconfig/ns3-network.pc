@@ -6,8 +6,8 @@ Name: ns3-network
 Description: 
 URL: 
 Version: 3.dev
-Requires:  ns3-core ns3-stats
+Requires:  ns3-stats
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-network  -lns3-dev-core -lns3-dev-stats
+Libs: -L"${libdir}" -lns3-dev-network  -lns3-dev-stats
 Libs.private: -L"${libdir}" 

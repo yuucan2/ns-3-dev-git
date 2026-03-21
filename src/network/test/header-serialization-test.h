@@ -1,0 +1,6 @@
+#ifndef NS3_HEADER_SERIALIZATION_TEST_REDIRECT_H
+#define NS3_HEADER_SERIALIZATION_TEST_REDIRECT_H
+
+#include "../utils/header-serialization-test.h"
+
+#endif // NS3_HEADER_SERIALIZATION_TEST_REDIRECT_H

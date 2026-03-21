@@ -6,8 +6,8 @@ Name: ns3-applications
 Description: 
 URL: 
 Version: 3.dev
-Requires:  ns3-internet ns3-stats
+Requires:  ns3-internet
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-applications  -lns3-dev-internet -lns3-dev-stats
+Libs: -L"${libdir}" -lns3-dev-applications  -lns3-dev-internet
 Libs.private: -L"${libdir}" 

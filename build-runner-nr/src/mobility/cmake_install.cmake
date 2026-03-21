@@ -62,6 +62,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/mobility/model/constant-velocity-helper.h"
     "C:/ns3-dev-link/src/mobility/model/constant-velocity-mobility-model.h"
     "C:/ns3-dev-link/src/mobility/model/gauss-markov-mobility-model.h"
+    "C:/ns3-dev-link/src/mobility/model/geocentric-constant-position-mobility-model.h"
     "C:/ns3-dev-link/src/mobility/model/geographic-positions.h"
     "C:/ns3-dev-link/src/mobility/model/hierarchical-mobility-model.h"
     "C:/ns3-dev-link/src/mobility/model/mobility-model.h"
@@ -74,6 +75,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/mobility/model/waypoint-mobility-model.h"
     "C:/ns3-dev-link/src/mobility/model/waypoint.h"
     "C:/ns3-dev-link/build/include/ns3/mobility-module.h"
+    "C:/ns3-dev-link/build/include/ns3/mobility-export.h"
     )
 endif()
 

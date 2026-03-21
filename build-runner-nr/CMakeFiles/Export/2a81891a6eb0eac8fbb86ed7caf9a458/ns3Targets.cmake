@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS ns3::libantenna ns3::libapplications ns3::libbuildings ns3::libconfig-store ns3::libcore ns3::libflow-monitor ns3::libinternet ns3::libmobility ns3::libnetwork ns3::libnr ns3::libpoint-to-point ns3::libpropagation ns3::libspectrum ns3::libstats ns3::libbridge ns3::libtraffic-control ns3::libinternet-apps ns3::libvirtual-net-device ns3::libcsma)
+foreach(_cmake_expected_target IN ITEMS ns3::antenna ns3::applications ns3::buildings ns3::config-store ns3::core ns3::flow-monitor ns3::internet ns3::mobility ns3::network ns3::nr ns3::point-to-point ns3::propagation ns3::spectrum ns3::stats ns3::bridge ns3::traffic-control ns3::internet-apps ns3::virtual-net-device ns3::csma)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -55,175 +55,175 @@ if(_IMPORT_PREFIX STREQUAL "/")
   set(_IMPORT_PREFIX "")
 endif()
 
-# Create imported target ns3::libantenna
-add_library(ns3::libantenna SHARED IMPORTED)
+# Create imported target ns3::antenna
+add_library(ns3::antenna SHARED IMPORTED)
 
-set_target_properties(ns3::libantenna PROPERTIES
+set_target_properties(ns3::antenna PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libcore;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libapplications
-add_library(ns3::libapplications SHARED IMPORTED)
+# Create imported target ns3::applications
+add_library(ns3::applications SHARED IMPORTED)
 
-set_target_properties(ns3::libapplications PROPERTIES
+set_target_properties(ns3::applications PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libinternet;ns3::libstats;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libbuildings
-add_library(ns3::libbuildings SHARED IMPORTED)
+# Create imported target ns3::buildings
+add_library(ns3::buildings SHARED IMPORTED)
 
-set_target_properties(ns3::libbuildings PROPERTIES
+set_target_properties(ns3::buildings PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libmobility;ns3::libpropagation;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::propagation;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libconfig-store
-add_library(ns3::libconfig-store SHARED IMPORTED)
+# Create imported target ns3::config-store
+add_library(ns3::config-store SHARED IMPORTED)
 
-set_target_properties(ns3::libconfig-store PROPERTIES
+set_target_properties(ns3::config-store PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libcore;ns3::libnetwork;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libcore
-add_library(ns3::libcore SHARED IMPORTED)
+# Create imported target ns3::core
+add_library(ns3::core SHARED IMPORTED)
 
-set_target_properties(ns3::libcore PROPERTIES
+set_target_properties(ns3::core PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;wsock32;ws2_32;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libflow-monitor
-add_library(ns3::libflow-monitor SHARED IMPORTED)
+# Create imported target ns3::flow-monitor
+add_library(ns3::flow-monitor SHARED IMPORTED)
 
-set_target_properties(ns3::libflow-monitor PROPERTIES
+set_target_properties(ns3::flow-monitor PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libinternet;ns3::libstats;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libinternet
-add_library(ns3::libinternet SHARED IMPORTED)
+# Create imported target ns3::internet
+add_library(ns3::internet SHARED IMPORTED)
 
-set_target_properties(ns3::libinternet PROPERTIES
+set_target_properties(ns3::internet PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;ns3::libcore;ns3::libbridge;ns3::libtraffic-control;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::bridge;ns3::traffic-control;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libmobility
-add_library(ns3::libmobility SHARED IMPORTED)
+# Create imported target ns3::mobility
+add_library(ns3::mobility SHARED IMPORTED)
 
-set_target_properties(ns3::libmobility PROPERTIES
+set_target_properties(ns3::mobility PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::antenna;ns3::network;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libnetwork
-add_library(ns3::libnetwork SHARED IMPORTED)
+# Create imported target ns3::network
+add_library(ns3::network SHARED IMPORTED)
 
-set_target_properties(ns3::libnetwork PROPERTIES
+set_target_properties(ns3::network PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libcore;ns3::libstats;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::stats;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libnr
-add_library(ns3::libnr SHARED IMPORTED)
+# Create imported target ns3::nr
+add_library(ns3::nr SHARED IMPORTED)
 
-set_target_properties(ns3::libnr PROPERTIES
+set_target_properties(ns3::nr PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libinternet-apps;ns3::libflow-monitor;ns3::libspectrum;ns3::libbuildings;ns3::libvirtual-net-device;ns3::libpoint-to-point;ns3::libapplications;ns3::libcsma;ns3::libconfig-store;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet-apps;ns3::flow-monitor;ns3::spectrum;ns3::buildings;ns3::virtual-net-device;ns3::point-to-point;ns3::applications;ns3::csma;ns3::config-store;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libpoint-to-point
-add_library(ns3::libpoint-to-point SHARED IMPORTED)
+# Create imported target ns3::point-to-point
+add_library(ns3::point-to-point SHARED IMPORTED)
 
-set_target_properties(ns3::libpoint-to-point PROPERTIES
+set_target_properties(ns3::point-to-point PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libpropagation
-add_library(ns3::libpropagation SHARED IMPORTED)
+# Create imported target ns3::propagation
+add_library(ns3::propagation SHARED IMPORTED)
 
-set_target_properties(ns3::libpropagation PROPERTIES
+set_target_properties(ns3::propagation PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;ns3::libmobility;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::mobility;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libspectrum
-add_library(ns3::libspectrum SHARED IMPORTED)
+# Create imported target ns3::spectrum
+add_library(ns3::spectrum SHARED IMPORTED)
 
-set_target_properties(ns3::libspectrum PROPERTIES
+set_target_properties(ns3::spectrum PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libpropagation;ns3::libantenna;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::propagation;ns3::antenna;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libstats
-add_library(ns3::libstats SHARED IMPORTED)
+# Create imported target ns3::stats
+add_library(ns3::stats SHARED IMPORTED)
 
-set_target_properties(ns3::libstats PROPERTIES
+set_target_properties(ns3::stats PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libcore;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libbridge
-add_library(ns3::libbridge SHARED IMPORTED)
+# Create imported target ns3::bridge
+add_library(ns3::bridge SHARED IMPORTED)
 
-set_target_properties(ns3::libbridge PROPERTIES
+set_target_properties(ns3::bridge PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libtraffic-control
-add_library(ns3::libtraffic-control SHARED IMPORTED)
+# Create imported target ns3::traffic-control
+add_library(ns3::traffic-control SHARED IMPORTED)
 
-set_target_properties(ns3::libtraffic-control PROPERTIES
+set_target_properties(ns3::traffic-control PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;ns3::libcore;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libinternet-apps
-add_library(ns3::libinternet-apps SHARED IMPORTED)
+# Create imported target ns3::internet-apps
+add_library(ns3::internet-apps SHARED IMPORTED)
 
-set_target_properties(ns3::libinternet-apps PROPERTIES
+set_target_properties(ns3::internet-apps PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libinternet;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libvirtual-net-device
-add_library(ns3::libvirtual-net-device SHARED IMPORTED)
+# Create imported target ns3::virtual-net-device
+add_library(ns3::virtual-net-device SHARED IMPORTED)
 
-set_target_properties(ns3::libvirtual-net-device PROPERTIES
+set_target_properties(ns3::virtual-net-device PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
-# Create imported target ns3::libcsma
-add_library(ns3::libcsma SHARED IMPORTED)
+# Create imported target ns3::csma
+add_library(ns3::csma SHARED IMPORTED)
 
-set_target_properties(ns3::libcsma PROPERTIES
+set_target_properties(ns3::csma PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::libnetwork;-Wl,--as-needed"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
 # Load information for each installed configuration.

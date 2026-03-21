@@ -119,6 +119,14 @@ struct MetricsOutput
     uint32_t bwpEventCount{0};
     uint32_t hoEventCount{0};
     uint32_t taEventCount{0};
+    std::vector<double> dlBytesPerCell;
+    std::vector<double> ulBytesPerCell;
+    std::vector<uint32_t> dlPacketsPerCell;
+    std::vector<uint32_t> ulPacketsPerCell;
+    std::vector<double> dlBytesPerUe;
+    std::vector<double> ulBytesPerUe;
+    std::vector<uint32_t> dlPacketsPerUe;
+    std::vector<uint32_t> ulPacketsPerUe;
 };
 
 std::string
@@ -634,6 +642,14 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
 {
     MetricsOutput metrics = RunPlaceholderGenericScenario(plan, requestPath);
     metrics.source = "scratch-simulator-tn-subset-nr";
+    metrics.dlBytesPerCell.assign(plan.cells.size(), 0.0);
+    metrics.ulBytesPerCell.assign(plan.cells.size(), 0.0);
+    metrics.dlPacketsPerCell.assign(plan.cells.size(), 0);
+    metrics.ulPacketsPerCell.assign(plan.cells.size(), 0);
+    metrics.dlBytesPerUe.assign(plan.ues.size(), 0.0);
+    metrics.ulBytesPerUe.assign(plan.ues.size(), 0.0);
+    metrics.dlPacketsPerUe.assign(plan.ues.size(), 0);
+    metrics.ulPacketsPerUe.assign(plan.ues.size(), 0);
 
     Config::SetDefault("ns3::NrRlcUm::MaxTxBufferSize", UintegerValue(999999999));
 
@@ -796,6 +812,8 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
             routingHelper.GetStaticRouting(ueNodes.Get(idx)->GetObject<Ipv4>());
         ueStaticRouting->SetDefaultRoute(nrEpcHelper->GetUeDefaultGatewayAddress(), 1);
     }
+    NrEpsBearer defaultBearer(NrEpsBearer::NGBR_LOW_LAT_EMBB);
+    nrHelper->ActivateDataRadioBearer(ueDevices, defaultBearer);
 
     const double simTimeSec = std::max(plan.runDurationSec, 0.6);
     const double appStartSec = 0.1;
@@ -853,11 +871,43 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
     uint64_t totalUlPackets = 0;
     for (uint32_t idx = 0; idx < dlServerApps.GetN(); ++idx)
     {
-        totalDlPackets += dlServerApps.Get(idx)->GetObject<UdpServer>()->GetReceived();
+        const uint32_t received = dlServerApps.Get(idx)->GetObject<UdpServer>()->GetReceived();
+        totalDlPackets += received;
+        if (idx < attachedUes.size())
+        {
+            const uint32_t ueId = attachedUes[idx].id;
+            if (ueId >= 1 && ueId <= metrics.dlPacketsPerUe.size())
+            {
+                metrics.dlPacketsPerUe[ueId - 1] = received;
+                metrics.dlBytesPerUe[ueId - 1] = static_cast<double>(received) * packetSizeBytes;
+            }
+            const uint32_t cellId = attachedUes[idx].servingCellId;
+            if (cellId >= 1 && cellId <= metrics.dlPacketsPerCell.size())
+            {
+                metrics.dlPacketsPerCell[cellId - 1] += received;
+                metrics.dlBytesPerCell[cellId - 1] += static_cast<double>(received) * packetSizeBytes;
+            }
+        }
     }
     for (uint32_t idx = 0; idx < ulServerApps.GetN(); ++idx)
     {
-        totalUlPackets += ulServerApps.Get(idx)->GetObject<UdpServer>()->GetReceived();
+        const uint32_t received = ulServerApps.Get(idx)->GetObject<UdpServer>()->GetReceived();
+        totalUlPackets += received;
+        if (idx < attachedUes.size())
+        {
+            const uint32_t ueId = attachedUes[idx].id;
+            if (ueId >= 1 && ueId <= metrics.ulPacketsPerUe.size())
+            {
+                metrics.ulPacketsPerUe[ueId - 1] = received;
+                metrics.ulBytesPerUe[ueId - 1] = static_cast<double>(received) * packetSizeBytes;
+            }
+            const uint32_t cellId = attachedUes[idx].servingCellId;
+            if (cellId >= 1 && cellId <= metrics.ulPacketsPerCell.size())
+            {
+                metrics.ulPacketsPerCell[cellId - 1] += received;
+                metrics.ulBytesPerCell[cellId - 1] += static_cast<double>(received) * packetSizeBytes;
+            }
+        }
     }
 
     Simulator::Destroy();
@@ -866,6 +916,8 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
     metrics.ulTransmittedBytes = static_cast<double>(totalUlPackets) * packetSizeBytes;
     metrics.dlThroughputMbps = (metrics.dlTransmittedBytes * 8.0) / (trafficWindowSec * 1e6);
     metrics.ulThroughputMbps = (metrics.ulTransmittedBytes * 8.0) / (trafficWindowSec * 1e6);
+    metrics.grantsDl = static_cast<uint32_t>(totalDlPackets);
+    metrics.grantsUl = static_cast<uint32_t>(totalUlPackets);
     return metrics;
 }
 #endif
@@ -907,7 +959,37 @@ WriteMetricsJson(const std::string& path, const MetricsOutput& metrics)
     output << "  \"control_event_count\": " << metrics.controlEventCount << ",\n";
     output << "  \"bwp_event_count\": " << metrics.bwpEventCount << ",\n";
     output << "  \"ho_event_count\": " << metrics.hoEventCount << ",\n";
-    output << "  \"ta_event_count\": " << metrics.taEventCount << "\n";
+    output << "  \"ta_event_count\": " << metrics.taEventCount << ",\n";
+
+    auto writeNumberArray = [&output](const std::string& key, const auto& values) {
+        output << "  \"" << EscapeJsonString(key) << "\": [";
+        for (size_t idx = 0; idx < values.size(); ++idx)
+        {
+            if (idx > 0)
+            {
+                output << ", ";
+            }
+            output << values[idx];
+        }
+        output << "]";
+    };
+
+    writeNumberArray("dl_bytes_per_cell", metrics.dlBytesPerCell);
+    output << ",\n";
+    writeNumberArray("ul_bytes_per_cell", metrics.ulBytesPerCell);
+    output << ",\n";
+    writeNumberArray("dl_packets_per_cell", metrics.dlPacketsPerCell);
+    output << ",\n";
+    writeNumberArray("ul_packets_per_cell", metrics.ulPacketsPerCell);
+    output << ",\n";
+    writeNumberArray("dl_bytes_per_ue", metrics.dlBytesPerUe);
+    output << ",\n";
+    writeNumberArray("ul_bytes_per_ue", metrics.ulBytesPerUe);
+    output << ",\n";
+    writeNumberArray("dl_packets_per_ue", metrics.dlPacketsPerUe);
+    output << ",\n";
+    writeNumberArray("ul_packets_per_ue", metrics.ulPacketsPerUe);
+    output << "\n";
     output << "}\n";
 }
 

@@ -440,6 +440,10 @@ NS3_FETCH_OPTIONAL_COMPONENTS:BOOL=OFF
 // (e.g. lte;wifi)
 NS3_FILTER_MODULE_EXAMPLES_AND_TESTS:STRING=
 
+//Only search applications, headers, libraries on explicitly set
+// directories
+NS3_FORCE_LOCAL_DEPENDENCIES:BOOL=OFF
+
 //Build with GSL support
 NS3_GSL:BOOL=ON
 
@@ -555,6 +559,12 @@ SPHINX_OUTPUT_MAN:BOOL=ON
 
 //When building documentation treat warnings as errors
 SPHINX_WARNINGS_AS_ERRORS:BOOL=ON
+
+//Path to a file.
+SQLite3_INCLUDE_DIR:PATH=SQLite3_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+SQLite3_LIBRARY:FILEPATH=SQLite3_LIBRARY-NOTFOUND
 
 //Path to a file.
 SQLite3_header_internal_sqlite3.h:FILEPATH=SQLite3_header_internal_sqlite3.h-NOTFOUND
@@ -772,6 +782,10 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_TAPI
 CMAKE_TAPI-ADVANCED:INTERNAL=1
+//Test COMPILER_HAS_DEPRECATED
+COMPILER_HAS_DEPRECATED:INTERNAL=
+//Test COMPILER_HAS_DEPRECATED_ATTR
+COMPILER_HAS_DEPRECATED_ATTR:INTERNAL=
 //ADVANCED property for variable: CONVERT
 CONVERT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DIA
@@ -784,15 +798,32 @@ DOXYGEN-ADVANCED:INTERNAL=1
 DVIPNG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: EIGEN3_INCLUDE_DIR
 EIGEN3_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: ENABLE_SQLITE_REASON
-ENABLE_SQLITE_REASON-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ENABLE_DPDKDEVNET
+ENABLE_DPDKDEVNET-ADVANCED:INTERNAL=1
+ENABLE_DPDKDEVNET:INTERNAL=False
+//ADVANCED property for variable: ENABLE_EMUNETDEV
+ENABLE_EMUNETDEV-ADVANCED:INTERNAL=1
+ENABLE_EMUNETDEV:INTERNAL=False
+//ADVANCED property for variable: ENABLE_FDNETDEV
+ENABLE_FDNETDEV-ADVANCED:INTERNAL=1
+ENABLE_FDNETDEV:INTERNAL=False
+//ADVANCED property for variable: ENABLE_NETMAP_EMU
+ENABLE_NETMAP_EMU-ADVANCED:INTERNAL=1
+ENABLE_NETMAP_EMU:INTERNAL=False
 ENABLE_SQLITE_REASON:INTERNAL=Missing headers: "sqlite3.h" and missing libraries: "sqlite3"
+//ADVANCED property for variable: ENABLE_TAPNETDEV
+ENABLE_TAPNETDEV-ADVANCED:INTERNAL=1
+ENABLE_TAPNETDEV:INTERNAL=False
 //ADVANCED property for variable: EPSTOPDF
 EPSTOPDF-ADVANCED:INTERNAL=1
 //Test FILESYSTEM_LIBRARY_IS_LINKED
 FILESYSTEM_LIBRARY_IS_LINKED:INTERNAL=1
 //Details about finding Git
 FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[C:/Program Files/Git/cmd/git.exe][v2.53.0.windows.2()]
+//Details about finding Python3
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/jagar/AppData/Local/Python/pythoncore-3.14-64/python.exe][found components: Interpreter ][v3.14.3()]
+//Test GCC_WORKING_PEDANTIC_SEMICOLON
+GCC_WORKING_PEDANTIC_SEMICOLON:INTERNAL=
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GSL_CBLAS_LIBRARY
@@ -805,6 +836,8 @@ GSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 GSL_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GSL_LIBRARY_DEBUG
 GSL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//Have includes boost/math/special_functions/bessel.hpp
+HAVE_BOOST_BESSEL_FUNC:INTERNAL=
 //Have includes boost/units/quantity.hpp;boost/units/systems/si.hpp
 HAVE_BOOST_UNITS:INTERNAL=
 //Have include dirent.h
@@ -821,6 +854,8 @@ HAVE_SIGNAL_H:INTERNAL=1
 HAVE_STDINT_H:INTERNAL=1
 //Have include stdlib.h
 HAVE_STDLIB_H:INTERNAL=1
+//Test HAVE_STD_BESSEL_FUNC
+HAVE_STD_BESSEL_FUNC:INTERNAL=
 //Have include sys/stat.h
 HAVE_SYS_STAT_H:INTERNAL=1
 //Have include sys/types.h
@@ -884,10 +919,16 @@ SPHINX_OUTPUT_HTML-ADVANCED:INTERNAL=1
 SPHINX_OUTPUT_MAN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SPHINX_WARNINGS_AS_ERRORS
 SPHINX_WARNINGS_AS_ERRORS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SQLite3_INCLUDE_DIR
+SQLite3_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SQLite3_LIBRARY
+SQLite3_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SQLite3_header_internal_sqlite3.h
 SQLite3_header_internal_sqlite3.h-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SQLite3_library_internal_sqlite3
 SQLite3_library_internal_sqlite3-ADVANCED:INTERNAL=1
+//Test STACKTRACE_LIBRARY_ENABLED
+STACKTRACE_LIBRARY_ENABLED:INTERNAL=
 //ADVANCED property for variable: VALGRIND
 VALGRIND-ADVANCED:INTERNAL=1
 //Components requested for this build tree.
@@ -900,281 +941,294 @@ _Boost_NAMESPACE_LAST:INTERNAL=boost
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/NS3
+//Compiler reason failure
+_Python3_Compiler_REASON_FAILURE:INTERNAL=
+//Development reason failure
+_Python3_Development_REASON_FAILURE:INTERNAL=
+//Path to a program.
+_Python3_EXECUTABLE:INTERNAL=C:/Users/jagar/AppData/Local/Python/pythoncore-3.14-64/python.exe
+//Path to a program.
+_Python3_EXECUTABLE_DEBUG:INTERNAL=_Python3_EXECUTABLE_DEBUG-NOTFOUND
+//Python3 Properties
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;14;3;64;32;<none>;cp314-win_amd64;;C:/Users/jagar/AppData/Local/Python/pythoncore-3.14-64/Lib;C:/Users/jagar/AppData/Local/Python/pythoncore-3.14-64/Lib;C:/Users/jagar/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages;C:/Users/jagar/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=b9a7649c2f595ee69376a3b8f4d49fe5
+//NumPy reason failure
+_Python3_NumPy_REASON_FAILURE:INTERNAL=
 __pkg_config_checked_PC_HARFBUZZ:INTERNAL=1
-//ADVANCED property for variable: build_profile
-build_profile-ADVANCED:INTERNAL=1
 build_profile:INTERNAL=release
-//ADVANCED property for variable: build_profile_suffix
-build_profile_suffix-ADVANCED:INTERNAL=1
 build_profile_suffix:INTERNAL=
-//ADVANCED property for variable: lib-ns3-static-objs
-lib-ns3-static-objs-ADVANCED:INTERNAL=1
 //list of object files from module used by NS3_STATIC and NS3_MONOLIB
 lib-ns3-static-objs:INTERNAL=
 //ADVANCED property for variable: libantenna
 libantenna-ADVANCED:INTERNAL=1
-libantenna:INTERNAL=libantenna
+libantenna:INTERNAL=antenna
 //ADVANCED property for variable: libantenna-obj
 libantenna-obj-ADVANCED:INTERNAL=1
-libantenna-obj:INTERNAL=libantenna-obj
+libantenna-obj:INTERNAL=antenna-obj
 //ADVANCED property for variable: libaodv
 libaodv-ADVANCED:INTERNAL=1
-libaodv:INTERNAL=libaodv
+libaodv:INTERNAL=aodv
 //ADVANCED property for variable: libaodv-obj
 libaodv-obj-ADVANCED:INTERNAL=1
-libaodv-obj:INTERNAL=libaodv-obj
+libaodv-obj:INTERNAL=aodv-obj
 //ADVANCED property for variable: libapplications
 libapplications-ADVANCED:INTERNAL=1
-libapplications:INTERNAL=libapplications
+libapplications:INTERNAL=applications
 //ADVANCED property for variable: libapplications-obj
 libapplications-obj-ADVANCED:INTERNAL=1
-libapplications-obj:INTERNAL=libapplications-obj
+libapplications-obj:INTERNAL=applications-obj
 //ADVANCED property for variable: libbridge
 libbridge-ADVANCED:INTERNAL=1
-libbridge:INTERNAL=libbridge
+libbridge:INTERNAL=bridge
 //ADVANCED property for variable: libbridge-obj
 libbridge-obj-ADVANCED:INTERNAL=1
-libbridge-obj:INTERNAL=libbridge-obj
+libbridge-obj:INTERNAL=bridge-obj
 //ADVANCED property for variable: libbrite
 libbrite-ADVANCED:INTERNAL=1
-libbrite:INTERNAL=libbrite
+libbrite:INTERNAL=brite
 //ADVANCED property for variable: libbrite-obj
 libbrite-obj-ADVANCED:INTERNAL=1
-libbrite-obj:INTERNAL=libbrite-obj
+libbrite-obj:INTERNAL=brite-obj
 //ADVANCED property for variable: libbuildings
 libbuildings-ADVANCED:INTERNAL=1
-libbuildings:INTERNAL=libbuildings
+libbuildings:INTERNAL=buildings
 //ADVANCED property for variable: libbuildings-obj
 libbuildings-obj-ADVANCED:INTERNAL=1
-libbuildings-obj:INTERNAL=libbuildings-obj
+libbuildings-obj:INTERNAL=buildings-obj
 //ADVANCED property for variable: libclick
 libclick-ADVANCED:INTERNAL=1
-libclick:INTERNAL=libclick
+libclick:INTERNAL=click
 //ADVANCED property for variable: libclick-obj
 libclick-obj-ADVANCED:INTERNAL=1
-libclick-obj:INTERNAL=libclick-obj
+libclick-obj:INTERNAL=click-obj
 //ADVANCED property for variable: libconfig-store
 libconfig-store-ADVANCED:INTERNAL=1
-libconfig-store:INTERNAL=libconfig-store
+libconfig-store:INTERNAL=config-store
 //ADVANCED property for variable: libconfig-store-obj
 libconfig-store-obj-ADVANCED:INTERNAL=1
-libconfig-store-obj:INTERNAL=libconfig-store-obj
+libconfig-store-obj:INTERNAL=config-store-obj
 //ADVANCED property for variable: libcore
 libcore-ADVANCED:INTERNAL=1
-libcore:INTERNAL=libcore
+libcore:INTERNAL=core
 //ADVANCED property for variable: libcore-obj
 libcore-obj-ADVANCED:INTERNAL=1
-libcore-obj:INTERNAL=libcore-obj
+libcore-obj:INTERNAL=core-obj
 //ADVANCED property for variable: libcsma
 libcsma-ADVANCED:INTERNAL=1
-libcsma:INTERNAL=libcsma
+libcsma:INTERNAL=csma
 //ADVANCED property for variable: libcsma-layout
 libcsma-layout-ADVANCED:INTERNAL=1
-libcsma-layout:INTERNAL=libcsma-layout
+libcsma-layout:INTERNAL=csma-layout
 //ADVANCED property for variable: libcsma-layout-obj
 libcsma-layout-obj-ADVANCED:INTERNAL=1
-libcsma-layout-obj:INTERNAL=libcsma-layout-obj
+libcsma-layout-obj:INTERNAL=csma-layout-obj
 //ADVANCED property for variable: libcsma-obj
 libcsma-obj-ADVANCED:INTERNAL=1
-libcsma-obj:INTERNAL=libcsma-obj
+libcsma-obj:INTERNAL=csma-obj
 //ADVANCED property for variable: libdsdv
 libdsdv-ADVANCED:INTERNAL=1
-libdsdv:INTERNAL=libdsdv
+libdsdv:INTERNAL=dsdv
 //ADVANCED property for variable: libdsdv-obj
 libdsdv-obj-ADVANCED:INTERNAL=1
-libdsdv-obj:INTERNAL=libdsdv-obj
+libdsdv-obj:INTERNAL=dsdv-obj
 //ADVANCED property for variable: libdsr
 libdsr-ADVANCED:INTERNAL=1
-libdsr:INTERNAL=libdsr
+libdsr:INTERNAL=dsr
 //ADVANCED property for variable: libdsr-obj
 libdsr-obj-ADVANCED:INTERNAL=1
-libdsr-obj:INTERNAL=libdsr-obj
+libdsr-obj:INTERNAL=dsr-obj
 //ADVANCED property for variable: libenergy
 libenergy-ADVANCED:INTERNAL=1
-libenergy:INTERNAL=libenergy
+libenergy:INTERNAL=energy
 //ADVANCED property for variable: libenergy-obj
 libenergy-obj-ADVANCED:INTERNAL=1
-libenergy-obj:INTERNAL=libenergy-obj
+libenergy-obj:INTERNAL=energy-obj
 //ADVANCED property for variable: libfd-net-device
 libfd-net-device-ADVANCED:INTERNAL=1
-libfd-net-device:INTERNAL=libfd-net-device
+libfd-net-device:INTERNAL=fd-net-device
 //ADVANCED property for variable: libfd-net-device-obj
 libfd-net-device-obj-ADVANCED:INTERNAL=1
-libfd-net-device-obj:INTERNAL=libfd-net-device-obj
+libfd-net-device-obj:INTERNAL=fd-net-device-obj
 //ADVANCED property for variable: libflow-monitor
 libflow-monitor-ADVANCED:INTERNAL=1
-libflow-monitor:INTERNAL=libflow-monitor
+libflow-monitor:INTERNAL=flow-monitor
 //ADVANCED property for variable: libflow-monitor-obj
 libflow-monitor-obj-ADVANCED:INTERNAL=1
-libflow-monitor-obj:INTERNAL=libflow-monitor-obj
+libflow-monitor-obj:INTERNAL=flow-monitor-obj
 //ADVANCED property for variable: libinternet
 libinternet-ADVANCED:INTERNAL=1
-libinternet:INTERNAL=libinternet
+libinternet:INTERNAL=internet
 //ADVANCED property for variable: libinternet-apps
 libinternet-apps-ADVANCED:INTERNAL=1
-libinternet-apps:INTERNAL=libinternet-apps
+libinternet-apps:INTERNAL=internet-apps
 //ADVANCED property for variable: libinternet-apps-obj
 libinternet-apps-obj-ADVANCED:INTERNAL=1
-libinternet-apps-obj:INTERNAL=libinternet-apps-obj
+libinternet-apps-obj:INTERNAL=internet-apps-obj
 //ADVANCED property for variable: libinternet-obj
 libinternet-obj-ADVANCED:INTERNAL=1
-libinternet-obj:INTERNAL=libinternet-obj
+libinternet-obj:INTERNAL=internet-obj
 //ADVANCED property for variable: liblr-wpan
 liblr-wpan-ADVANCED:INTERNAL=1
-liblr-wpan:INTERNAL=liblr-wpan
+liblr-wpan:INTERNAL=lr-wpan
 //ADVANCED property for variable: liblr-wpan-obj
 liblr-wpan-obj-ADVANCED:INTERNAL=1
-liblr-wpan-obj:INTERNAL=liblr-wpan-obj
+liblr-wpan-obj:INTERNAL=lr-wpan-obj
 //ADVANCED property for variable: liblte
 liblte-ADVANCED:INTERNAL=1
-liblte:INTERNAL=liblte
+liblte:INTERNAL=lte
 //ADVANCED property for variable: liblte-obj
 liblte-obj-ADVANCED:INTERNAL=1
-liblte-obj:INTERNAL=liblte-obj
+liblte-obj:INTERNAL=lte-obj
 //ADVANCED property for variable: libmesh
 libmesh-ADVANCED:INTERNAL=1
-libmesh:INTERNAL=libmesh
+libmesh:INTERNAL=mesh
 //ADVANCED property for variable: libmesh-obj
 libmesh-obj-ADVANCED:INTERNAL=1
-libmesh-obj:INTERNAL=libmesh-obj
+libmesh-obj:INTERNAL=mesh-obj
 //ADVANCED property for variable: libmobility
 libmobility-ADVANCED:INTERNAL=1
-libmobility:INTERNAL=libmobility
+libmobility:INTERNAL=mobility
 //ADVANCED property for variable: libmobility-obj
 libmobility-obj-ADVANCED:INTERNAL=1
-libmobility-obj:INTERNAL=libmobility-obj
+libmobility-obj:INTERNAL=mobility-obj
 //ADVANCED property for variable: libmpi
 libmpi-ADVANCED:INTERNAL=1
-libmpi:INTERNAL=libmpi
+libmpi:INTERNAL=mpi
 //ADVANCED property for variable: libmpi-obj
 libmpi-obj-ADVANCED:INTERNAL=1
-libmpi-obj:INTERNAL=libmpi-obj
+libmpi-obj:INTERNAL=mpi-obj
 //ADVANCED property for variable: libnetanim
 libnetanim-ADVANCED:INTERNAL=1
-libnetanim:INTERNAL=libnetanim
+libnetanim:INTERNAL=netanim
 //ADVANCED property for variable: libnetanim-obj
 libnetanim-obj-ADVANCED:INTERNAL=1
-libnetanim-obj:INTERNAL=libnetanim-obj
+libnetanim-obj:INTERNAL=netanim-obj
 //ADVANCED property for variable: libnetwork
 libnetwork-ADVANCED:INTERNAL=1
-libnetwork:INTERNAL=libnetwork
+libnetwork:INTERNAL=network
 //ADVANCED property for variable: libnetwork-obj
 libnetwork-obj-ADVANCED:INTERNAL=1
-libnetwork-obj:INTERNAL=libnetwork-obj
+libnetwork-obj:INTERNAL=network-obj
 //ADVANCED property for variable: libnix-vector-routing
 libnix-vector-routing-ADVANCED:INTERNAL=1
-libnix-vector-routing:INTERNAL=libnix-vector-routing
+libnix-vector-routing:INTERNAL=nix-vector-routing
 //ADVANCED property for variable: libnix-vector-routing-obj
 libnix-vector-routing-obj-ADVANCED:INTERNAL=1
-libnix-vector-routing-obj:INTERNAL=libnix-vector-routing-obj
+libnix-vector-routing-obj:INTERNAL=nix-vector-routing-obj
 //ADVANCED property for variable: libnr
 libnr-ADVANCED:INTERNAL=1
-libnr:INTERNAL=libnr
+libnr:INTERNAL=nr
 //ADVANCED property for variable: libnr-obj
 libnr-obj-ADVANCED:INTERNAL=1
-libnr-obj:INTERNAL=libnr-obj
+libnr-obj:INTERNAL=nr-obj
 //ADVANCED property for variable: libolsr
 libolsr-ADVANCED:INTERNAL=1
-libolsr:INTERNAL=libolsr
+libolsr:INTERNAL=olsr
 //ADVANCED property for variable: libolsr-obj
 libolsr-obj-ADVANCED:INTERNAL=1
-libolsr-obj:INTERNAL=libolsr-obj
+libolsr-obj:INTERNAL=olsr-obj
 //ADVANCED property for variable: libopenflow
 libopenflow-ADVANCED:INTERNAL=1
-libopenflow:INTERNAL=libopenflow
+libopenflow:INTERNAL=openflow
 //ADVANCED property for variable: libopenflow-obj
 libopenflow-obj-ADVANCED:INTERNAL=1
-libopenflow-obj:INTERNAL=libopenflow-obj
+libopenflow-obj:INTERNAL=openflow-obj
 //ADVANCED property for variable: libpoint-to-point
 libpoint-to-point-ADVANCED:INTERNAL=1
-libpoint-to-point:INTERNAL=libpoint-to-point
+libpoint-to-point:INTERNAL=point-to-point
 //ADVANCED property for variable: libpoint-to-point-layout
 libpoint-to-point-layout-ADVANCED:INTERNAL=1
-libpoint-to-point-layout:INTERNAL=libpoint-to-point-layout
+libpoint-to-point-layout:INTERNAL=point-to-point-layout
 //ADVANCED property for variable: libpoint-to-point-layout-obj
 libpoint-to-point-layout-obj-ADVANCED:INTERNAL=1
-libpoint-to-point-layout-obj:INTERNAL=libpoint-to-point-layout-obj
+libpoint-to-point-layout-obj:INTERNAL=point-to-point-layout-obj
 //ADVANCED property for variable: libpoint-to-point-obj
 libpoint-to-point-obj-ADVANCED:INTERNAL=1
-libpoint-to-point-obj:INTERNAL=libpoint-to-point-obj
+libpoint-to-point-obj:INTERNAL=point-to-point-obj
 //ADVANCED property for variable: libpropagation
 libpropagation-ADVANCED:INTERNAL=1
-libpropagation:INTERNAL=libpropagation
+libpropagation:INTERNAL=propagation
 //ADVANCED property for variable: libpropagation-obj
 libpropagation-obj-ADVANCED:INTERNAL=1
-libpropagation-obj:INTERNAL=libpropagation-obj
+libpropagation-obj:INTERNAL=propagation-obj
 //ADVANCED property for variable: libsixlowpan
 libsixlowpan-ADVANCED:INTERNAL=1
-libsixlowpan:INTERNAL=libsixlowpan
+libsixlowpan:INTERNAL=sixlowpan
 //ADVANCED property for variable: libsixlowpan-obj
 libsixlowpan-obj-ADVANCED:INTERNAL=1
-libsixlowpan-obj:INTERNAL=libsixlowpan-obj
+libsixlowpan-obj:INTERNAL=sixlowpan-obj
 //ADVANCED property for variable: libspectrum
 libspectrum-ADVANCED:INTERNAL=1
-libspectrum:INTERNAL=libspectrum
+libspectrum:INTERNAL=spectrum
 //ADVANCED property for variable: libspectrum-obj
 libspectrum-obj-ADVANCED:INTERNAL=1
-libspectrum-obj:INTERNAL=libspectrum-obj
+libspectrum-obj:INTERNAL=spectrum-obj
 //ADVANCED property for variable: libstats
 libstats-ADVANCED:INTERNAL=1
-libstats:INTERNAL=libstats
+libstats:INTERNAL=stats
 //ADVANCED property for variable: libstats-obj
 libstats-obj-ADVANCED:INTERNAL=1
-libstats-obj:INTERNAL=libstats-obj
+libstats-obj:INTERNAL=stats-obj
 //ADVANCED property for variable: libtap-bridge
 libtap-bridge-ADVANCED:INTERNAL=1
-libtap-bridge:INTERNAL=libtap-bridge
+libtap-bridge:INTERNAL=tap-bridge
 //ADVANCED property for variable: libtap-bridge-obj
 libtap-bridge-obj-ADVANCED:INTERNAL=1
-libtap-bridge-obj:INTERNAL=libtap-bridge-obj
+libtap-bridge-obj:INTERNAL=tap-bridge-obj
 //ADVANCED property for variable: libtest
 libtest-ADVANCED:INTERNAL=1
-libtest:INTERNAL=libtest
+libtest:INTERNAL=test
 //ADVANCED property for variable: libtest-obj
 libtest-obj-ADVANCED:INTERNAL=1
-libtest-obj:INTERNAL=libtest-obj
+libtest-obj:INTERNAL=test-obj
 //ADVANCED property for variable: libtopology-read
 libtopology-read-ADVANCED:INTERNAL=1
-libtopology-read:INTERNAL=libtopology-read
+libtopology-read:INTERNAL=topology-read
 //ADVANCED property for variable: libtopology-read-obj
 libtopology-read-obj-ADVANCED:INTERNAL=1
-libtopology-read-obj:INTERNAL=libtopology-read-obj
+libtopology-read-obj:INTERNAL=topology-read-obj
 //ADVANCED property for variable: libtraffic-control
 libtraffic-control-ADVANCED:INTERNAL=1
-libtraffic-control:INTERNAL=libtraffic-control
+libtraffic-control:INTERNAL=traffic-control
 //ADVANCED property for variable: libtraffic-control-obj
 libtraffic-control-obj-ADVANCED:INTERNAL=1
-libtraffic-control-obj:INTERNAL=libtraffic-control-obj
+libtraffic-control-obj:INTERNAL=traffic-control-obj
 //ADVANCED property for variable: libuan
 libuan-ADVANCED:INTERNAL=1
-libuan:INTERNAL=libuan
+libuan:INTERNAL=uan
 //ADVANCED property for variable: libuan-obj
 libuan-obj-ADVANCED:INTERNAL=1
-libuan-obj:INTERNAL=libuan-obj
+libuan-obj:INTERNAL=uan-obj
 //ADVANCED property for variable: libvirtual-net-device
 libvirtual-net-device-ADVANCED:INTERNAL=1
-libvirtual-net-device:INTERNAL=libvirtual-net-device
+libvirtual-net-device:INTERNAL=virtual-net-device
 //ADVANCED property for variable: libvirtual-net-device-obj
 libvirtual-net-device-obj-ADVANCED:INTERNAL=1
-libvirtual-net-device-obj:INTERNAL=libvirtual-net-device-obj
+libvirtual-net-device-obj:INTERNAL=virtual-net-device-obj
 //ADVANCED property for variable: libvisualizer
 libvisualizer-ADVANCED:INTERNAL=1
-libvisualizer:INTERNAL=libvisualizer
+libvisualizer:INTERNAL=visualizer
 //ADVANCED property for variable: libvisualizer-obj
 libvisualizer-obj-ADVANCED:INTERNAL=1
-libvisualizer-obj:INTERNAL=libvisualizer-obj
+libvisualizer-obj:INTERNAL=visualizer-obj
 //ADVANCED property for variable: libwifi
 libwifi-ADVANCED:INTERNAL=1
-libwifi:INTERNAL=libwifi
+libwifi:INTERNAL=wifi
 //ADVANCED property for variable: libwifi-obj
 libwifi-obj-ADVANCED:INTERNAL=1
-libwifi-obj:INTERNAL=libwifi-obj
+libwifi-obj:INTERNAL=wifi-obj
 //ADVANCED property for variable: libwimax
 libwimax-ADVANCED:INTERNAL=1
-libwimax:INTERNAL=libwimax
+libwimax:INTERNAL=wimax
 //ADVANCED property for variable: libwimax-obj
 libwimax-obj-ADVANCED:INTERNAL=1
-libwimax-obj:INTERNAL=libwimax-obj
+libwimax-obj:INTERNAL=wimax-obj
+//ADVANCED property for variable: libzigbee
+libzigbee-ADVANCED:INTERNAL=1
+libzigbee:INTERNAL=zigbee
+//ADVANCED property for variable: libzigbee-obj
+libzigbee-obj-ADVANCED:INTERNAL=1
+libzigbee-obj:INTERNAL=zigbee-obj
 //ADVANCED property for variable: ns3-all-enabled-modules
 ns3-all-enabled-modules-ADVANCED:INTERNAL=1
 //list with all enabled modules
@@ -1206,7 +1260,7 @@ ns3-external-libs:INTERNAL=;;;;;;;;;;;;;;wsock32;ws2_32;;;;;
 //ADVANCED property for variable: ns3-libs
 ns3-libs-ADVANCED:INTERNAL=1
 //list of processed upstream modules
-ns3-libs:INTERNAL=libcsma;libvirtual-net-device;libinternet-apps;libtraffic-control;libbridge;libstats;libspectrum;libpropagation;libpoint-to-point;libnr;libnetwork;libmobility;libinternet;libflow-monitor;libcore;libconfig-store;libbuildings;libapplications;libantenna;
+ns3-libs:INTERNAL=csma;virtual-net-device;internet-apps;traffic-control;bridge;stats;spectrum;propagation;point-to-point;nr;network;mobility;internet;flow-monitor;core;config-store;buildings;applications;antenna;
 //ADVANCED property for variable: ns3-libs-tests
 ns3-libs-tests-ADVANCED:INTERNAL=1
 //list of test libraries
@@ -1215,4 +1269,7 @@ ns3-libs-tests:INTERNAL=
 ns3-optional-visualizer-lib-ADVANCED:INTERNAL=1
 //visualizer library name
 ns3-optional-visualizer-lib:INTERNAL=
+//ADVANCED property for variable: stacktrace_flags
+stacktrace_flags-ADVANCED:INTERNAL=1
+stacktrace_flags:INTERNAL=
 

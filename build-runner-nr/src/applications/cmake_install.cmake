@@ -67,6 +67,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/applications/model/seq-ts-echo-header.h"
     "C:/ns3-dev-link/src/applications/model/seq-ts-header.h"
     "C:/ns3-dev-link/src/applications/model/seq-ts-size-header.h"
+    "C:/ns3-dev-link/src/applications/model/sink-application.h"
+    "C:/ns3-dev-link/src/applications/model/source-application.h"
     "C:/ns3-dev-link/src/applications/model/three-gpp-http-client.h"
     "C:/ns3-dev-link/src/applications/model/three-gpp-http-header.h"
     "C:/ns3-dev-link/src/applications/model/three-gpp-http-server.h"
