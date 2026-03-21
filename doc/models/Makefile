@@ -1,6 +1,4 @@
-EPSTOPDF = epstopdf
-DIA = dia
-CONVERT = convert
+include $(CURDIR)/../sphinx/defines.mk
 
 SRC = ../../src
 # Temporary source directory, for build
@@ -18,10 +16,7 @@ SOURCES = \
 	source/network.rst \
 	source/emulation-overview.rst \
 	source/traffic-control.rst \
-	$(SRC)/antenna/doc/source/antenna.rst \
-	$(SRC)/antenna/doc/source/antenna-design.rst \
-	$(SRC)/antenna/doc/source/antenna-user.rst \
-	$(SRC)/antenna/doc/source/antenna-testing.rst \
+	$(SRC)/antenna/doc/antenna.rst \
 	$(SRC)/aodv/doc/aodv.rst \
 	$(SRC)/applications/doc/applications.rst \
 	$(SRC)/bridge/doc/bridge.rst \
@@ -100,6 +95,7 @@ SOURCES = \
 	$(SRC)/flow-monitor/doc/flow-monitor.rst \
 	$(SRC)/sixlowpan/doc/sixlowpan.rst \
 	$(SRC)/lr-wpan/doc/lr-wpan.rst \
+	$(SRC)/zigbee/doc/zigbee.rst \
 
 # list all model library figure files that need to be copied to
 # $SOURCETEMP/figures.  For each figure to be included in all
@@ -110,12 +106,15 @@ SOURCES = \
 SOURCEFIGS = \
 	figures/testbed.dia \
 	figures/emulated-channel.dia \
-	$(SRC)/antenna/doc/source/figures/antenna-coordinate-system.dia	\
+	$(SRC)/antenna/doc/figures/antenna-coordinate-system.dia	\
+	$(SRC)/antenna/doc/figures/circular-antenna-pattern.png	\
 	$(SRC)/applications/doc/http-embedded-object-size.png \
 	$(SRC)/applications/doc/http-main-object-size.png \
 	$(SRC)/applications/doc/http-num-of-embedded-objects.png \
 	$(SRC)/applications/doc/http-parsing-time.png \
 	$(SRC)/applications/doc/http-reading-time.png \
+	$(SRC)/dsr/doc/figures/dsrRreq.dia \
+	$(SRC)/dsr/doc/figures/dsrRrep.dia \
 	$(SRC)/network/doc/packet.dia \
 	$(SRC)/network/doc/node.dia \
 	$(SRC)/network/doc/buffer.dia \
@@ -124,6 +123,7 @@ SOURCEFIGS = \
 	$(SRC)/internet/doc/internet-node-recv.dia \
 	$(SRC)/internet/doc/routing.dia \
 	$(SRC)/internet/doc/routing-specialization.dia \
+	$(SRC)/internet/doc/global-routing-limitation.dia \
 	$(SRC)/internet/doc/figures/tcp-state-machine.png \
 	$(SRC)/internet/doc/figures/dctcp-10ms-50mbps-tcp-throughput.pdf \
 	$(SRC)/internet/doc/figures/dctcp-10ms-50mbps-tcp-throughput.png \
@@ -141,10 +141,14 @@ SOURCEFIGS = \
 	$(SRC)/wifi/doc/source/figures/PhyEntityHierarchy.dia \
 	$(SRC)/wifi/doc/source/figures/WifiPpduHierarchy.dia \
 	$(SRC)/wifi/doc/source/figures/FemHierarchy.dia \
+	$(SRC)/wifi/doc/source/figures/wifi-phy-rx-trace-helper.dia \
 	$(SRC)/wifi/doc/source/figures/snir.dia \
 	$(SRC)/wifi/doc/source/figures/ack-su-format.pdf \
 	$(SRC)/wifi/doc/source/figures/ack-su-format.png \
 	$(SRC)/wifi/doc/source/figures/assoc-manager.eps \
+	$(SRC)/wifi/doc/source/figures/emlsr-dl-txop.eps \
+	$(SRC)/wifi/doc/source/figures/emlsr-txop-ended-trace.eps \
+	$(SRC)/wifi/doc/source/figures/emlsr-ul-txop.eps \
 	$(SRC)/wifi/doc/source/figures/mu-bar.pdf \
 	$(SRC)/wifi/doc/source/figures/mu-bar.png \
 	$(SRC)/wifi/doc/source/figures/aggr-mu-bar.pdf \
@@ -353,20 +357,26 @@ SOURCEFIGS = \
 	$(SRC)/traffic-control/doc/multi-queue-aware-queue-disc.dia \
 	$(SRC)/traffic-control/doc/figures/collision_prob.jpeg \
 	$(SRC)/traffic-control/doc/figures/overlapped.jpeg \
-	$(SRC)/lr-wpan/doc/lr-wpan-arch.dia \
-	$(SRC)/lr-wpan/doc/lr-wpan-assocSequence.dia \
-	$(SRC)/lr-wpan/doc/lr-wpan-data-example.dia \
-	$(SRC)/lr-wpan/doc/lr-wpan-phy.dia \
-	$(SRC)/lr-wpan/doc/lr-wpan-primitives.dia \
-	$(SRC)/lr-wpan/doc/802-15-4-ber.eps \
-	$(SRC)/lr-wpan/doc/802-15-4-per-sens.eps \
-	$(SRC)/lr-wpan/doc/802-15-4-psr-distance.eps \
+	$(SRC)/lr-wpan/doc/figures/lr-wpan-arch.dia \
+	$(SRC)/lr-wpan/doc/figures/lr-wpan-assocSequence.dia \
+	$(SRC)/lr-wpan/doc/figures/lr-wpan-data-example.dia \
+	$(SRC)/lr-wpan/doc/figures/lr-wpan-phy.dia \
+	$(SRC)/lr-wpan/doc/figures/lr-wpan-primitives.dia \
+	$(SRC)/lr-wpan/doc/figures/802-15-4-ber.eps \
+	$(SRC)/lr-wpan/doc/figures/802-15-4-per-sens.eps \
+	$(SRC)/lr-wpan/doc/figures/802-15-4-psr-distance.eps \
+	$(SRC)/flow-monitor/doc/figures/flowmonitorArq.dia \
 	$(SRC)/energy/doc/figures/dischargeCurve.png \
 	$(SRC)/energy/doc/figures/energyFramework.dia \
 	$(SRC)/energy/doc/figures/leadacid.png \
 	$(SRC)/energy/doc/figures/liion.png \
 	$(SRC)/energy/doc/figures/nicd.png \
-	$(SRC)/energy/doc/figures/nimh.png
+	$(SRC)/energy/doc/figures/nimh.png \
+	$(SRC)/zigbee/doc/figures/zigbeeStackArch.dia \
+	$(SRC)/zigbee/doc/figures/manyToOne.dia \
+	$(SRC)/zigbee/doc/figures/mesh.dia \
+	$(SRC)/internet-apps/doc/figures/dhcpv6-message-exchange.dia \
+	$(SRC)/internet-apps/doc/figures/stateful-dhcpv6-format.dia
 
 # specify figures from which .png and .pdf figures need to be
 # generated (all dia and eps figures)
@@ -382,10 +392,12 @@ IMAGES_EPS = \
 	$(FIGURES)/internet-node-recv.eps \
 	$(FIGURES)/routing.eps \
 	$(FIGURES)/routing-specialization.eps \
+	$(FIGURES)/global-routing-limitation.eps \
 	$(FIGURES)/WifiArchitecture.eps \
 	$(FIGURES)/PhyEntityHierarchy.eps \
 	$(FIGURES)/WifiPpduHierarchy.eps \
 	$(FIGURES)/FemHierarchy.eps \
+	$(FIGURES)/wifi-phy-rx-trace-helper.eps \
 	$(FIGURES)/snir.eps \
 	$(FIGURES)/WimaxArchitecture.eps \
 	$(FIGURES)/epc-ctrl-arch.eps \
@@ -464,8 +476,14 @@ IMAGES_EPS = \
 	$(FIGURES)/802-15-4-per-sens.eps \
 	$(FIGURES)/802-15-4-psr-distance.eps \
 	$(FIGURES)/energyFramework.eps \
+	$(FIGURES)/flowmonitorArq.eps \
+	$(FIGURES)/dsrRreq.eps \
+	$(FIGURES)/dsrRrep.eps \
 	$(FIGURES)/clear-channel.eps \
 	$(FIGURES)/assoc-manager.eps \
+	$(FIGURES)/emlsr-dl-txop.eps \
+	$(FIGURES)/emlsr-txop-ended-trace.eps \
+	$(FIGURES)/emlsr-ul-txop.eps \
 	$(FIGURES)/nist-frame-success-rate.eps \
 	$(FIGURES)/nist-frame-success-rate-n.eps \
 	$(FIGURES)/nist-frame-success-rate-ac.eps \
@@ -485,6 +503,12 @@ IMAGES_EPS = \
 	$(FIGURES)/lte-test-rlf-two-enb.eps \
 	$(FIGURES)/lena-radio-link-failure-one-enb.eps \
 	$(FIGURES)/lena-radio-link-failure-two-enb.eps \
+	$(FIGURES)/zigbeeStackArch.eps \
+	$(FIGURES)/manyToOne.eps \
+	$(FIGURES)/mesh.eps \
+	$(FIGURES)/dhcpv6-message-exchange.eps \
+	$(FIGURES)/stateful-dhcpv6-format.eps
+
 
 # rescale pdf figures as necessary
 $(FIGURES)/testbed.pdf_width = 5in
@@ -498,6 +522,7 @@ $(FIGURES)/internet-node-send.pdf_width = 5in
 $(FIGURES)/internet-node-recv.pdf_width = 5in
 $(FIGURES)/routing.pdf_width = 6in
 $(FIGURES)/routing-specialization.pdf_width = 5in
+$(FIGURES)/global-routing-limitation.pdf_width = 6in
 $(FIGURES)/snir.pdf_width = 3in
 $(FIGURES)/lte-interference-test-scenario.pdf_width = 3in
 $(FIGURES)/epc-ctrl-arch.pdf_width = 8cm
@@ -545,6 +570,12 @@ $(FIGURES)/nist-frame-success-rate-n.pdf_width = 12cm
 $(FIGURES)/nist-frame-success-rate-ac.pdf_width = 12cm
 $(FIGURES)/nist-frame-success-rate-ax.pdf_width = 12cm
 $(FIGURES)/assoc-manager.pdf_width = 12cm
+$(FIGURES)/emlsr-dl-txop.pdf_width = 12cm
+$(FIGURES)/emlsr-txop-ended-trace.pdf_width = 8cm
+$(FIGURES)/emlsr-ul-txop.pdf_width = 12cm
+$(FIGURES)/zigbeeStackArch.pdf_width = 6cm
+$(FIGURES)/manyToOne.pdf_width = 6cm
+$(FIGURES)/mesh.pdf_width = 6cm
 
 IMAGES_PNG = ${IMAGES_EPS:.eps=.png}
 IMAGES_PDF = ${IMAGES_EPS:.eps=.pdf}
@@ -570,15 +601,7 @@ RESCALE = ../../utils/rescale-pdf.sh
 	@$(EPSTOPDF) $< -o=$@ >/dev/null
 	@if test x$($@_width) != x; then $(RESCALE) $($@_width) $@ ; fi
 
-# You can set these variables from the command line.
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
-PAPER         =
-BUILDDIR      = build
-
 # Internal variables.
-PAPEROPT_a4     = -D latex_paper_size=a4
-PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(SOURCETEMP)
 
 .PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest

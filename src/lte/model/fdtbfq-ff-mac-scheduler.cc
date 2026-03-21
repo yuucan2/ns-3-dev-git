@@ -1,18 +1,7 @@
 /*
  * Copyright (c) 2011 Centre Tecnologic de Telecomunicacions de Catalunya (CTTC)
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  * Author: Marco Miozzo <marco.miozzo@cttc.es>
  * Modification: Dizhi Zhou <dizhi.zhou@gmail.com>    // modify codes related to downlink scheduler
@@ -23,12 +12,12 @@
 #include "lte-amc.h"
 #include "lte-vendor-specific-parameters.h"
 
-#include <ns3/boolean.h>
-#include <ns3/integer.h>
-#include <ns3/log.h>
-#include <ns3/math.h>
-#include <ns3/pointer.h>
-#include <ns3/simulator.h>
+#include "ns3/boolean.h"
+#include "ns3/integer.h"
+#include "ns3/log.h"
+#include "ns3/math.h"
+#include "ns3/pointer.h"
+#include "ns3/simulator.h"
 
 #include <cfloat>
 #include <set>
@@ -38,13 +27,13 @@ namespace ns3
 
 NS_LOG_COMPONENT_DEFINE("FdTbfqFfMacScheduler");
 
-/// FdTbfqType0AllocationRbg value array
+/// FdTbfqType0AllocationRbg value array (see table 7.1.6.1-1 of 36.213)
 static const int FdTbfqType0AllocationRbg[4] = {
-    10,  // RGB size 1
-    26,  // RGB size 2
-    63,  // RGB size 3
-    110, // RGB size 4
-};       // see table 7.1.6.1-1 of 36.213
+    10,  // RBG size 1
+    26,  // RBG size 2
+    63,  // RBG size 3
+    110, // RBG size 4
+};
 
 NS_OBJECT_ENSURE_REGISTERED(FdTbfqFfMacScheduler);
 
@@ -1067,7 +1056,7 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
                 metricMax = metric;
                 itMax = it;
             }
-        } // end for m_flowStatsDl
+        }
 
         if (itMax == m_flowStatsDl.end())
         {
@@ -1211,9 +1200,9 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
                             achievableRateMax = achievableRate;
                             rbgIndex = k;
                         }
-                    } // end of LcActivePerFlow
-                }     // end of cqi
-            }         // end of for rbgNum
+                    }
+                }
+            }
 
             if (rbgIndex == rbgNum) // impossible
             {
@@ -1305,8 +1294,7 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
                               8); // (size of TB in bytes according to table 7.1.7.2.1-1 of 36.213)
                 bytesTxed += tbSize;
             }
-
-        } // end of while()
+        }
 
         // remove and unmark last RBG assigned to UE
         if (bytesTxed > budget)
@@ -1350,7 +1338,7 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
                 }
             }
         }
-    } // end of RBGs
+    }
 
     // generate the transmission opportunities by grouping the RBGs of the same RNTI and
     // creating the correspondent DCIs
@@ -1373,7 +1361,7 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
             // Set to max value, to avoid divide by 0 below
             lcActives = (uint16_t)65535; // UINT16_MAX;
         }
-        uint16_t RgbPerRnti = (*itMap).second.size();
+        uint16_t RbgPerRnti = (*itMap).second.size();
         auto itCqi = m_a30CqiRxed.find((*itMap).first);
         auto itTxMode = m_uesTxMode.find((*itMap).first);
         if (itTxMode == m_uesTxMode.end())
@@ -1440,7 +1428,7 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
         for (uint8_t j = 0; j < nLayer; j++)
         {
             newDci.m_mcs.push_back(m_amc->GetMcsFromCqi(worstCqi.at(j)));
-            int tbSize = (m_amc->GetDlTbSizeFromMcs(newDci.m_mcs.at(j), RgbPerRnti * rbgSize) /
+            int tbSize = (m_amc->GetDlTbSizeFromMcs(newDci.m_mcs.at(j), RbgPerRnti * rbgSize) /
                           8); // (size of TB in bytes according to table 7.1.7.2.1-1 of 36.213)
             newDci.m_tbsSize.push_back(tbSize);
             NS_LOG_INFO(this << " Layer " << (uint16_t)j << " MCS selected"
@@ -1530,7 +1518,7 @@ FdTbfqFfMacScheduler::DoSchedDlTriggerReq(
         ret.m_buildDataList.push_back(newEl);
 
         itMap++;
-    }                               // end while allocation
+    }
     ret.m_nrOfPdcchOfdmSymbols = 1; /// \todo check correct value according the DCIs txed
 
     m_schedSapUser->SchedDlConfigInd(ret);
@@ -2381,7 +2369,7 @@ void
 FdTbfqFfMacScheduler::TransmissionModeConfigurationUpdate(uint16_t rnti, uint8_t txMode)
 {
     NS_LOG_FUNCTION(this << " RNTI " << rnti << " txMode " << (uint16_t)txMode);
-    FfMacCschedSapUser::CschedUeConfigUpdateIndParameters params;
+    FfMacCschedSapUser::CschedUeConfigUpdateIndParameters params{};
     params.m_rnti = rnti;
     params.m_transmissionMode = txMode;
     m_cschedSapUser->CschedUeConfigUpdateInd(params);

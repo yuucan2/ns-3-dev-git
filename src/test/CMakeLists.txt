@@ -22,6 +22,7 @@ if(applications
   )
     # cmake-format: off
     set(applications_sources
+        ns3tcp/ns3tcp-cubic-test-suite.cc
         ns3tcp/ns3tcp-loss-test-suite.cc
         ns3tcp/ns3tcp-no-delay-test-suite.cc
         ns3tcp/ns3tcp-socket-test-suite.cc
@@ -37,6 +38,7 @@ if(applications
         ns3wifi/wifi-issue-211-test-suite.cc
         ns3wifi/wifi-ac-mapping-test-suite.cc
         ns3wifi/wifi-msdu-aggregator-test-suite.cc
+        # ns3wifi/wifi-mlo-udp-test-suite.cc
     )
   endif()
   if((csma-layout
@@ -88,7 +90,7 @@ if(traffic-control
 endif()
 
 add_library(
-  ${libtest}
+  test
   OBJECT
   ${PROJECT_SOURCE_DIR}/build-support/empty.cc # empty source file if only
   # libcore is enabled

@@ -1,6 +1,4 @@
-EPSTOPDF = epstopdf
-DIA = dia
-CONVERT = convert
+include $(CURDIR)/../sphinx/defines.mk
 
 SRC = ../../src
 # Temporary source directory, for build
@@ -46,6 +44,7 @@ SOURCES = \
 	source/troubleshoot.rst \
 	source/utilities.rst \
 	source/working-with-cmake.rst \
+	source/working-with-docker.rst \
 	source/working-with-git.rst \
 	source/working-with-gitlab-ci-local.rst \
 	${SRC}/stats/doc/data-collection.rst \
@@ -77,6 +76,7 @@ SOURCEFIGS = \
 	figures/hotspot-setup.png \
 	figures/hotspot-top-down.png \
 	figures/perfetto-trace-cmake.png \
+	figures/time-consuming-event-handling.png \
 	figures/uprof-collect-callstack.png \
 	figures/uprof-profile-application.png \
 	figures/uprof-select-events.png \
@@ -90,6 +90,10 @@ SOURCEFIGS = \
 	figures/vtune-uarch-core-stats.png \
 	figures/vtune-uarch-profiling-summary.png \
 	figures/vtune-uarch-wifi-stats.png \
+	figures/perf.svg \
+	figures/perf-lte-frequency-reuse.png \
+	figures/perf-chunk-processor.png \
+	figures/perf-detail.png \
 	${SRC}/stats/doc/Stat-framework-arch.png \
 	${SRC}/stats/doc/Wifi-default.png \
 	${SRC}/stats/doc/dcf-overview.dia \
@@ -133,15 +137,7 @@ RESCALE = ../../utils/rescale-pdf.sh
 	@$(EPSTOPDF) $< -o=$@ >/dev/null
 	@if test x$($@_width) != x; then $(RESCALE) $($@_width) $@ ; fi
 
-# You can set these variables from the command line.
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
-PAPER         =
-BUILDDIR      = build
-
 # Internal variables.
-PAPEROPT_a4     = -D latex_paper_size=a4
-PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(SOURCETEMP)
 
 .PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest

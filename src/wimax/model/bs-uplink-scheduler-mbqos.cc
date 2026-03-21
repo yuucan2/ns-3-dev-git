@@ -1,16 +1,5 @@
 /*
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  */
 
@@ -63,7 +52,7 @@ UplinkSchedulerMBQoS::GetTypeId()
 
                             .AddAttribute("WindowInterval",
                                           "The time to wait to reset window",
-                                          TimeValue(Seconds(1.0)),
+                                          TimeValue(Seconds(1)),
                                           MakeTimeAccessor(&UplinkSchedulerMBQoS::m_windowInterval),
                                           MakeTimeChecker());
     return tid;
@@ -909,8 +898,7 @@ UplinkSchedulerMBQoS::ServiceUnsolicitedGrants(const SSRecord* ssRecord,
         {
             NS_LOG_DEBUG("BS uplink scheduler, " << serviceFlow->GetSchedulingTypeStr()
                                                  << " unicast poll, size: " << allocationSize
-                                                 << " symbols"
-                                                 << ", modulation: BPSK 1/2");
+                                                 << " symbols, modulation: BPSK 1/2");
         }
 
         NS_LOG_DEBUG(", CID: " << serviceFlow->GetConnection()->GetCid()
@@ -1033,8 +1021,7 @@ UplinkSchedulerMBQoS::AllocateInitialRangingInterval(uint32_t& symbolsToAllocati
         ulMapIeIr.SetUiuc(OfdmUlBurstProfile::UIUC_INITIAL_RANGING);
 
         NS_LOG_DEBUG("BS uplink scheduler, initial ranging allocation, size: "
-                     << allocationSize << " symbols"
-                     << ", modulation: BPSK 1/2");
+                     << allocationSize << " symbols, modulation: BPSK 1/2");
 
         // marking start and end of each TO, only for debugging
         for (uint8_t i = 0; i < GetNrIrOppsAllocated(); i++)
@@ -1178,14 +1165,10 @@ UplinkSchedulerMBQoS::ProcessBandwidthRequest(const BandwidthRequestHeader& bwRe
     switch (serviceFlow->GetSchedulingType())
     {
     case ServiceFlow::SF_TYPE_RTPS:
-        EnqueueJob(UlJob::INTERMEDIATE, job);
-        break;
     case ServiceFlow::SF_TYPE_NRTPS:
         EnqueueJob(UlJob::INTERMEDIATE, job);
         break;
     case ServiceFlow::SF_TYPE_BE:
-        EnqueueJob(UlJob::LOW, job);
-        break;
     default:
         EnqueueJob(UlJob::LOW, job);
         break;

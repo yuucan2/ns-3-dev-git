@@ -1,18 +1,7 @@
 /*
  * Copyright (c) 2014 Universita' di Firenze, Italy
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  * Author: Tommaso Pecorella <tommaso.pecorella@unifi.it>
  */
@@ -99,7 +88,7 @@ RipNg::GetTypeId()
             .AddAttribute("SplitHorizon",
                           "Split Horizon strategy.",
                           EnumValue(RipNg::POISON_REVERSE),
-                          MakeEnumAccessor(&RipNg::m_splitHorizonStrategy),
+                          MakeEnumAccessor<SplitHorizonType_e>(&RipNg::m_splitHorizonStrategy),
                           MakeEnumChecker(RipNg::NO_SPLIT_HORIZON,
                                           "NoSplitHorizon",
                                           RipNg::SPLIT_HORIZON,
@@ -657,21 +646,22 @@ RipNg::Lookup(Ipv6Address dst, bool setSource, Ptr<NetDevice> interface)
 
                     if (setSource)
                     {
-                        if (route->GetGateway().IsAny())
+                        // GetGateway().IsAny() means that the destination is reachable without a
+                        // gateway (is on-link). GetDest().IsAny() means that the route is the
+                        // default route. Having both true is very strange, but possible.
+                        // If the RT entry is specific for a destination, use that as a hint for the
+                        // source address to be used. Else, use the destination or the prefix to be
+                        // used stated in the RT entry.
+                        if (!route->GetDest().IsAny())
                         {
                             rtentry->SetSource(
                                 m_ipv6->SourceAddressSelection(interfaceIdx, route->GetDest()));
                         }
-                        else if (route->GetDest().IsAny()) /* default route */
+                        else
                         {
                             rtentry->SetSource(m_ipv6->SourceAddressSelection(
                                 interfaceIdx,
                                 route->GetPrefixToUse().IsAny() ? dst : route->GetPrefixToUse()));
-                        }
-                        else
-                        {
-                            rtentry->SetSource(
-                                m_ipv6->SourceAddressSelection(interfaceIdx, route->GetDest()));
                         }
                     }
 
@@ -739,7 +729,7 @@ RipNg::InvalidateRoute(RipNgRoutingTableEntry* route)
             route->SetRouteStatus(RipNgRoutingTableEntry::RIPNG_INVALID);
             route->SetRouteMetric(m_linkDown);
             route->SetRouteChanged(true);
-            if (it->second.IsRunning())
+            if (it->second.IsPending())
             {
                 it->second.Cancel();
             }
@@ -1241,11 +1231,8 @@ RipNg::DoSendRouteUpdate(bool periodic)
                         rte.SetRouteMetric(rtIter->first->GetRouteMetric());
                     }
                     rte.SetRouteTag(rtIter->first->GetRouteTag());
-                    if (m_splitHorizonStrategy == SPLIT_HORIZON && !splitHorizoning)
-                    {
-                        hdr.AddRte(rte);
-                    }
-                    else if (m_splitHorizonStrategy != SPLIT_HORIZON)
+                    if ((m_splitHorizonStrategy == SPLIT_HORIZON && !splitHorizoning) ||
+                        (m_splitHorizonStrategy != SPLIT_HORIZON))
                     {
                         hdr.AddRte(rte);
                     }
@@ -1278,7 +1265,7 @@ RipNg::SendTriggeredRouteUpdate()
 {
     NS_LOG_FUNCTION(this);
 
-    if (m_nextTriggeredUpdate.IsRunning())
+    if (m_nextTriggeredUpdate.IsPending())
     {
         NS_LOG_LOGIC("Skipping Triggered Update due to cooldown");
         return;
@@ -1310,7 +1297,7 @@ RipNg::SendUnsolicitedRouteUpdate()
 {
     NS_LOG_FUNCTION(this);
 
-    if (m_nextTriggeredUpdate.IsRunning())
+    if (m_nextTriggeredUpdate.IsPending())
     {
         m_nextTriggeredUpdate.Cancel();
     }

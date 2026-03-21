@@ -6,17 +6,7 @@ Companion TwoRaySpectrumPropagationLossModel calibration script
 Copyright (c) 2022 SIGNET Lab, Department of Information Engineering,
 University of Padova
 
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program. If not, see <http://www.gnu.org/licenses/>.
+SPDX-License-Identifier: GPL-2.0-only
 """
 
 import argparse as argp
@@ -349,7 +339,7 @@ def fit_ftr_to_reference(
             np.linspace(start=m_and_k_lb, stop=m_and_k_ub, endpoint=True, num=num_params),
         ),
         # delta must be in [0, 1]
-        "delta": np.linspace(start=0.0, stop=1.0, endpoint=True, num=num_params)
+        "delta": np.linspace(start=0.0, stop=1.0, endpoint=True, num=num_params),
         # sigma determined from k, due to the unit-mean constraint
     }
 
@@ -395,7 +385,7 @@ def fit_ftr_to_reference(
                 stop=min(1, best_params.delta + delta_step),
                 endpoint=True,
                 num=num_params,
-            )
+            ),
             # sigma determined from k, due to the unit-mean constraint
         }
 

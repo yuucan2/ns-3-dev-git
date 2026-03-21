@@ -1,18 +1,7 @@
 /*
  * Copyright (c) 2006 INRIA
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  * Author: Mathieu Lacage <mathieu.lacage@sophia.inria.fr>
  */
@@ -92,7 +81,7 @@ PacketTagList::COWTraverse(Tag& tag, PacketTagList::COWWriter Writer)
             prevNext = &cur->next;
             cur = cur->next;
         }
-    } // while !found && !cow
+    }
 
     // did we find it or run out of tags?
     if (cur == nullptr || found)
@@ -336,59 +325,53 @@ PacketTagList::Serialize(uint32_t* buffer, uint32_t maxSize) const
     uint32_t* p = buffer;
     uint32_t size = 0;
 
-    uint32_t* numberOfTags = nullptr;
+    size += 4;
 
-    if (size + 4 <= maxSize)
-    {
-        numberOfTags = p;
-        *p++ = 0;
-        size += 4;
-    }
-    else
+    if (size > maxSize)
     {
         return 0;
     }
 
+    uint32_t* numberOfTags = p;
+    *p++ = 0;
+
     for (TagData* cur = m_next; cur != nullptr; cur = cur->next)
     {
-        if (size + 4 <= maxSize)
-        {
-            *p++ = cur->size;
-            size += 4;
-        }
-        else
+        size += 4;
+
+        if (size > maxSize)
         {
             return 0;
         }
+
+        *p++ = cur->size;
 
         NS_LOG_INFO("Serializing tag id " << cur->tid);
 
         // ensure size is multiple of 4 bytes for 4 byte boundaries
         uint32_t hashSize = (sizeof(TypeId::hash_t) + 3) & (~3);
-        if (size + hashSize <= maxSize)
-        {
-            TypeId::hash_t tid = cur->tid.GetHash();
-            memcpy(p, &tid, sizeof(TypeId::hash_t));
-            p += hashSize / 4;
-            size += hashSize;
-        }
-        else
+        size += hashSize;
+
+        if (size > maxSize)
         {
             return 0;
         }
 
+        TypeId::hash_t tid = cur->tid.GetHash();
+        memcpy(p, &tid, sizeof(TypeId::hash_t));
+        p += hashSize / 4;
+
         // ensure size is multiple of 4 bytes for 4 byte boundaries
         uint32_t tagWordSize = (cur->size + 3) & (~3);
-        if (size + tagWordSize <= maxSize)
-        {
-            memcpy(p, cur->data, cur->size);
-            size += tagWordSize;
-            p += tagWordSize / 4;
-        }
-        else
+        size += tagWordSize;
+
+        if (size > maxSize)
         {
             return 0;
         }
+
+        memcpy(p, cur->data, cur->size);
+        p += tagWordSize / 4;
 
         (*numberOfTags)++;
     }

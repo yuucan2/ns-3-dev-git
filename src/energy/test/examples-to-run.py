@@ -7,7 +7,6 @@
 #
 # See test.py for more information.
 cpp_examples = [
-    ("li-ion-energy-source", "True", "True"),
     ("rv-battery-model-test", "True", "True"),
     ("basic-energy-model-test", "True", "True"),
 ]
@@ -18,4 +17,6 @@ cpp_examples = [
 #     (example_name, do_run).
 #
 # See test.py for more information.
-python_examples = []
+python_examples = [
+    ("generic-battery-discharge-example.py", "True"),
+]

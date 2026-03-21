@@ -1,35 +1,15 @@
 # Copyright (c) 2017-2021 Universidade de Brasília
 #
-# This program is free software; you can redistribute it and/or modify it under
-# the terms of the GNU General Public License version 2 as published by the Free
-# Software Foundation;
-#
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-# details.
-#
-# You should have received a copy of the GNU General Public License along with
-# this program; if not, write to the Free Software Foundation, Inc., 59 Temple
-# Place, Suite 330, Boston, MA  02111-1307 USA
+# SPDX-License-Identifier: GPL-2.0-only
 #
 # Author: Gabriel Ferreira <gabrielcarvfer@gmail.com>
 
-include(GNUInstallDirs)
-
-# Set RPATH not too need LD_LIBRARY_PATH after installing
-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib:$ORIGIN/:$ORIGIN/../lib")
-
-# Add the 64 suffix to the library path when manually requested with the
-# -DNS3_USE_LIB64=ON flag. May be necessary depending on the target platform.
-# This is used to properly build the manylinux pip wheel.
-set(NS3_USE_LIB64 FALSE)
-if(${NS3_USE_LIB64})
-  link_directories(${CMAKE_OUTPUT_DIRECTORY}/lib64)
-  set(CMAKE_INSTALL_RPATH
-      "${CMAKE_INSTALL_RPATH}:${CMAKE_INSTALL_PREFIX}/lib64:$ORIGIN/:$ORIGIN/../lib64"
-  )
-endif()
+# Set RPATH not too need LD_LIBRARY_PATH after installing. Add the lib64 variant
+# to support all platforms, such as alma linux, used to build the manylinux pip
+# wheel.
+set(CMAKE_INSTALL_RPATH
+    "${CMAKE_INSTALL_PREFIX}/lib:$ORIGIN/:$ORIGIN/../lib:${CMAKE_INSTALL_PREFIX}/lib64:$ORIGIN/:$ORIGIN/../lib64"
+)
 
 # cmake-format: off
 # You are a wizard, Harry!

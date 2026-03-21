@@ -1,18 +1,7 @@
 //
 // Copyright (c) 2006 Georgia Tech Research Corporation
 //
-// This program is free software; you can redistribute it and/or modify
-// it under the terms of the GNU General Public License version 2 as
-// published by the Free Software Foundation;
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+// SPDX-License-Identifier: GPL-2.0-only
 //
 // Author: George F. Riley <riley@ece.gatech.edu>
 // Author: Lalith Suresh <suresh.lalith@gmail.com>
@@ -238,7 +227,7 @@ Ipv4L3ClickProtocol::IsDestinationAddress(Ipv4Address address, uint32_t iif) con
         return true;
     }
 
-    if (GetWeakEsModel()) // Check other interfaces
+    if (!GetStrongEndSystemModel()) // Check other interfaces
     {
         for (uint32_t j = 0; j < GetNInterfaces(); j++)
         {
@@ -285,15 +274,15 @@ Ipv4L3ClickProtocol::GetIpForward() const
 }
 
 void
-Ipv4L3ClickProtocol::SetWeakEsModel(bool model)
+Ipv4L3ClickProtocol::SetStrongEndSystemModel(bool model)
 {
-    m_weakEsModel = model;
+    m_strongEndSystemModel = model;
 }
 
 bool
-Ipv4L3ClickProtocol::GetWeakEsModel() const
+Ipv4L3ClickProtocol::GetStrongEndSystemModel() const
 {
-    return m_weakEsModel;
+    return m_strongEndSystemModel;
 }
 
 Ptr<NetDevice>
@@ -655,7 +644,7 @@ Ipv4L3ClickProtocol::AddIpv4Interface(Ptr<Ipv4Interface> interface)
     return index;
 }
 
-/// \todo when should we set ip_id?   check whether we are incrementing
+/// @todo when should we set ip_id?   check whether we are incrementing
 /// m_identification on packets that may later be dropped in this stack
 /// and whether that deviates from Linux
 Ipv4Header

@@ -2,18 +2,7 @@
  * Copyright (c) 2010-2015 Adrian Sai-wah Tam
  * Copyright (c) 2016 Natale Patriciello <natale.patriciello@gmail.com>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  * Original author: Adrian Sai-wah Tam <adrian.sw.tam@gmail.com>
  */
@@ -33,8 +22,6 @@ namespace ns3
 
 NS_LOG_COMPONENT_DEFINE("TcpTxBuffer");
 NS_OBJECT_ENSURE_REGISTERED(TcpTxBuffer);
-
-Callback<void, TcpTxItem*> TcpTxBuffer::m_nullCb = MakeNullCallback<void, TcpTxItem*>();
 
 TypeId
 TcpTxBuffer::GetTypeId()
@@ -174,6 +161,7 @@ TcpTxBuffer::SetHeadSequence(const SequenceNumber32& seq)
 
     // if you change the head with data already sent, something bad will happen
     NS_ASSERT(m_sentList.empty());
+    m_sackSeen = false;
     m_highestSack = std::make_pair(m_sentList.end(), SequenceNumber32(0));
 }
 
@@ -767,6 +755,7 @@ TcpTxBuffer::DiscardUpTo(const SequenceNumber32& seq, const Callback<void, TcpTx
 
     if (m_highestSack.second <= m_firstByteSeq)
     {
+        m_sackSeen = false;
         m_highestSack = std::make_pair(m_sentList.end(), SequenceNumber32(0));
     }
 
@@ -831,6 +820,7 @@ TcpTxBuffer::Update(const TcpOptionSack::SackList& list, const Callback<void, Tc
                     if (m_highestSack.first == m_sentList.end() ||
                         m_highestSack.second <= beginOfCurrentPacket + pktSize)
                     {
+                        m_sackSeen = true;
                         m_highestSack = std::make_pair(item_it, beginOfCurrentPacket);
                     }
 
@@ -866,8 +856,8 @@ TcpTxBuffer::Update(const TcpOptionSack::SackList& list, const Callback<void, Tc
 
     NS_ASSERT((*(m_sentList.begin()))->m_sacked == false);
     NS_ASSERT_MSG(m_sentSize >= m_sackedOut + m_lostOut, *this);
-    // NS_ASSERT (list.size () == 0 || modified);   // Assert for duplicated SACK or
-    //  impossiblity to map the option into the sent blocks
+    // Assert for duplicated SACK or impossibility to map the option into the sent blocks
+    // NS_ASSERT (list.size () == 0 || modified);
     ConsistencyCheck();
     return bytesSacked;
 }
@@ -926,8 +916,6 @@ TcpTxBuffer::IsLost(const SequenceNumber32& seq) const
 {
     NS_LOG_FUNCTION(this << seq);
 
-    SequenceNumber32 beginOfCurrentPacket = m_firstByteSeq;
-
     if (seq >= m_highestSack.second)
     {
         return false;
@@ -938,7 +926,7 @@ TcpTxBuffer::IsLost(const SequenceNumber32& seq) const
     for (auto it = m_sentList.begin(); it != m_sentList.end(); ++it)
     {
         // Search for the right iterator before calling IsLost()
-        if (beginOfCurrentPacket >= seq)
+        if ((*it)->m_startSeq <= seq && seq < (*it)->m_startSeq + (*it)->m_packet->GetSize())
         {
             if ((*it)->m_lost)
             {
@@ -952,8 +940,6 @@ TcpTxBuffer::IsLost(const SequenceNumber32& seq) const
                 return false;
             }
         }
-
-        beginOfCurrentPacket += (*it)->m_packet->GetSize();
     }
 
     return false;
@@ -987,7 +973,8 @@ TcpTxBuffer::NextSeg(SequenceNumber32* seq, SequenceNumber32* seqHigh, bool isRe
         item = *it;
 
         // Condition 1.a , 1.b , and 1.c
-        if (!item->m_retrans && !item->m_sacked)
+        if (!item->m_retrans && !item->m_sacked &&
+            ((m_sackSeen && item->m_startSeq < m_highestSack.second) || !m_sackSeen))
         {
             if (item->m_lost)
             {
@@ -1016,7 +1003,7 @@ TcpTxBuffer::NextSeg(SequenceNumber32* seq, SequenceNumber32* seqHigh, bool isRe
      */
     if (SizeFromSequence(m_firstByteSeq + m_sentSize) > 0)
     {
-        if (m_sentSize <= m_rWndCallback())
+        if (m_sentSize < m_rWndCallback())
         {
             NS_LOG_INFO("There is unsent data. Send it");
             *seq = m_firstByteSeq + m_sentSize;
@@ -1107,14 +1094,10 @@ TcpTxBuffer::BytesInFlightRFC() const
         {
             bool isLost = IsLostRFC(beginOfCurrentPkt, it);
             // (a) If IsLost (S1) returns false: Pipe is incremented by 1 octet.
-            if (!isLost)
-            {
-                size += item->m_packet->GetSize();
-            }
             // (b) If S1 <= HighRxt: Pipe is incremented by 1 octet.
             // (NOTE: we use the m_retrans flag instead of keeping and updating
             // another variable). Only if the item is not marked as lost
-            else if (item->m_retrans)
+            if (!isLost || item->m_retrans)
             {
                 size += item->m_packet->GetSize();
             }
@@ -1221,6 +1204,7 @@ TcpTxBuffer::ResetRenoSack()
     }
 
     m_highestSack = std::make_pair(m_sentList.end(), SequenceNumber32(0));
+    m_sackSeen = false;
 }
 
 void
@@ -1249,6 +1233,7 @@ TcpTxBuffer::ResetSentList()
     m_lostOut = 0;
     m_retrans = 0;
     m_sackedOut = 0;
+    m_sackSeen = false;
     m_highestSack = std::make_pair(m_sentList.end(), SequenceNumber32(0));
 }
 
@@ -1281,6 +1266,7 @@ TcpTxBuffer::SetSentListLost(bool resetSack)
     {
         m_sackedOut = 0;
         m_lostOut = m_sentSize;
+        m_sackSeen = false;
         m_highestSack = std::make_pair(m_sentList.end(), SequenceNumber32(0));
     }
     else
@@ -1408,6 +1394,7 @@ TcpTxBuffer::AddRenoSack()
     {
         (*it)->m_sacked = true;
         m_sackedOut += (*it)->m_packet->GetSize();
+        m_sackSeen = true;
         m_highestSack = std::make_pair(it, (*it)->m_startSeq);
         NS_LOG_INFO("Added a Reno SACK, status: " << *this);
     }

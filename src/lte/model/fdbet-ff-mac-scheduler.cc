@@ -1,18 +1,7 @@
 /*
  * Copyright (c) 2011 Centre Tecnologic de Telecomunicacions de Catalunya (CTTC)
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  * Author: Marco Miozzo <marco.miozzo@cttc.es>
  * Modification: Dizhi Zhou <dizhi.zhou@gmail.com>    // modify codes related to downlink scheduler
@@ -23,11 +12,11 @@
 #include "lte-amc.h"
 #include "lte-vendor-specific-parameters.h"
 
-#include <ns3/boolean.h>
-#include <ns3/log.h>
-#include <ns3/math.h>
-#include <ns3/pointer.h>
-#include <ns3/simulator.h>
+#include "ns3/boolean.h"
+#include "ns3/log.h"
+#include "ns3/math.h"
+#include "ns3/pointer.h"
+#include "ns3/simulator.h"
 
 #include <cfloat>
 #include <set>
@@ -37,13 +26,13 @@ namespace ns3
 
 NS_LOG_COMPONENT_DEFINE("FdBetFfMacScheduler");
 
-/// FdBetType0AllocationRbg array
+/// FdBetType0AllocationRbg array (see table 7.1.6.1-1 of 36.213)
 static const int FdBetType0AllocationRbg[4] = {
-    10,  // RGB size 1
-    26,  // RGB size 2
-    63,  // RGB size 3
-    110, // RGB size 4
-};       // see table 7.1.6.1-1 of 36.213
+    10,  // RBG size 1
+    26,  // RBG size 2
+    63,  // RBG size 3
+    110, // RBG size 4
+};
 
 NS_OBJECT_ENSURE_REGISTERED(FdBetFfMacScheduler);
 
@@ -999,17 +988,15 @@ FdBetFfMacScheduler::DoSchedDlTriggerReq(
                         itMax = it;
                         metricMax = metric;
                     }
-                } // end for estAveThr
+                }
 
                 rbgMap.at(i) = true;
-
-            } // end for free RBGs
+            }
 
             i++;
 
         } while (i < rbgNum); // end for RBGs
-
-    } // end if estAveThr
+    }
 
     // reset TTI stats of users
     for (auto itStats = m_flowStatsDl.begin(); itStats != m_flowStatsDl.end(); itStats++)
@@ -1037,7 +1024,7 @@ FdBetFfMacScheduler::DoSchedDlTriggerReq(
             // Set to max value, to avoid divide by 0 below
             lcActives = (uint16_t)65535; // UINT16_MAX;
         }
-        uint16_t RgbPerRnti = (*itMap).second.size();
+        uint16_t RbgPerRnti = (*itMap).second.size();
         auto itCqi = m_p10CqiRxed.find((*itMap).first);
         auto itTxMode = m_uesTxMode.find((*itMap).first);
         if (itTxMode == m_uesTxMode.end())
@@ -1058,7 +1045,7 @@ FdBetFfMacScheduler::DoSchedDlTriggerReq(
                 newDci.m_mcs.push_back(m_amc->GetMcsFromCqi((*itCqi).second));
             }
 
-            int tbSize = (m_amc->GetDlTbSizeFromMcs(newDci.m_mcs.at(j), RgbPerRnti * rbgSize) /
+            int tbSize = (m_amc->GetDlTbSizeFromMcs(newDci.m_mcs.at(j), RbgPerRnti * rbgSize) /
                           8); // (size of TB in bytes according to table 7.1.7.2.1-1 of 36.213)
             newDci.m_tbsSize.push_back(tbSize);
             bytesTxed += tbSize;
@@ -1158,7 +1145,7 @@ FdBetFfMacScheduler::DoSchedDlTriggerReq(
         }
 
         itMap++;
-    }                               // end while allocation
+    }
     ret.m_nrOfPdcchOfdmSymbols = 1; /// \todo check correct value according the DCIs txed
 
     // update UEs stats
@@ -2020,7 +2007,7 @@ void
 FdBetFfMacScheduler::TransmissionModeConfigurationUpdate(uint16_t rnti, uint8_t txMode)
 {
     NS_LOG_FUNCTION(this << " RNTI " << rnti << " txMode " << (uint16_t)txMode);
-    FfMacCschedSapUser::CschedUeConfigUpdateIndParameters params;
+    FfMacCschedSapUser::CschedUeConfigUpdateIndParameters params{};
     params.m_rnti = rnti;
     params.m_transmissionMode = txMode;
     m_cschedSapUser->CschedUeConfigUpdateInd(params);

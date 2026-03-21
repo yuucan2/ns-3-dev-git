@@ -1,18 +1,7 @@
 /*
  * Copyright (c) 2021 DERONNE SOFTWARE ENGINEERING
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation;
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * SPDX-License-Identifier: GPL-2.0-only
  *
  * Authors: Sébastien Deronne <sebastien.deronne@gmail.com>
  *          Stefano Avallone <stavallo@unina.it>
@@ -22,6 +11,7 @@
 
 #include "ns3/attribute-container.h"
 #include "ns3/boolean.h"
+#include "ns3/double.h"
 #include "ns3/enum.h"
 #include "ns3/integer.h"
 #include "ns3/log.h"
@@ -35,6 +25,21 @@ namespace ns3
 NS_LOG_COMPONENT_DEFINE("EhtConfiguration");
 
 NS_OBJECT_ENSURE_REGISTERED(EhtConfiguration);
+
+std::ostream&
+operator<<(std::ostream& os, WifiTidToLinkMappingNegSupport negsupport)
+{
+    switch (negsupport)
+    {
+    case WifiTidToLinkMappingNegSupport::NOT_SUPPORTED:
+        return os << "NOT_SUPPORTED";
+    case WifiTidToLinkMappingNegSupport::SAME_LINK_SET:
+        return os << "SAME_LINK_SET";
+    case WifiTidToLinkMappingNegSupport::ANY_LINK_SET:
+        return os << "ANY_LINK_SET";
+    };
+    return os << "UNKNOWN(" << static_cast<uint32_t>(negsupport) << ")";
+}
 
 EhtConfiguration::EhtConfiguration()
 {
@@ -94,18 +99,17 @@ EhtConfiguration::GetTypeId()
                 UintegerValue(DEFAULT_MSD_MAX_N_TXOPS),
                 MakeUintegerAccessor(&EhtConfiguration::m_msdMaxNTxops),
                 MakeUintegerChecker<uint8_t>(0, 15))
-            .AddAttribute(
-                "TidToLinkMappingNegSupport",
-                "TID-to-Link Mapping Negotiation Support.",
-                EnumValue(WifiTidToLinkMappingNegSupport::WIFI_TID_TO_LINK_MAPPING_ANY_LINK_SET),
-                MakeEnumAccessor(&EhtConfiguration::m_tidLinkMappingSupport),
-                MakeEnumChecker(
-                    WifiTidToLinkMappingNegSupport::WIFI_TID_TO_LINK_MAPPING_NOT_SUPPORTED,
-                    "NOT_SUPPORTED",
-                    WifiTidToLinkMappingNegSupport::WIFI_TID_TO_LINK_MAPPING_SAME_LINK_SET,
-                    "SAME_LINK_SET",
-                    WifiTidToLinkMappingNegSupport::WIFI_TID_TO_LINK_MAPPING_ANY_LINK_SET,
-                    "ANY_LINK_SET"))
+            .AddAttribute("TidToLinkMappingNegSupport",
+                          "TID-to-Link Mapping Negotiation Support.",
+                          EnumValue(WifiTidToLinkMappingNegSupport::ANY_LINK_SET),
+                          MakeEnumAccessor<WifiTidToLinkMappingNegSupport>(
+                              &EhtConfiguration::m_tidLinkMappingSupport),
+                          MakeEnumChecker(WifiTidToLinkMappingNegSupport::NOT_SUPPORTED,
+                                          "NOT_SUPPORTED",
+                                          WifiTidToLinkMappingNegSupport::SAME_LINK_SET,
+                                          "SAME_LINK_SET",
+                                          WifiTidToLinkMappingNegSupport::ANY_LINK_SET,
+                                          "ANY_LINK_SET"))
             .AddAttribute(
                 "TidToLinkMappingDl",
                 "A list-of-TIDs-indexed map of the list of links where the TIDs are mapped to "
@@ -159,7 +163,12 @@ EhtConfiguration::GetTypeId()
                         MakeAttributeContainerChecker<UintegerValue>(
                             MakeUintegerChecker<uint8_t>()),
                         MakeAttributeContainerChecker<UintegerValue>(
-                            MakeUintegerChecker<uint8_t>()))));
+                            MakeUintegerChecker<uint8_t>()))))
+            .AddAttribute("Per20CcaSensitivityThreshold",
+                          "CCA threshold (dBm) for Per 20MHz check.",
+                          DoubleValue(-72.0),
+                          MakeDoubleAccessor(&EhtConfiguration::m_per20CcaSensitivityThreshold),
+                          MakeDoubleChecker<dBm_u>());
     return tid;
 }
 

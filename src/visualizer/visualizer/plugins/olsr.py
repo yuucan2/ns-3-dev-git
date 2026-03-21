@@ -16,6 +16,16 @@ class ShowOlsrRoutingTable(InformationWindow):
     #  node index
     ## @var table_model
     #  table model
+    ## @var _response_cb
+    #  _response_cb function
+    ## @var COLUMN_DESTINATION
+    #  COLUMN_DESTINATION constant
+    ## @var COLUMN_NEXT_HOP
+    #  COLUMN_NEXT_HOP constant
+    ## @var COLUMN_INTERFACE
+    #  COLUMN_INTERFACE constant
+    ## @var COLUMN_NUM_HOPS
+    #  COLUMN_NUM_HOPS constant
     (
         COLUMN_DESTINATION,
         COLUMN_NEXT_HOP,
@@ -94,12 +104,12 @@ class ShowOlsrRoutingTable(InformationWindow):
         """
         node = ns.NodeList.GetNode(self.node_index)
         ipv4 = node.GetObject(ns.Ipv4.GetTypeId())
-        if not ns.cppyy.gbl.hasOlsr(ns3_node):
+        olsr = ns3_node.GetObject[ns.olsr.RoutingProtocol]()
+        if not olsr:
             return
-        olsr = ns.cppyy.gbl.getNodeOlsr(node)
 
         self.table_model.clear()
-        for route in olsr.GetRoutingTableEntries():
+        for route in olsr.__deref__().GetRoutingTableEntries():
             tree_iter = self.table_model.append()
             netdevice = ipv4.GetNetDevice(route.interface)
             if netdevice is None:
@@ -123,7 +133,7 @@ class ShowOlsrRoutingTable(InformationWindow):
 
 def populate_node_menu(viz, node, menu):
     ns3_node = ns.NodeList.GetNode(node.node_index)
-    if not ns.cppyy.gbl.hasOlsr(ns3_node):
+    if not ns3_node.GetObject[ns.olsr.RoutingProtocol]():
         print("No OLSR")
         return
 

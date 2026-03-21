@@ -120,24 +120,26 @@ You could simply add one, changing the code.  Here is the original::
     ...
 
     else if (tcpflags == (TcpHeader::SYN | TcpHeader::ACK))
-      { // No action for received SYN+ACK, it is probably a duplicated packet
-      }
+    {
+      // No action for received SYN+ACK, it is probably a duplicated packet
+    }
     ...
 
 To log the SYN+ACK case, you can add a new ``NS_LOG_LOGIC`` in the
 ``if`` statement body::
 
   /* Received a packet upon ESTABLISHED state. This function is mimicking the
-      role of tcp_rcv_established() in tcp_input.c in Linux kernel. */
+     role of tcp_rcv_established() in tcp_input.c in Linux kernel. */
   void
   TcpSocketBase::ProcessEstablished(Ptr<Packet> packet, const TcpHeader& tcpHeader)
   {
     NS_LOG_FUNCTION(this << tcpHeader);
     ...
     else if (tcpflags == (TcpHeader::SYN | TcpHeader::ACK))
-      { // No action for received SYN+ACK, it is probably a duplicated packet
-        NS_LOG_LOGIC("TcpSocketBase " << this << " ignoring SYN+ACK");
-      }
+    {
+      // No action for received SYN+ACK, it is probably a duplicated packet
+      NS_LOG_LOGIC("TcpSocketBase " << this << " ignoring SYN+ACK");
+    }
     ...
 
 This may seem fairly simple and satisfying at first glance, but
@@ -314,18 +316,7 @@ example of tracing that can be assembled.  You can find this code in
 the tutorial directory as ``fourth.cc``.  Let's walk through it::
 
   /*
-   * This program is free software; you can redistribute it and/or modify
-   * it under the terms of the GNU General Public License version 2 as
-   * published by the Free Software Foundation;
-   *
-   * This program is distributed in the hope that it will be useful,
-   * but WITHOUT ANY WARRANTY; without even the implied warranty of
-   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   * GNU General Public License for more details.
-   *
-   * You should have received a copy of the GNU General Public License
-   * along with this program; if not, write to the Free Software
-   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+   * SPDX-License-Identifier: GPL-2.0-only
    */
 
   #include "ns3/object.h"
@@ -463,7 +454,7 @@ Let's ignore the bit about context for now.
 
 Finally, the line assigning a value to ``m_myInt``::
 
-   myObject->m_myInt = 1234;
+  myObject->m_myInt = 1234;
 
 should be interpreted as an invocation of ``operator=`` on the member
 variable ``m_myInt`` with the integer ``1234`` passed as a parameter.
@@ -558,7 +549,7 @@ could have used this ``Ptr<Node>`` to call a Connect method
 directly::
 
   Ptr<Object> theObject = wifiStaNodes.Get(nWifi - 1);
-  theObject->TraceConnectWithoutContext("CourseChange", MakeCallback(&CourseChange));
+  theObject->GetObject<MobilityModel>()->TraceConnectWithoutContext("CourseChange", MakeCallback(&CourseChange));
 
 In the ``third.cc`` example, we actually wanted an additional "context"
 to be delivered along with the Callback parameters (which will be
@@ -566,7 +557,7 @@ explained below) so we could actually use the following equivalent
 code::
 
   Ptr<Object> theObject = wifiStaNodes.Get(nWifi - 1);
-  theObject->TraceConnect("CourseChange", MakeCallback(&CourseChange));
+  theObject->GetObject<MobilityModel>()->TraceConnect("CourseChange", MakeCallback(&CourseChange));
 
 It turns out that the internal code for
 ``Config::ConnectWithoutContext`` and ``Config::Connect`` actually
@@ -589,7 +580,7 @@ One of the predefined namespaces in the config system is "NodeList"
 which is a list of all of the nodes in the simulation.  Items in the
 list are referred to by indices into the list, so "/NodeList/7" refers
 to the eighth Node in the list of nodes created during the simulation
-(recall indices start at `0').  This reference is actually a
+(recall indices start at '0').  This reference is actually a
 ``Ptr<Node>`` and so is a subclass of an ``ns3::Object``.
 
 As described in the Object Model section of the |ns3| Manual, we make
@@ -625,7 +616,7 @@ for "CourseChange" in your favorite editor.  You should find
   .AddTraceSource("CourseChange",
                   "The value of the position and/or velocity vector changed",
                   MakeTraceSourceAccessor(&MobilityModel::m_courseChangeTrace),
-                  "ns3::MobilityModel::CourseChangeCallback")
+                  "ns3::MobilityModel::TracedCallback");
 
 which should look very familiar at this point.
 
@@ -634,14 +625,14 @@ variable in ``mobility-model.h`` you will find
 
 ::
 
-  TracedCallback<Ptr<const MobilityModel>> m_courseChangeTrace;
+  ns3::TracedCallback<Ptr<const MobilityModel>> m_courseChangeTrace;
 
 The type declaration ``TracedCallback`` identifies
 ``m_courseChangeTrace`` as a special list of Callbacks that can be
 hooked using the Config functions described above.  The ``typedef``
 for the callback function signature is also defined in the header file::
 
-  typedef void (* CourseChangeCallback)(Ptr<const MobilityModel> * model);
+  typedef void (*TracedCallback)(Ptr<const MobilityModel> model);
 
 The ``MobilityModel`` class is designed to be a base class providing a
 common interface for all of the specific subclasses.  If you search
@@ -651,7 +642,7 @@ down to the end of the file, you will see a method defined called
   void
   MobilityModel::NotifyCourseChange() const
   {
-    m_courseChangeTrace(this);
+      m_courseChangeTrace(this);
   }
 
 Derived classes will call into this method whenever they do a course
@@ -723,12 +714,12 @@ you select the "API Documentation" link, you will be taken to the
 
 In the sidebar you should see a hierarchy that begins
 
-*  ns-3
+* ns-3
 
-  *  ns-3 Documentation
-  *  All TraceSources
-  *  All Attributes
-  *  All GlobalValues
+  * ns-3 Documentation
+  * All TraceSources
+  * All Attributes
+  * All GlobalValues
 
 The list of interest to us here is "All TraceSources".  Go ahead and
 select that link.  You will see, perhaps not too surprisingly, a list
@@ -1179,23 +1170,23 @@ itself around, rather than passing the address of the object.  We
 extend that requirement to include the full set of assignment-style
 operators that are pre-defined for plain-old-data (POD) types:
 
-  +---------------------+---------------------+
-  | ``operator=`` (assignment)                |
-  +---------------------+---------------------+
-  | ``operator*=``      | ``operator/=``      |
-  +---------------------+---------------------+
-  | ``operator+=``      | ``operator-=``      |
-  +---------------------+---------------------+
-  | ``operator++`` (both prefix and postfix)  |
-  +---------------------+---------------------+
-  | ``operator--`` (both prefix and postfix)  |
-  +---------------------+---------------------+
-  | ``operator<<=``     | ``operator>>=``     |
-  +---------------------+---------------------+
-  | ``operator&=``      | ``operator|=``      |
-  +---------------------+---------------------+
-  | ``operator%=``      | ``operator^=``      |
-  +---------------------+---------------------+
++---------------------+---------------------+
+| ``operator=`` (assignment)                |
++---------------------+---------------------+
+| ``operator*=``      | ``operator/=``      |
++---------------------+---------------------+
+| ``operator+=``      | ``operator-=``      |
++---------------------+---------------------+
+| ``operator++`` (both prefix and postfix)  |
++---------------------+---------------------+
+| ``operator--`` (both prefix and postfix)  |
++---------------------+---------------------+
+| ``operator<<=``     | ``operator>>=``     |
++---------------------+---------------------+
+| ``operator&=``      | ``operator|=``      |
++---------------------+---------------------+
+| ``operator%=``      | ``operator^=``      |
++---------------------+---------------------+
 
 What this all really means is that you will be able to trace all
 changes made using those operators to a C++ object which has value
@@ -1390,18 +1381,7 @@ dissecting the congestion window test.  Open
 see some familiar looking code::
 
   /*
-   * This program is free software; you can redistribute it and/or modify
-   * it under the terms of the GNU General Public License version 2 as
-   * published by the Free Software Foundation;
-   *
-   * This program is distributed in the hope that it will be useful,
-   * but WITHOUT ANY WARRANTY; without even the implied warranty of
-   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   * GNU General Public License for more details.
-   *
-   * You should have received a copy of the GNU General Public License
-   * along with this program; if not, write to the Free Software
-   * Foundation, Include., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+   * SPDX-License-Identifier: GPL-2.0-only
    */
 
   #include "tutorial-app.h"
@@ -1540,8 +1520,8 @@ The most common way to start pumping events is to start an
 (hopefully) familiar lines of an |ns3| script::
 
   ApplicationContainer apps = ...
-  apps.Start(Seconds(1.0));
-  apps.Stop(Seconds(10.0));
+  apps.Start(Seconds(1));
+  apps.Stop(Seconds(10));
 
 The application container code (see
 ``src/network/helper/application-container.h`` if you are interested)
@@ -1642,13 +1622,13 @@ look at ``src/network/model/application.cc`` and you will find::
   void
   Application::DoInitialize()
   {
-    NS_LOG_FUNCTION(this);
-    m_startEvent = Simulator::Schedule(m_startTime, &Application::StartApplication, this);
-    if (m_stopTime != TimeStep(0))
+      NS_LOG_FUNCTION(this);
+      m_startEvent = Simulator::Schedule(m_startTime, &Application::StartApplication, this);
+      if (m_stopTime != TimeStep(0))
       {
-        m_stopEvent = Simulator::Schedule(m_stopTime, &Application::StopApplication, this);
+          m_stopEvent = Simulator::Schedule(m_stopTime, &Application::StopApplication, this);
       }
-    Object::DoInitialize();
+      Object::DoInitialize();
   }
 
 Here, we finally come to the end of the trail.  If you have kept it
@@ -1763,7 +1743,7 @@ creating simulation events.
   {
       m_running = false;
 
-      if (m_sendEvent.IsRunning())
+      if (m_sendEvent.IsPending())
       {
           Simulator::Cancel(m_sendEvent);
       }
@@ -1776,7 +1756,7 @@ creating simulation events.
 
 Every time a simulation event is scheduled, an ``Event`` is created.
 If the ``Event`` is pending execution or executing, its method
-``IsRunning`` will return ``true``.  In this code, if ``IsRunning()``
+``IsPending`` will return ``true``.  In this code, if ``IsPending()``
 returns true, we ``Cancel`` the event which removes it from the
 simulator event queue.  By doing this, we break the chain of events
 that the ``Application`` is using to keep sending its ``Packets`` and
@@ -2446,13 +2426,13 @@ behaving identically, but we do strive to make them all work as
 similarly as possible; and whenever possible there are analogs for all
 methods in all classes.
 
-  +-----------------+---------+---------+
-  |                 |  PCAP   |  ASCII  |
-  +=================+=========+=========+
-  | Device Helper   | |check| | |check| |
-  +-----------------+---------+---------+
-  | Protocol Helper | |check| | |check| |
-  +-----------------+---------+---------+
++-----------------+---------+---------+
+|                 |  PCAP   |  ASCII  |
++=================+=========+=========+
+| Device Helper   | |check| | |check| |
++-----------------+---------+---------+
+| Protocol Helper | |check| | |check| |
++-----------------+---------+---------+
 
 We use an approach called a ``mixin`` to add tracing functionality to
 our helper classes.  A ``mixin`` is a class that provides
