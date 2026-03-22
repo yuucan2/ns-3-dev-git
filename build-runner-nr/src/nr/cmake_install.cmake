@@ -89,6 +89,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "C:/ns3-dev-link/src/nr/model/lena-error-model.h"
     "C:/ns3-dev-link/src/nr/model/nr-a2-a4-rsrq-handover-algorithm.h"
     "C:/ns3-dev-link/src/nr/model/nr-a3-rsrp-handover-algorithm.h"
+    "C:/ns3-dev-link/src/nr/model/nr-tn-ntn-handover-algorithm.h"
     "C:/ns3-dev-link/src/nr/model/nr-amc.h"
     "C:/ns3-dev-link/src/nr/model/nr-anr.h"
     "C:/ns3-dev-link/src/nr/model/nr-anr-sap.h"

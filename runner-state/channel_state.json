@@ -1,6 +1,6 @@
 {
   "schema_version": "ns3_runner_channel_state_v1",
-  "scenario_mode": "RuleBased",
+  "scenario_mode": "Baseline",
   "operation": "configure_channel_and_offsets",
   "payload": {
     "profile": {
@@ -87,7 +87,7 @@
         true,
         true,
         true,
-        true
+        false
       ],
       "channel_model": "3GPP TR 38.901",
       "channel_scenario": "RMa",

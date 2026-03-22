@@ -2299,6 +2299,12 @@
 },
 {
   "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -Dnr_EXPORTS -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr.dir\\model\\nr-tn-ntn-handover-algorithm.cc.obj -c C:\\ns3-dev-link\\src\\nr\\model\\nr-tn-ntn-handover-algorithm.cc",
+  "file": "C:/ns3-dev-link/src/nr/model/nr-tn-ntn-handover-algorithm.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr.dir/model/nr-tn-ntn-handover-algorithm.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
   "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -Dnr_EXPORTS -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr.dir\\model\\nr-amc.cc.obj -c C:\\ns3-dev-link\\src\\nr\\model\\nr-amc.cc",
   "file": "C:/ns3-dev-link/src/nr/model/nr-amc.cc",
   "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr.dir/model/nr-amc.cc.obj"
