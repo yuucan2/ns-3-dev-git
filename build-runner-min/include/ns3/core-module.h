@@ -3,6 +3,7 @@
 #endif 
 #ifndef NS3_MODULE_CORE
     // Module headers: 
+    #include <ns3/core-config.h>
     #include <ns3/int64x64-128.h>
     #include <ns3/csv-reader.h>
     #include <ns3/event-garbage-collector.h>
@@ -25,6 +26,7 @@
     #include <ns3/config.h>
     #include <ns3/default-deleter.h>
     #include <ns3/default-simulator-impl.h>
+    #include <ns3/demangle.h>
     #include <ns3/deprecated.h>
     #include <ns3/des-metrics.h>
     #include <ns3/double.h>
@@ -41,7 +43,6 @@
     #include <ns3/hash-murmur3.h>
     #include <ns3/hash.h>
     #include <ns3/heap-scheduler.h>
-    #include <ns3/int-to-type.h>
     #include <ns3/int64x64-double.h>
     #include <ns3/int64x64.h>
     #include <ns3/integer.h>
@@ -71,6 +72,7 @@
     #include <ns3/rng-stream.h>
     #include <ns3/scheduler.h>
     #include <ns3/show-progress.h>
+    #include <ns3/shuffle.h>
     #include <ns3/simple-ref-count.h>
     #include <ns3/simulation-singleton.h>
     #include <ns3/simulator-impl.h>
@@ -94,7 +96,7 @@
     #include <ns3/type-name.h>
     #include <ns3/type-traits.h>
     #include <ns3/uinteger.h>
-    #include <ns3/unused.h>
+    #include <ns3/uniform-random-bit-generator.h>
     #include <ns3/valgrind.h>
     #include <ns3/vector.h>
     #include <ns3/warnings.h>

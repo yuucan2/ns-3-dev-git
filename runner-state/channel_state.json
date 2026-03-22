@@ -7,6 +7,11 @@
       "cell_type": [
         "TN",
         "TN",
+        "TN",
+        "TN",
+        "TN",
+        "TN",
+        "TN",
         "NTN"
       ],
       "gnb_positions_m": [
@@ -16,30 +21,70 @@
           35
         ],
         [
-          9000,
+          -450,
+          -779.4228634059947,
+          35
+        ],
+        [
+          450,
+          -779.4228634059947,
+          35
+        ],
+        [
+          900,
           0,
           35
         ],
         [
-          20312.106768094003,
-          574.0204859506339,
-          600000
+          450,
+          779.4228634059947,
+          35
+        ],
+        [
+          -450,
+          779.4228634059947,
+          35
+        ],
+        [
+          -900,
+          0,
+          35
+        ],
+        [
+          0,
+          0,
+          600000.0000000009
         ]
       ],
       "delay_offset_slots": [
         0,
         0,
-        8
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ],
       "subcarrier_spacing_hz": 30000,
-      "total_bandwidth_hz": 40000000.0,
+      "total_bandwidth_hz": 140000000.0,
       "carrier_frequency_hz": 2000000000.0,
       "transmit_power_dbm": [
+        40,
+        40,
+        40,
+        40,
+        40,
         40,
         40,
         45
       ],
       "allowed_serving_cells": [
+        true,
+        true,
+        true,
+        true,
+        true,
         true,
         true,
         true
@@ -55,7 +100,12 @@
         "delay_offset_slots": [
           0,
           0,
-          8
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
         ],
         "base_scheduling_delay_k1": 8,
         "base_scheduling_delay_k2": 8,
@@ -71,6 +121,11 @@
         "cu_du_propagation_delay_sec": [
           0,
           0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
         ],
         "prb_delay_path_count": 3,
@@ -78,7 +133,7 @@
         "control_transport_mode": "legacy"
       }
     },
-    "num_gnbs": 3,
-    "num_ues": 6
+    "num_gnbs": 8,
+    "num_ues": 24
   }
 }
