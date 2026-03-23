@@ -1,0 +1,40 @@
+---- Summary of ns-3 settings:
+Build profile                 : debug
+Build directory               : C:/ns3-dev-link/build
+Build with runtime asserts    : ON
+Build with runtime logging    : ON
+Build version embedding       : OFF (not requested)
+BRITE Integration             : OFF (missing dependency)
+DES Metrics event collection  : OFF (not requested)
+DPDK NetDevice                : OFF (not requested)
+Emulation FdNetDevice         : OFF (not requested)
+Examples                      : OFF (not requested)
+File descriptor NetDevice     : OFF (missing dependency)
+GNU Scientific Library (GSL)  : OFF (GSL was not found)
+GtkConfigStore                : OFF (Harfbuzz is required by GTK3 and was not found)
+LibXml2 support               : OFF (LibXML2 was not found)
+MPI Support                   : OFF (not requested)
+ns-3 Click Integration        : OFF (missing dependency)
+ns-3 OpenFlow Integration     : OFF (missing dependency)
+Netmap emulation FdNetDevice  : OFF (not requested)
+PyViz visualizer              : OFF (Python Bindings are disabled)
+Python Bindings               : OFF (not requested)
+SQLite support                : OFF (missing dependency)
+Eigen3 support                : OFF (Eigen was not found)
+Tap Bridge                    : OFF (not requested)
+Tap FdNetDevice               : OFF (not requested)
+Tests                         : ON
+
+
+Modules configured to be built:
+antenna                   applications              bridge                    
+buildings                 config-store              core                      
+csma                      flow-monitor              internet                  
+internet-apps             mobility                  network                   
+nr                        point-to-point            propagation               
+spectrum                  stats                     test                      
+traffic-control           virtual-net-device        
+
+Modules that cannot be built:
+mpi                       
+

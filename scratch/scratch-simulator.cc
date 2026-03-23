@@ -31,6 +31,7 @@
 
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <cctype>
 #include <cstdint>
 #include <fstream>
@@ -70,6 +71,50 @@ struct UeSpec
     double z{0.0};
 };
 
+struct NtnTrajectoryTrack
+{
+    uint32_t cellId{0};
+    std::string source{"unknown"};
+    std::vector<double> timeSec;
+    std::vector<std::array<double, 3>> positionsM;
+};
+
+struct BwpEventSpec
+{
+    std::string eventId;
+    std::string eventType;
+    double eventTimeSec{0.0};
+    uint32_t targetCellId{0};
+    uint32_t requestId{0};
+    uint32_t targetBwpId{0};
+    double targetDlFrequencyHz{0.0};
+    double targetUlFrequencyHz{0.0};
+    double targetBandwidthHz{0.0};
+};
+
+struct BwpTransactionRecord
+{
+    uint32_t requestId{0};
+    uint32_t cellId{0};
+    bool overlapGatePassed{false};
+    bool success{false};
+    std::string failureReason;
+    uint32_t oldBwpId{0};
+    uint32_t targetBwpId{0};
+    double oldDlFrequencyHz{0.0};
+    double oldUlFrequencyHz{0.0};
+    double oldBandwidthHz{0.0};
+    double targetDlFrequencyHz{0.0};
+    double targetUlFrequencyHz{0.0};
+    double targetBandwidthHz{0.0};
+    double requestTimeSec{0.0};
+    double scheduledApplyTimeSec{std::numeric_limits<double>::quiet_NaN()};
+    double effectiveApplyTimeSec{std::numeric_limits<double>::quiet_NaN()};
+    double ackTimeSec{std::numeric_limits<double>::quiet_NaN()};
+    double ackTimeoutSec{0.0};
+    bool hoBlockedInWindow{false};
+};
+
 struct ScenarioPlan
 {
     std::string operation{"unknown"};
@@ -81,6 +126,7 @@ struct ScenarioPlan
     std::string topologySourcePath;
     std::string channelSourcePath;
     std::string controlEventsSourcePath;
+    std::string ntnTrajectorySourcePath;
     RunnerControlDelayConfig delayConfig;
     std::string ntnTaCapabilityMode{"all_supported"};
     uint32_t ntnTaSupportedUeCount{0};
@@ -89,6 +135,18 @@ struct ScenarioPlan
     uint32_t bwpEventCount{0};
     uint32_t hoEventCount{0};
     uint32_t taEventCount{0};
+    bool ntnTrajectoryEnabled{false};
+    double ntnTrajectoryUpdatePeriodSec{0.0};
+    uint32_t ntnTrajectoryTrackCount{0};
+    uint32_t ntnTrajectoryWaypointCount{0};
+    std::vector<NtnTrajectoryTrack> ntnTrajectoryTracks;
+    std::vector<BwpEventSpec> bwpEvents;
+    double tnAreaRadiusM{0.0};
+    double ntnAreaRadiusAtElevation90DegM{0.0};
+    double bwpAckTimeoutMinSec{0.020};
+    double bwpAckTimeoutPropagationFactor{4.0};
+    double bwpAckTimeoutGuardSec{0.005};
+    double rrcControlPeriodSec{0.10};
 };
 
 struct MetricsOutput
@@ -176,6 +234,15 @@ struct MetricsOutput
     uint32_t bwpEventCount{0};
     uint32_t hoEventCount{0};
     uint32_t taEventCount{0};
+    bool ntnTrajectoryEnabled{false};
+    double ntnTrajectoryUpdatePeriodSec{0.0};
+    uint32_t ntnTrajectoryTrackCount{0};
+    uint32_t ntnTrajectoryWaypointCount{0};
+    uint32_t bwpTransactionCount{0};
+    uint32_t bwpSuccessCount{0};
+    uint32_t bwpFailureCount{0};
+    uint32_t bwpHoBlockedCount{0};
+    std::vector<BwpTransactionRecord> bwpTransactions;
     std::vector<double> dlBytesPerCell;
     std::vector<double> ulBytesPerCell;
     std::vector<double> prbUtilPerCell;
@@ -781,6 +848,79 @@ ExtractObjectBodyAfterKey(const std::string& text, const std::string& key)
     return text.substr(objectStart, objectEnd - objectStart + 1);
 }
 
+std::optional<std::string>
+ExtractArrayBodyAfterKey(const std::string& text, const std::string& key)
+{
+    const auto keyPos = text.find("\"" + key + "\"");
+    if (keyPos == std::string::npos)
+    {
+        return std::nullopt;
+    }
+    const auto arrayStart = text.find('[', keyPos);
+    if (arrayStart == std::string::npos)
+    {
+        return std::nullopt;
+    }
+    int depth = 0;
+    size_t arrayEnd = std::string::npos;
+    for (size_t i = arrayStart; i < text.size(); ++i)
+    {
+        if (text[i] == '[')
+        {
+            depth++;
+        }
+        else if (text[i] == ']')
+        {
+            depth--;
+            if (depth == 0)
+            {
+                arrayEnd = i;
+                break;
+            }
+        }
+    }
+    if (arrayEnd == std::string::npos)
+    {
+        return std::nullopt;
+    }
+    return text.substr(arrayStart, arrayEnd - arrayStart + 1);
+}
+
+std::vector<std::string>
+ExtractObjectArrayBodiesAfterKey(const std::string& text, const std::string& key)
+{
+    std::vector<std::string> bodies;
+    auto arrayBody = ExtractArrayBodyAfterKey(text, key);
+    if (!arrayBody.has_value())
+    {
+        return bodies;
+    }
+    const std::string& body = *arrayBody;
+    int depth = 0;
+    size_t objectStart = std::string::npos;
+    for (size_t i = 0; i < body.size(); ++i)
+    {
+        if (body[i] == '{')
+        {
+            if (depth == 0)
+            {
+                objectStart = i;
+            }
+            depth++;
+        }
+        else if (body[i] == '}')
+        {
+            depth--;
+            if (depth == 0 && objectStart != std::string::npos)
+            {
+                bodies.push_back(body.substr(objectStart, i - objectStart + 1));
+                objectStart = std::string::npos;
+            }
+        }
+    }
+    return bodies;
+}
+
 std::vector<double>
 ExtractNumberArrayAfterKey(const std::string& text, const std::string& key)
 {
@@ -905,12 +1045,298 @@ ExtractMatrix3AfterKey(const std::string& text, const std::string& key)
     return rows;
 }
 
+double
+GetMetadataNumber(const std::string& eventBody, const std::string& key, double defaultValue)
+{
+    if (auto metadataBody = ExtractObjectBodyAfterKey(eventBody, "metadata"))
+    {
+        if (auto value = ExtractFirstNumberAfterKey(*metadataBody, key))
+        {
+            return *value;
+        }
+    }
+    if (auto value = ExtractFirstNumberAfterKey(eventBody, key))
+    {
+        return *value;
+    }
+    return defaultValue;
+}
+
+std::vector<uint32_t>
+GetTargetCellIds(const std::string& eventBody)
+{
+    std::vector<uint32_t> out;
+    const auto targetCellIds = ExtractNumberArrayAfterKey(eventBody, "target_cell_ids");
+    for (double value : targetCellIds)
+    {
+        const uint32_t cellId = static_cast<uint32_t>(std::max(0.0, value));
+        if (cellId > 0)
+        {
+            out.push_back(cellId);
+        }
+    }
+    if (!out.empty())
+    {
+        return out;
+    }
+    const double singleTarget = GetMetadataNumber(eventBody, "target_cell_id", 0.0);
+    if (singleTarget > 0.0)
+    {
+        out.push_back(static_cast<uint32_t>(singleTarget));
+    }
+    return out;
+}
+
+std::vector<BwpEventSpec>
+ExtractBwpEventsFromControlSource(const std::string& controlJsonSource)
+{
+    std::vector<BwpEventSpec> out;
+    const auto eventBodies = ExtractObjectArrayBodiesAfterKey(controlJsonSource, "events");
+    for (const auto& eventBody : eventBodies)
+    {
+        const auto eventType = ExtractFirstStringAfterKey(eventBody, "event_type").value_or("");
+        const bool isBwpRequestType = (eventType == "BwpReconfigRequested") || (eventType == "bwp_reconfig");
+        if (!isBwpRequestType)
+        {
+            continue;
+        }
+
+        const std::vector<uint32_t> targetCellIds = GetTargetCellIds(eventBody);
+        if (targetCellIds.empty())
+        {
+            continue;
+        }
+
+        const std::string eventId = ExtractFirstStringAfterKey(eventBody, "event_id").value_or("");
+        const double eventTimeSec = ExtractFirstNumberAfterKey(eventBody, "event_time_sec").value_or(0.0);
+        const uint32_t requestId = static_cast<uint32_t>(
+            std::max(0.0, GetMetadataNumber(eventBody, "request_id", 0.0)));
+        const uint32_t targetBwpId = static_cast<uint32_t>(
+            std::max(0.0, GetMetadataNumber(eventBody, "target_bwp_id", 0.0)));
+        const double targetDlFrequencyHz = GetMetadataNumber(eventBody, "target_dl_frequency_hz", 0.0);
+        const double targetUlFrequencyHz = GetMetadataNumber(eventBody, "target_ul_frequency_hz", 0.0);
+        const double targetBandwidthHz = GetMetadataNumber(eventBody, "target_bandwidth_hz", 0.0);
+
+        for (uint32_t targetCellId : targetCellIds)
+        {
+            BwpEventSpec spec;
+            spec.eventId = eventId;
+            spec.eventType = eventType;
+            spec.eventTimeSec = eventTimeSec;
+            spec.targetCellId = targetCellId;
+            spec.requestId = requestId;
+            spec.targetBwpId = targetBwpId;
+            spec.targetDlFrequencyHz = targetDlFrequencyHz;
+            spec.targetUlFrequencyHz = targetUlFrequencyHz;
+            spec.targetBandwidthHz = targetBandwidthHz;
+            out.push_back(spec);
+        }
+    }
+    return out;
+}
+
+double
+Distance2d(const NodeSpec& lhs, const NodeSpec& rhs)
+{
+    const double dx = lhs.x - rhs.x;
+    const double dy = lhs.y - rhs.y;
+    return std::sqrt(dx * dx + dy * dy);
+}
+
+bool
+EvaluateOverlapGatePass(const ScenarioPlan& plan, uint32_t targetCellId)
+{
+    if (plan.tnAreaRadiusM <= 0.0 || plan.ntnAreaRadiusAtElevation90DegM <= 0.0)
+    {
+        return false;
+    }
+    const NodeSpec* targetCell = nullptr;
+    for (const auto& cell : plan.cells)
+    {
+        if (cell.id == targetCellId)
+        {
+            targetCell = &cell;
+            break;
+        }
+    }
+    if (targetCell == nullptr)
+    {
+        return false;
+    }
+    for (const auto& tnCell : plan.cells)
+    {
+        if (tnCell.cellType != "TN")
+        {
+            continue;
+        }
+        for (const auto& ntnCell : plan.cells)
+        {
+            if (ntnCell.cellType != "NTN")
+            {
+                continue;
+            }
+            const double centerDistance = Distance2d(tnCell, ntnCell);
+            if (centerDistance > (plan.tnAreaRadiusM + plan.ntnAreaRadiusAtElevation90DegM))
+            {
+                continue;
+            }
+            if ((targetCell->id == tnCell.id) || (targetCell->id == ntnCell.id))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+double
+EstimateOneWayPropagationDelaySec(const ScenarioPlan& plan, uint32_t targetCellId)
+{
+    if (plan.delayConfig.ntnOneWayPropagationDelaySec > 0.0)
+    {
+        return plan.delayConfig.ntnOneWayPropagationDelaySec;
+    }
+    constexpr double SPEED_OF_LIGHT_M_PER_SEC = 299792458.0;
+    double fallbackDistanceM = 600000.0;
+    for (const auto& cell : plan.cells)
+    {
+        if (cell.id == targetCellId && cell.cellType == "NTN")
+        {
+            fallbackDistanceM = std::max(cell.z, fallbackDistanceM);
+            break;
+        }
+    }
+    return fallbackDistanceM / SPEED_OF_LIGHT_M_PER_SEC;
+}
+
+std::vector<double>
+CollectHoEventTimesSec(const std::string& controlJsonSource)
+{
+    std::vector<double> out;
+    const auto eventBodies = ExtractObjectArrayBodiesAfterKey(controlJsonSource, "events");
+    for (const auto& eventBody : eventBodies)
+    {
+        const auto eventType = ExtractFirstStringAfterKey(eventBody, "event_type").value_or("");
+        const bool isHo = (eventType == "HandoverRequested") || (eventType == "HandoverStarted") ||
+                          (eventType == "HandoverCompleted") || (eventType == "handover");
+        if (!isHo)
+        {
+            continue;
+        }
+        out.push_back(ExtractFirstNumberAfterKey(eventBody, "event_time_sec").value_or(0.0));
+    }
+    return out;
+}
+
+std::vector<BwpTransactionRecord>
+BuildBwpTransactions(const ScenarioPlan& plan, const std::string& controlJsonSource)
+{
+    std::vector<BwpTransactionRecord> out;
+    if (plan.bwpEvents.empty())
+    {
+        return out;
+    }
+
+    RunnerControlDelayModel delayModel(plan.delayConfig);
+    const auto hoEventTimes = CollectHoEventTimesSec(controlJsonSource);
+    uint32_t generatedRequestId = 1;
+
+    for (const auto& event : plan.bwpEvents)
+    {
+        BwpTransactionRecord tx;
+        tx.requestId = event.requestId > 0 ? event.requestId : generatedRequestId++;
+        tx.cellId = event.targetCellId;
+        tx.requestTimeSec = std::max(0.0, event.eventTimeSec);
+        tx.targetBwpId = event.targetBwpId;
+        tx.targetDlFrequencyHz = event.targetDlFrequencyHz;
+        tx.targetUlFrequencyHz = event.targetUlFrequencyHz;
+        tx.targetBandwidthHz = event.targetBandwidthHz;
+
+        for (const auto& cell : plan.cells)
+        {
+            if (cell.id == tx.cellId)
+            {
+                tx.oldDlFrequencyHz = cell.carrierFrequencyHz;
+                tx.oldUlFrequencyHz = cell.carrierFrequencyHz;
+                tx.oldBandwidthHz = cell.bandwidthHz;
+                break;
+            }
+        }
+        if (tx.targetDlFrequencyHz <= 0.0)
+        {
+            tx.targetDlFrequencyHz = tx.oldDlFrequencyHz;
+        }
+        if (tx.targetUlFrequencyHz <= 0.0)
+        {
+            tx.targetUlFrequencyHz = tx.oldUlFrequencyHz;
+        }
+        if (tx.targetBandwidthHz <= 0.0)
+        {
+            tx.targetBandwidthHz = tx.oldBandwidthHz;
+        }
+
+        tx.overlapGatePassed = EvaluateOverlapGatePass(plan, tx.cellId);
+        if (!tx.overlapGatePassed)
+        {
+            tx.success = false;
+            tx.failureReason = "overlap_gate_rejected";
+            out.push_back(tx);
+            continue;
+        }
+
+        bool targetIsNtn = false;
+        for (const auto& cell : plan.cells)
+        {
+            if (cell.id == tx.cellId)
+            {
+                targetIsNtn = (cell.cellType == "NTN");
+                break;
+            }
+        }
+        const auto delayDiag = delayModel.EvaluateBwpUpdateDelay(tx.cellId, targetIsNtn);
+        tx.scheduledApplyTimeSec = tx.requestTimeSec + std::max(0.0, delayDiag.totalDelaySec);
+        tx.effectiveApplyTimeSec = tx.scheduledApplyTimeSec;
+
+        const double oneWayPropagationDelaySec = EstimateOneWayPropagationDelaySec(plan, tx.cellId);
+        tx.ackTimeoutSec = std::max(
+            plan.bwpAckTimeoutMinSec,
+            plan.bwpAckTimeoutPropagationFactor * oneWayPropagationDelaySec + plan.rrcControlPeriodSec +
+                plan.bwpAckTimeoutGuardSec);
+        tx.ackTimeSec = tx.effectiveApplyTimeSec + std::min(
+                                                   tx.ackTimeoutSec * 0.8,
+                                                   2.0 * oneWayPropagationDelaySec + plan.rrcControlPeriodSec);
+        if (tx.ackTimeSec > (tx.requestTimeSec + tx.ackTimeoutSec))
+        {
+            tx.success = false;
+            tx.failureReason = "ack_timeout";
+        }
+        else
+        {
+            tx.success = true;
+            tx.failureReason = "";
+        }
+
+        for (double hoTimeSec : hoEventTimes)
+        {
+            if (hoTimeSec >= tx.requestTimeSec && hoTimeSec <= tx.ackTimeSec)
+            {
+                tx.hoBlockedInWindow = true;
+                break;
+            }
+        }
+        out.push_back(tx);
+    }
+
+    return out;
+}
+
 ScenarioPlan
 BuildScenarioPlanFromState(const std::string& operation,
                            double runDurationSec,
                            const std::string& topologyPath,
                            const std::string& channelPath,
                            const std::string& controlEventsPath,
+                           const std::string& ntnTrajectoryPath,
                            const std::string& requestPath)
 {
     ScenarioPlan plan;
@@ -919,9 +1345,11 @@ BuildScenarioPlanFromState(const std::string& operation,
     plan.topologySourcePath = topologyPath;
     plan.channelSourcePath = channelPath;
     plan.controlEventsSourcePath = controlEventsPath;
+    plan.ntnTrajectorySourcePath = ntnTrajectoryPath;
 
     const std::string topologyJson = ReadTextFile(topologyPath);
     const std::string controlEventsJson = ReadTextFile(controlEventsPath);
+    const std::string ntnTrajectoryJson = ReadTextFile(ntnTrajectoryPath);
     const std::string requestJson = ReadTextFile(requestPath);
 
     if (topologyJson.empty())
@@ -1073,6 +1501,22 @@ BuildScenarioPlanFromState(const std::string& operation,
     }
 
     const std::string& controlJsonSource = controlEventsJson.empty() ? topologyJson : controlEventsJson;
+    if (auto profileBody = ExtractObjectBodyAfterKey(topologyJson, "profile"))
+    {
+        plan.tnAreaRadiusM = ExtractFirstNumberAfterKey(*profileBody, "tn_area_radius_m").value_or(0.0);
+        plan.ntnAreaRadiusAtElevation90DegM =
+            ExtractFirstNumberAfterKey(*profileBody, "ntn_area_radius_at_elevation90_deg_m")
+                .value_or(0.0);
+        plan.bwpAckTimeoutMinSec =
+            ExtractFirstNumberAfterKey(*profileBody, "bwp_ack_timeout_min_sec").value_or(0.020);
+        plan.bwpAckTimeoutPropagationFactor =
+            ExtractFirstNumberAfterKey(*profileBody, "bwp_ack_timeout_propagation_factor")
+                .value_or(4.0);
+        plan.bwpAckTimeoutGuardSec =
+            ExtractFirstNumberAfterKey(*profileBody, "bwp_ack_timeout_guard_sec").value_or(0.005);
+        plan.rrcControlPeriodSec =
+            ExtractFirstNumberAfterKey(*profileBody, "rrc_control_period_sec").value_or(0.10);
+    }
     plan.controlEventCount = CountMatches(controlJsonSource, std::regex("\"event_type\"\\s*:"));
     plan.bwpEventCount = CountMatches(controlJsonSource,
                                       std::regex("\"event_type\"\\s*:\\s*\"(BwpReconfigRequested|BwpReconfigApplied|bwp_reconfig)\""));
@@ -1080,6 +1524,90 @@ BuildScenarioPlanFromState(const std::string& operation,
                                      std::regex("\"event_type\"\\s*:\\s*\"(HandoverRequested|HandoverStarted|HandoverCompleted|handover)\""));
     plan.taEventCount = CountMatches(controlJsonSource,
                                      std::regex("\"event_type\"\\s*:\\s*\"(TaAdjustmentRequested|TaAdjustmentApplied|timing_advance)\""));
+    plan.bwpEvents = ExtractBwpEventsFromControlSource(controlJsonSource);
+
+    std::optional<std::string> ntnTrajectoryBody;
+    if (!ntnTrajectoryJson.empty())
+    {
+        ntnTrajectoryBody = ExtractObjectBodyAfterKey(ntnTrajectoryJson, "payload");
+    }
+    if (!ntnTrajectoryBody.has_value())
+    {
+        ntnTrajectoryBody = ExtractObjectBodyAfterKey(topologyJson, "ntn_trajectory");
+    }
+    if (ntnTrajectoryBody.has_value())
+    {
+        const std::string& body = *ntnTrajectoryBody;
+        if (auto enabled = ExtractFirstBoolAfterKey(body, "enabled"))
+        {
+            plan.ntnTrajectoryEnabled = *enabled;
+        }
+        if (auto period = ExtractFirstNumberAfterKey(body, "update_period_sec"))
+        {
+            plan.ntnTrajectoryUpdatePeriodSec = *period;
+        }
+        const auto trackBodies = ExtractObjectArrayBodiesAfterKey(body, "tracks");
+        for (const auto& trackBody : trackBodies)
+        {
+            NtnTrajectoryTrack track;
+            if (auto cellIdx = ExtractFirstNumberAfterKey(trackBody, "cell_idx"))
+            {
+                track.cellId = static_cast<uint32_t>(std::max(0.0, *cellIdx));
+            }
+            if (auto source = ExtractFirstStringAfterKey(trackBody, "source"))
+            {
+                track.source = *source;
+            }
+            track.timeSec = ExtractNumberArrayAfterKey(trackBody, "time_sec");
+            track.positionsM = ExtractMatrix3AfterKey(trackBody, "positions_m");
+            if (track.cellId == 0 || track.timeSec.empty() || track.positionsM.empty())
+            {
+                continue;
+            }
+            if (track.timeSec.size() != track.positionsM.size())
+            {
+                continue;
+            }
+            if (std::abs(track.timeSec.front()) > 1e-6)
+            {
+                continue;
+            }
+            bool monotonic = true;
+            for (size_t i = 1; i < track.timeSec.size(); ++i)
+            {
+                if (!(track.timeSec[i] > track.timeSec[i - 1]))
+                {
+                    monotonic = false;
+                    break;
+                }
+            }
+            if (!monotonic)
+            {
+                continue;
+            }
+            plan.ntnTrajectoryWaypointCount += static_cast<uint32_t>(track.timeSec.size());
+            plan.ntnTrajectoryTracks.push_back(track);
+        }
+        plan.ntnTrajectoryTrackCount = static_cast<uint32_t>(plan.ntnTrajectoryTracks.size());
+
+        for (const auto& track : plan.ntnTrajectoryTracks)
+        {
+            if (track.positionsM.empty())
+            {
+                continue;
+            }
+            for (auto& cell : plan.cells)
+            {
+                if (cell.id == track.cellId && cell.cellType == "NTN")
+                {
+                    cell.x = track.positionsM.front()[0];
+                    cell.y = track.positionsM.front()[1];
+                    cell.z = track.positionsM.front()[2];
+                    break;
+                }
+            }
+        }
+    }
 
     return plan;
 }
@@ -1102,6 +1630,10 @@ RunPlaceholderGenericScenario(const ScenarioPlan& plan, const std::string& reque
     metrics.bwpEventCount = plan.bwpEventCount;
     metrics.hoEventCount = plan.hoEventCount;
     metrics.taEventCount = plan.taEventCount;
+    metrics.ntnTrajectoryEnabled = plan.ntnTrajectoryEnabled;
+    metrics.ntnTrajectoryUpdatePeriodSec = plan.ntnTrajectoryUpdatePeriodSec;
+    metrics.ntnTrajectoryTrackCount = plan.ntnTrajectoryTrackCount;
+    metrics.ntnTrajectoryWaypointCount = plan.ntnTrajectoryWaypointCount;
     RunnerControlDelayModel delayModel(plan.delayConfig);
     if (!plan.cells.empty())
     {
@@ -1137,23 +1669,23 @@ SupportsMinimalTnNrScenario(const ScenarioPlan& plan)
         return false;
     }
 
-    uint32_t tnCellCount = 0;
-    std::map<uint32_t, bool> activeTnCellIds;
+    uint32_t activeCellCount = 0;
+    std::map<uint32_t, bool> activeCellIds;
     for (const auto& cell : plan.cells)
     {
-        if (cell.cellType == "TN" && cell.bandwidthHz > 0.0)
+        if (cell.bandwidthHz > 0.0)
         {
-            ++tnCellCount;
-            activeTnCellIds[cell.id] = true;
+            ++activeCellCount;
+            activeCellIds[cell.id] = true;
         }
     }
-    if (tnCellCount == 0)
+    if (activeCellCount == 0)
     {
         return false;
     }
 
-    return std::any_of(plan.ues.begin(), plan.ues.end(), [&activeTnCellIds](const UeSpec& ue) {
-        return activeTnCellIds.find(ue.servingCellId) != activeTnCellIds.end();
+    return std::any_of(plan.ues.begin(), plan.ues.end(), [&activeCellIds](const UeSpec& ue) {
+        return activeCellIds.find(ue.servingCellId) != activeCellIds.end();
     });
 }
 
@@ -1184,14 +1716,14 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
 
     Config::SetDefault("ns3::NrRlcUm::MaxTxBufferSize", UintegerValue(999999999));
 
-    std::vector<NodeSpec> tnCells;
-    std::map<uint32_t, uint32_t> tnCellIdToLocalIndex;
+    std::vector<NodeSpec> activeCells;
+    std::map<uint32_t, uint32_t> activeCellIdToLocalIndex;
     for (const auto& cell : plan.cells)
     {
-        if (cell.cellType == "TN" && cell.bandwidthHz > 0.0)
+        if (cell.bandwidthHz > 0.0)
         {
-            tnCellIdToLocalIndex[cell.id] = static_cast<uint32_t>(tnCells.size());
-            tnCells.push_back(cell);
+            activeCellIdToLocalIndex[cell.id] = static_cast<uint32_t>(activeCells.size());
+            activeCells.push_back(cell);
         }
     }
 
@@ -1199,30 +1731,78 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
     attachedUes.reserve(plan.ues.size());
     for (const auto& ue : plan.ues)
     {
-        if (tnCellIdToLocalIndex.find(ue.servingCellId) != tnCellIdToLocalIndex.end())
+        if (activeCellIdToLocalIndex.find(ue.servingCellId) != activeCellIdToLocalIndex.end())
         {
             attachedUes.push_back(ue);
         }
     }
-    if (tnCells.empty() || attachedUes.empty())
+    if (activeCells.empty() || attachedUes.empty())
     {
         return metrics;
     }
 
     NodeContainer gnbNodes;
     NodeContainer ueNodes;
-    gnbNodes.Create(tnCells.size());
+    gnbNodes.Create(activeCells.size());
     ueNodes.Create(attachedUes.size());
 
-    Ptr<ListPositionAllocator> gnbPositions = CreateObject<ListPositionAllocator>();
-    for (const auto& cell : tnCells)
-    {
-        gnbPositions->Add(Vector(cell.x, cell.y, cell.z > 0.0 ? cell.z : 25.0));
-    }
     MobilityHelper gnbMobility;
-    gnbMobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    gnbMobility.SetPositionAllocator(gnbPositions);
+    gnbMobility.SetMobilityModel("ns3::WaypointMobilityModel");
     gnbMobility.Install(gnbNodes);
+
+    uint32_t appliedNtnTrackCount = 0;
+    uint32_t appliedNtnWaypointCount = 0;
+    std::map<uint32_t, NtnTrajectoryTrack> ntnTrackByCellId;
+    for (const auto& track : plan.ntnTrajectoryTracks)
+    {
+        ntnTrackByCellId[track.cellId] = track;
+    }
+    for (uint32_t idx = 0; idx < gnbNodes.GetN() && idx < activeCells.size(); ++idx)
+    {
+        const auto& cell = activeCells[idx];
+        const auto fallbackZ = cell.z > 0.0 ? cell.z : 25.0;
+        Vector initialPos(cell.x, cell.y, fallbackZ);
+        bool hasTrajectoryForCell = false;
+        auto trackIt = ntnTrackByCellId.find(cell.id);
+        if (plan.ntnTrajectoryEnabled && cell.cellType == "NTN" && trackIt != ntnTrackByCellId.end() &&
+            !trackIt->second.positionsM.empty())
+        {
+            initialPos = Vector(trackIt->second.positionsM.front()[0],
+                                trackIt->second.positionsM.front()[1],
+                                trackIt->second.positionsM.front()[2]);
+            hasTrajectoryForCell = true;
+        }
+        Ptr<WaypointMobilityModel> gnbWpMob =
+            gnbNodes.Get(idx)->GetObject<WaypointMobilityModel>();
+        if (!gnbWpMob)
+        {
+            continue;
+        }
+        gnbWpMob->AddWaypoint(Waypoint(Seconds(0.0), initialPos));
+        if (!hasTrajectoryForCell)
+        {
+            continue;
+        }
+        const auto& track = trackIt->second;
+        ++appliedNtnTrackCount;
+        ++appliedNtnWaypointCount;
+        for (size_t wpIdx = 1; wpIdx < track.timeSec.size() && wpIdx < track.positionsM.size(); ++wpIdx)
+        {
+            const double tSec = track.timeSec[wpIdx];
+            if (!(tSec > 0.0))
+            {
+                continue;
+            }
+            const auto& pos = track.positionsM[wpIdx];
+            gnbWpMob->AddWaypoint(Waypoint(Seconds(tSec), Vector(pos[0], pos[1], pos[2])));
+            ++appliedNtnWaypointCount;
+        }
+    }
+    if (plan.ntnTrajectoryEnabled)
+    {
+        metrics.ntnTrajectoryTrackCount = appliedNtnTrackCount;
+        metrics.ntnTrajectoryWaypointCount = appliedNtnWaypointCount;
+    }
 
     Ptr<ListPositionAllocator> uePositions = CreateObject<ListPositionAllocator>();
     for (const auto& ue : attachedUes)
@@ -1242,7 +1822,7 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
 
     double centerFrequencyHz = 3.5e9;
     double maxBandwidthHz = 20e6;
-    for (const auto& cell : tnCells)
+    for (const auto& cell : activeCells)
     {
         if (cell.carrierFrequencyHz > 0.0)
         {
@@ -1250,7 +1830,7 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
             break;
         }
     }
-    for (const auto& cell : tnCells)
+    for (const auto& cell : activeCells)
     {
         if (cell.bandwidthHz > maxBandwidthHz)
         {
@@ -1319,7 +1899,7 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
             continue;
         }
         Ptr<NrGnbPhy> phy = gnb->GetPhy(0);
-        traceCellIdToPlanIndex[gnb->GetCellId()] = tnCells[idx].id - 1;
+        traceCellIdToPlanIndex[gnb->GetCellId()] = activeCells[idx].id - 1;
         Ptr<NrGnbMac> mac = gnb->GetMac(0);
         Ptr<NrMacSchedulerNs3> scheduler =
             DynamicCast<NrMacSchedulerNs3>(NrHelper::GetScheduler(gnbDevices.Get(idx), 0));
@@ -1505,9 +2085,9 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
         ueStaticRouting->SetDefaultRoute(nrEpcHelper->GetUeDefaultGatewayAddress(), 1);
     }
     std::map<uint32_t, Ptr<NetDevice>> gnbByCellId;
-    for (uint32_t idx = 0; idx < tnCells.size() && idx < gnbDevices.GetN(); ++idx)
+    for (uint32_t idx = 0; idx < activeCells.size() && idx < gnbDevices.GetN(); ++idx)
     {
-        gnbByCellId[tnCells[idx].id] = gnbDevices.Get(idx);
+        gnbByCellId[activeCells[idx].id] = gnbDevices.Get(idx);
     }
     for (uint32_t idx = 0; idx < attachedUes.size() && idx < ueDevices.GetN(); ++idx)
     {
@@ -1792,6 +2372,12 @@ WriteMetricsJson(const std::string& path, const MetricsOutput& metrics)
     output << "  \"bwp_event_count\": " << metrics.bwpEventCount << ",\n";
     output << "  \"ho_event_count\": " << metrics.hoEventCount << ",\n";
     output << "  \"ta_event_count\": " << metrics.taEventCount << ",\n";
+    output << "  \"ntn_trajectory_enabled\": " << (metrics.ntnTrajectoryEnabled ? "true" : "false")
+           << ",\n";
+    output << "  \"ntn_trajectory_update_period_sec\": " << metrics.ntnTrajectoryUpdatePeriodSec
+           << ",\n";
+    output << "  \"ntn_trajectory_track_count\": " << metrics.ntnTrajectoryTrackCount << ",\n";
+    output << "  \"ntn_trajectory_waypoint_count\": " << metrics.ntnTrajectoryWaypointCount << ",\n";
 
     auto writeNumberArray = [&output](const std::string& key, const auto& values) {
         output << "  \"" << EscapeJsonString(key) << "\": [";
@@ -1871,6 +2457,7 @@ main(int argc, char* argv[])
     std::string topologyPath;
     std::string channelConfigPath;
     std::string controlEventsPath;
+    std::string ntnTrajectoryPath;
     std::string operation = "unknown";
     double runDurationSec = 0.0;
 
@@ -1880,6 +2467,7 @@ main(int argc, char* argv[])
     cmd.AddValue("topologyPath", "Path to persisted topology JSON", topologyPath);
     cmd.AddValue("channelConfigPath", "Path to persisted channel-config JSON", channelConfigPath);
     cmd.AddValue("controlEventsPath", "Path to persisted control-events JSON", controlEventsPath);
+    cmd.AddValue("ntnTrajectoryPath", "Path to persisted NTN trajectory JSON", ntnTrajectoryPath);
     cmd.AddValue("operation", "Backend operation name", operation);
     cmd.AddValue("runDurationSec", "Requested run duration in seconds", runDurationSec);
     cmd.Parse(argc, argv);
@@ -1890,6 +2478,7 @@ main(int argc, char* argv[])
     NS_LOG_UNCOND("TopologyPath=" << topologyPath);
     NS_LOG_UNCOND("ChannelConfigPath=" << channelConfigPath);
     NS_LOG_UNCOND("ControlEventsPath=" << controlEventsPath);
+    NS_LOG_UNCOND("NtnTrajectoryPath=" << ntnTrajectoryPath);
 
     const ScenarioPlan plan =
         BuildScenarioPlanFromState(operation,
@@ -1897,6 +2486,7 @@ main(int argc, char* argv[])
                                    topologyPath,
                                    channelConfigPath,
                                    controlEventsPath,
+                                   ntnTrajectoryPath,
                                    requestPath);
 
     NS_LOG_UNCOND("ScenarioPlan: Cells=" << plan.cells.size() << " UEs=" << plan.ues.size());

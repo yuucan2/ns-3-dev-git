@@ -438,7 +438,7 @@ NS3_FETCH_OPTIONAL_COMPONENTS:BOOL=OFF
 
 //List of modules that should have their examples and tests built
 // (e.g. lte;wifi)
-NS3_FILTER_MODULE_EXAMPLES_AND_TESTS:STRING=
+NS3_FILTER_MODULE_EXAMPLES_AND_TESTS:STRING=nr
 
 //Only search applications, headers, libraries on explicitly set
 // directories
@@ -519,7 +519,7 @@ NS3_STATIC:BOOL=OFF
 NS3_TAP:BOOL=ON
 
 //Enable tests to be built
-NS3_TESTS:BOOL=OFF
+NS3_TESTS:BOOL=ON
 
 //Enable the Vcpkg C++ library manager support
 NS3_VCPKG:BOOL=OFF
@@ -1244,11 +1244,11 @@ ns3-example-folders:INTERNAL=
 //ADVANCED property for variable: ns3-execs
 ns3-execs-ADVANCED:INTERNAL=1
 //list of c++ executables
-ns3-execs:INTERNAL=C:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io;C:/ns3-dev-link/build/utils/ns3-dev-print-introspected-doxygen;C:/ns3-dev-link/build/utils/ns3-dev-bench-packets;C:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler;C:/ns3-dev-link/build/scratch/subdir/ns3-dev-scratch-subdir;C:/ns3-dev-link/build/scratch/nested-subdir/ns3-dev-scratch-nested-subdir-executable;C:/ns3-dev-link/build/scratch/ns3-dev-scratch-simulator;C:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen;
+ns3-execs:INTERNAL=C:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io;C:/ns3-dev-link/build/utils/ns3-dev-print-introspected-doxygen;C:/ns3-dev-link/build/utils/ns3-dev-bench-packets;C:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler;C:/ns3-dev-link/build/utils/ns3-dev-test-runner;C:/ns3-dev-link/build/scratch/subdir/ns3-dev-scratch-subdir;C:/ns3-dev-link/build/scratch/nested-subdir/ns3-dev-scratch-nested-subdir-executable;C:/ns3-dev-link/build/scratch/ns3-dev-scratch-simulator;C:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen;
 //ADVANCED property for variable: ns3-execs-clean
 ns3-execs-clean-ADVANCED:INTERNAL=1
 //list of c++ executables without version prefix and build suffix
-ns3-execs-clean:INTERNAL=perf-io;print-introspected-doxygen;bench-packets;bench-scheduler;scratch_subdir_scratch-subdir;scratch_nested-subdir_scratch-nested-subdir-executable;scratch_scratch-simulator;nr-print-introspected-doxygen;
+ns3-execs-clean:INTERNAL=perf-io;print-introspected-doxygen;bench-packets;bench-scheduler;test-runner;scratch_subdir_scratch-subdir;scratch_nested-subdir_scratch-nested-subdir-executable;scratch_scratch-simulator;nr-print-introspected-doxygen;
 //ADVANCED property for variable: ns3-execs-py
 ns3-execs-py-ADVANCED:INTERNAL=1
 //list of python scripts
@@ -1264,7 +1264,7 @@ ns3-libs:INTERNAL=csma;virtual-net-device;internet-apps;traffic-control;bridge;s
 //ADVANCED property for variable: ns3-libs-tests
 ns3-libs-tests-ADVANCED:INTERNAL=1
 //list of test libraries
-ns3-libs-tests:INTERNAL=
+ns3-libs-tests:INTERNAL=$<TARGET_OBJECTS:nr-test>;
 //ADVANCED property for variable: ns3-optional-visualizer-lib
 ns3-optional-visualizer-lib-ADVANCED:INTERNAL=1
 //visualizer library name
@@ -1272,4 +1272,18 @@ ns3-optional-visualizer-lib:INTERNAL=
 //ADVANCED property for variable: stacktrace_flags
 stacktrace_flags-ADVANCED:INTERNAL=1
 stacktrace_flags:INTERNAL=
+testantenna:INTERNAL=antenna-test
+testapplications:INTERNAL=applications-test
+testbuildings:INTERNAL=buildings-test
+testcore:INTERNAL=core-test
+testinternet:INTERNAL=internet-test
+testinternet-apps:INTERNAL=internet-apps-test
+testmobility:INTERNAL=mobility-test
+testnetwork:INTERNAL=network-test
+testnr:INTERNAL=nr-test
+testpoint-to-point:INTERNAL=point-to-point-test
+testpropagation:INTERNAL=propagation-test
+testspectrum:INTERNAL=spectrum-test
+teststats:INTERNAL=stats-test
+testtraffic-control:INTERNAL=traffic-control-test
 

@@ -1,0 +1,13 @@
+exec_prefix="C:/Program Files (x86)/NS3/bin"
+libdir="C:/Program Files (x86)/NS3/lib"
+includedir="C:/Program Files (x86)/NS3/include"
+
+Name: ns3-internet-apps
+Description: 
+URL: 
+Version: 3.dev
+Requires:  ns3-internet
+Requires.private: 
+Cflags: -I"${includedir}" 
+Libs: -L"${libdir}" -lns3-dev-internet-apps-debug  -lns3-dev-internet-debug -lstdc++exp
+Libs.private: -L"${libdir}" 

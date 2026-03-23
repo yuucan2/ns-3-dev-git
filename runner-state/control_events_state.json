@@ -1,6 +1,6 @@
 {
   "schema_version": "ns3_runner_control_events_state_v1",
-  "scenario_mode": "Baseline",
+  "scenario_mode": "RuleBased",
   "operation": "create_and_connect_nodes",
   "payload": {
     "schema_version": "runner_control_events_v1",

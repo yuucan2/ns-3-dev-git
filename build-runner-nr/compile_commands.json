@@ -3091,6 +3091,288 @@
 },
 {
   "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-configurations.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-configurations.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-configurations.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-configurations.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-numerology-delay.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-numerology-delay.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-numerology-delay.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-numerology-delay.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-fdm-of-numerologies.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-fdm-of-numerologies.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-fdm-of-numerologies.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-fdm-of-numerologies.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-sched.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-sched.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-sched.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-sched.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-schedulers-tdma-rr.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-schedulers-tdma-rr.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-tdma-rr.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-rr.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-schedulers-tdma-pf.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-schedulers-tdma-pf.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-tdma-pf.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-pf.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-schedulers-tdma-mr.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-schedulers-tdma-mr.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-tdma-mr.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-mr.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-schedulers-ofdma-rr.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-schedulers-ofdma-rr.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-ofdma-rr.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-rr.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-schedulers-ofdma-pf.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-schedulers-ofdma-pf.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-ofdma-pf.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-pf.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-system-test-schedulers-ofdma-mr.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-system-test-schedulers-ofdma-mr.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-ofdma-mr.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-mr.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-antenna-3gpp-model-conf.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-antenna-3gpp-model-conf.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-antenna-3gpp-model-conf.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-antenna-3gpp-model-conf.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-l2sm-eesm.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-l2sm-eesm.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-l2sm-eesm.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-l2sm-eesm.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-lte-pattern-generation.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-lte-pattern-generation.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-lte-pattern-generation.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-lte-pattern-generation.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-phy-patterns.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-phy-patterns.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-phy-patterns.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-phy-patterns.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-sfnsf.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-sfnsf.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-sfnsf.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-sfnsf.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-timings.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-timings.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-timings.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-timings.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-spectrum-phy-test.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-spectrum-phy-test.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-spectrum-phy-test.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-spectrum-phy-test.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-cc-bwp-configuration.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-cc-bwp-configuration.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-cc-bwp-configuration.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-cc-bwp-configuration.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\system-scheduler-test.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\system-scheduler-test.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/system-scheduler-test.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-mac-short-bsr-ce-test.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-mac-short-bsr-ce-test.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-mac-short-bsr-ce-test.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-mac-short-bsr-ce-test.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-notching.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-notching.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-notching.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-notching.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-realistic-beamforming-test.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-realistic-beamforming-test.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-realistic-beamforming-test.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-realistic-beamforming-test.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-uplink-power-control-test.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-uplink-power-control-test.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-uplink-power-control-test.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-uplink-power-control-test.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-power-allocation.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-power-allocation.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-power-allocation.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-power-allocation.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-harq.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-harq.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-harq.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-harq.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\utils\\traffic-generators\\test\\traffic-generator-test.cc.obj -c C:\\ns3-dev-link\\src\\nr\\utils\\traffic-generators\\test\\traffic-generator-test.cc",
+  "file": "C:/ns3-dev-link/src/nr/utils/traffic-generators/test/traffic-generator-test.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/utils/traffic-generators/test/traffic-generator-test.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\system-scheduler-test-qos.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\system-scheduler-test-qos.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/system-scheduler-test-qos.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test-qos.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-entities.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-entities.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-entities.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-entities.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-epc-test-gtpu.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-epc-test-gtpu.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-epc-test-gtpu.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-gtpu.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-epc-test-s1u-downlink.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-epc-test-s1u-downlink.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-epc-test-s1u-downlink.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-downlink.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-epc-test-s1u-uplink.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-epc-test-s1u-uplink.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-epc-test-s1u-uplink.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-uplink.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-epc-tft-classifier.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-epc-tft-classifier.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-epc-tft-classifier.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-tft-classifier.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-simple-helper.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-simple-helper.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-simple-helper.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-simple-helper.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-simple-net-device.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-simple-net-device.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-simple-net-device.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-simple-net-device.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-simple-spectrum-phy.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-simple-spectrum-phy.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-simple-spectrum-phy.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-simple-spectrum-phy.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-asn1-encoding.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-asn1-encoding.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-asn1-encoding.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-asn1-encoding.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-rlc-header.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-rlc-header.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-rlc-header.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-header.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-rlc-am-e2e.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-rlc-am-e2e.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-rlc-am-e2e.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-e2e.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-rlc-am-transmitter.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-rlc-am-transmitter.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-rlc-am-transmitter.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-transmitter.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-rlc-um-e2e.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-rlc-um-e2e.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-rlc-um-e2e.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-e2e.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-rlc-um-transmitter.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-rlc-um-transmitter.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-rlc-um-transmitter.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-transmitter.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-rrc.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-rrc.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-rrc.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-rrc.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-ipv6-routing.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-ipv6-routing.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-ipv6-routing.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-ipv6-routing.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-epc-e2e-data.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-epc-e2e-data.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-epc-e2e-data.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-e2e-data.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-deactivate-bearer.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-deactivate-bearer.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-deactivate-bearer.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-deactivate-bearer.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-handover-kpi-traces.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-handover-kpi-traces.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-handover-kpi-traces.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-handover-kpi-traces.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\\\"src/nr/test\\\" -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-test.dir\\test\\nr-test-tn-ntn-handover-algorithm.cc.obj -c C:\\ns3-dev-link\\src\\nr\\test\\nr-test-tn-ntn-handover-algorithm.cc",
+  "file": "C:/ns3-dev-link/src/nr/test/nr-test-tn-ntn-handover-algorithm.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir/test/nr-test-tn-ntn-handover-algorithm.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
   "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o src\\nr\\CMakeFiles\\nr-print-introspected-doxygen.dir\\utils\\print-introspected-doxygen.cc.obj -c C:\\ns3-dev-link\\src\\nr\\utils\\print-introspected-doxygen.cc",
   "file": "C:/ns3-dev-link/src/nr/utils/print-introspected-doxygen.cc",
   "output": "C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-print-introspected-doxygen.dir/utils/print-introspected-doxygen.cc.obj"
@@ -3838,6 +4120,12 @@
   "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o scratch\\nested-subdir\\CMakeFiles\\scratch_nested-subdir_scratch-nested-subdir-executable.dir\\scratch-nested-subdir-executable.cc.obj -c C:\\ns3-dev-link\\scratch\\nested-subdir\\scratch-nested-subdir-executable.cc",
   "file": "C:/ns3-dev-link/scratch/nested-subdir/scratch-nested-subdir-executable.cc",
   "output": "C:/ns3-dev-link/build-runner-nr/scratch/nested-subdir/CMakeFiles/scratch_nested-subdir_scratch-nested-subdir-executable.dir/scratch-nested-subdir-executable.cc.obj"
+},
+{
+  "directory": "C:/ns3-dev-link/build-runner-nr",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -DNS3_BUILD_PROFILE_RELEASE -DPROJECT_SOURCE_PATH=\\\"C:/ns3-dev-link\\\" -D_USE_MATH_DEFINES -IC:/ns3-dev-link/build/include -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations -o utils\\CMakeFiles\\test-runner.dir\\test-runner.cc.obj -c C:\\ns3-dev-link\\utils\\test-runner.cc",
+  "file": "C:/ns3-dev-link/utils/test-runner.cc",
+  "output": "C:/ns3-dev-link/build-runner-nr/utils/CMakeFiles/test-runner.dir/test-runner.cc.obj"
 },
 {
   "directory": "C:/ns3-dev-link/build-runner-nr",

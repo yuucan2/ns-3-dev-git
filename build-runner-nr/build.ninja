@@ -60,6 +60,24 @@ build check-version: phony CMakeFiles/check-version
 
 
 #############################################
+# Utility command for test-runner-examples-as-tests
+
+build test-runner-examples-as-tests: phony
+
+
+#############################################
+# Utility command for all-test-targets
+
+build all-test-targets: phony C$:/ns3-dev-link/build/scratch/nested-subdir/ns3-dev-scratch-nested-subdir-executable.exe C$:/ns3-dev-link/build/scratch/ns3-dev-scratch-simulator.exe C$:/ns3-dev-link/build/scratch/subdir/ns3-dev-scratch-subdir.exe C$:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-packets.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler.exe C$:/ns3-dev-link/build/utils/ns3-dev-print-introspected-doxygen.exe C$:/ns3-dev-link/build/utils/ns3-dev-test-runner.exe C$:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io.exe
+
+
+#############################################
+# Utility command for run_test_py
+
+build run_test_py: phony CMakeFiles/run_test_py all-test-targets
+
+
+#############################################
 # Utility command for run-print-introspected-doxygen
 
 build run-print-introspected-doxygen: phony CMakeFiles/run-print-introspected-doxygen
@@ -323,6 +341,13 @@ build CMakeFiles/uninstall | ${cmake_ninja_workdir}CMakeFiles/uninstall: CUSTOM_
 
 build CMakeFiles/check-version | ${cmake_ninja_workdir}CMakeFiles/check-version: CUSTOM_COMMAND
   COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\ns3-dev-link\build-runner-nr && echo Build version feature disabled. Reconfigure ns-3 with NS3_ENABLE_BUILD_VERSION=ON"
+
+
+#############################################
+# Custom command for CMakeFiles\run_test_py
+
+build CMakeFiles/run_test_py | ${cmake_ninja_workdir}CMakeFiles/run_test_py: CUSTOM_COMMAND || C$:/ns3-dev-link/build/lib/libns3-dev-antenna.dll C$:/ns3-dev-link/build/lib/libns3-dev-applications.dll C$:/ns3-dev-link/build/lib/libns3-dev-bridge.dll C$:/ns3-dev-link/build/lib/libns3-dev-buildings.dll C$:/ns3-dev-link/build/lib/libns3-dev-config-store.dll C$:/ns3-dev-link/build/lib/libns3-dev-core.dll C$:/ns3-dev-link/build/lib/libns3-dev-csma.dll C$:/ns3-dev-link/build/lib/libns3-dev-flow-monitor.dll C$:/ns3-dev-link/build/lib/libns3-dev-internet-apps.dll C$:/ns3-dev-link/build/lib/libns3-dev-internet.dll C$:/ns3-dev-link/build/lib/libns3-dev-mobility.dll C$:/ns3-dev-link/build/lib/libns3-dev-network.dll C$:/ns3-dev-link/build/lib/libns3-dev-nr.dll C$:/ns3-dev-link/build/lib/libns3-dev-point-to-point.dll C$:/ns3-dev-link/build/lib/libns3-dev-propagation.dll C$:/ns3-dev-link/build/lib/libns3-dev-spectrum.dll C$:/ns3-dev-link/build/lib/libns3-dev-stats.dll C$:/ns3-dev-link/build/lib/libns3-dev-traffic-control.dll C$:/ns3-dev-link/build/lib/libns3-dev-virtual-net-device.dll C$:/ns3-dev-link/build/lib/libscratch-nested-subdir-lib.a C$:/ns3-dev-link/build/scratch/nested-subdir/ns3-dev-scratch-nested-subdir-executable.exe C$:/ns3-dev-link/build/scratch/ns3-dev-scratch-simulator.exe C$:/ns3-dev-link/build/scratch/subdir/ns3-dev-scratch-subdir.exe C$:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-packets.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler.exe C$:/ns3-dev-link/build/utils/ns3-dev-print-introspected-doxygen.exe C$:/ns3-dev-link/build/utils/ns3-dev-test-runner.exe C$:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io.exe all-test-targets src/nr/nr-test test-runner-examples-as-tests
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\ns3-dev-link && C:\Users\jagar\AppData\Local\Python\pythoncore-3.14-64\python.exe test.py --no-build"
 
 
 #############################################
@@ -6729,6 +6754,492 @@ build C$:/ns3-dev-link/build/lib/libns3-dev-nr.dll C$:/ns3-dev-link/build/lib/li
   RSP_FILE = CMakeFiles\nr.rsp
 
 # =============================================================================
+# Object build statements for OBJECT_LIBRARY target nr-test
+
+
+#############################################
+# Order-only phony target for nr-test
+
+build cmake_object_order_depends_target_nr-test: phony || .
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-configurations.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-configurations.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-configurations.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-numerology-delay.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-numerology-delay.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-numerology-delay.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-fdm-of-numerologies.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-fdm-of-numerologies.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-fdm-of-numerologies.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-sched.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-sched.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-sched.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-rr.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-tdma-rr.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-schedulers-tdma-rr.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-pf.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-tdma-pf.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-schedulers-tdma-pf.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-mr.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-tdma-mr.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-schedulers-tdma-mr.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-rr.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-ofdma-rr.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-schedulers-ofdma-rr.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-pf.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-ofdma-pf.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-schedulers-ofdma-pf.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-mr.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-system-test-schedulers-ofdma-mr.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-system-test-schedulers-ofdma-mr.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-antenna-3gpp-model-conf.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-antenna-3gpp-model-conf.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-antenna-3gpp-model-conf.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-l2sm-eesm.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-l2sm-eesm.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-l2sm-eesm.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-lte-pattern-generation.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-lte-pattern-generation.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-lte-pattern-generation.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-phy-patterns.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-phy-patterns.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-phy-patterns.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-sfnsf.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-sfnsf.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-sfnsf.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-timings.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-timings.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-timings.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-spectrum-phy-test.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-spectrum-phy-test.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-spectrum-phy-test.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-cc-bwp-configuration.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-cc-bwp-configuration.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-cc-bwp-configuration.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/system-scheduler-test.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\system-scheduler-test.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-mac-short-bsr-ce-test.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-mac-short-bsr-ce-test.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-mac-short-bsr-ce-test.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-notching.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-notching.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-notching.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-realistic-beamforming-test.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-realistic-beamforming-test.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-realistic-beamforming-test.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-uplink-power-control-test.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-uplink-power-control-test.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-uplink-power-control-test.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-power-allocation.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-power-allocation.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-power-allocation.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-harq.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-harq.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-harq.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/utils/traffic-generators/test/traffic-generator-test.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/utils/traffic-generators/test/traffic-generator-test.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\utils\traffic-generators\test\traffic-generator-test.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\utils\traffic-generators\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test-qos.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/system-scheduler-test-qos.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\system-scheduler-test-qos.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-entities.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-entities.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-entities.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-gtpu.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-epc-test-gtpu.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-epc-test-gtpu.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-downlink.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-epc-test-s1u-downlink.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-epc-test-s1u-downlink.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-uplink.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-epc-test-s1u-uplink.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-epc-test-s1u-uplink.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-tft-classifier.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-epc-tft-classifier.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-epc-tft-classifier.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-simple-helper.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-simple-helper.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-simple-helper.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-simple-net-device.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-simple-net-device.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-simple-net-device.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-simple-spectrum-phy.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-simple-spectrum-phy.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-simple-spectrum-phy.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-asn1-encoding.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-asn1-encoding.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-asn1-encoding.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-header.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-rlc-header.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-rlc-header.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-e2e.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-rlc-am-e2e.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-rlc-am-e2e.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-transmitter.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-rlc-am-transmitter.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-rlc-am-transmitter.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-e2e.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-rlc-um-e2e.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-rlc-um-e2e.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-transmitter.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-rlc-um-transmitter.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-rlc-um-transmitter.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-rrc.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-rrc.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-rrc.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-ipv6-routing.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-ipv6-routing.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-ipv6-routing.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-e2e-data.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-epc-e2e-data.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-epc-e2e-data.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-deactivate-bearer.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-deactivate-bearer.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-deactivate-bearer.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-handover-kpi-traces.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-handover-kpi-traces.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-handover-kpi-traces.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+build src/nr/CMakeFiles/nr-test.dir/test/nr-test-tn-ntn-handover-algorithm.cc.obj: CXX_COMPILER__nr-test_unscanned_Release C$:/ns3-dev-link/src/nr/test/nr-test-tn-ntn-handover-algorithm.cc || cmake_object_order_depends_target_nr-test
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DNS_TEST_SOURCEDIR=\"src/nr/test\" -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = src\nr\CMakeFiles\nr-test.dir\test\nr-test-tn-ntn-handover-algorithm.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = src\nr\CMakeFiles\nr-test.dir
+  OBJECT_FILE_DIR = src\nr\CMakeFiles\nr-test.dir\test
+  TARGET_SUPPORT_DIR = src\nr\CMakeFiles\nr-test.dir
+
+
+
+#############################################
+# Object library nr-test
+
+build src/nr/nr-test: phony src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-configurations.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-numerology-delay.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-fdm-of-numerologies.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-sched.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-rr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-pf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-mr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-rr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-pf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-mr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-antenna-3gpp-model-conf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-l2sm-eesm.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-lte-pattern-generation.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-phy-patterns.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-sfnsf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-timings.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-spectrum-phy-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-cc-bwp-configuration.cc.obj src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-mac-short-bsr-ce-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-notching.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-realistic-beamforming-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-uplink-power-control-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-power-allocation.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-harq.cc.obj src/nr/CMakeFiles/nr-test.dir/utils/traffic-generators/test/traffic-generator-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test-qos.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-entities.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-gtpu.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-downlink.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-uplink.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-tft-classifier.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-simple-helper.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-simple-net-device.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-simple-spectrum-phy.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-asn1-encoding.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-header.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-e2e.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-transmitter.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-e2e.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-transmitter.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rrc.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-ipv6-routing.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-e2e-data.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-deactivate-bearer.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-handover-kpi-traces.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-tn-ntn-handover-algorithm.cc.obj
+
+# =============================================================================
 # Object build statements for EXECUTABLE target nr-print-introspected-doxygen
 
 
@@ -9337,6 +9848,46 @@ build scratch/nested-subdir/install/strip: phony scratch/nested-subdir/CMakeFile
 # =============================================================================
 
 # =============================================================================
+# Object build statements for EXECUTABLE target test-runner
+
+
+#############################################
+# Order-only phony target for test-runner
+
+build cmake_object_order_depends_target_test-runner: phony || cmake_object_order_depends_target_antenna cmake_object_order_depends_target_applications cmake_object_order_depends_target_bridge cmake_object_order_depends_target_buildings cmake_object_order_depends_target_config-store cmake_object_order_depends_target_core cmake_object_order_depends_target_csma cmake_object_order_depends_target_flow-monitor cmake_object_order_depends_target_internet cmake_object_order_depends_target_internet-apps cmake_object_order_depends_target_mobility cmake_object_order_depends_target_network cmake_object_order_depends_target_nr cmake_object_order_depends_target_nr-test cmake_object_order_depends_target_point-to-point cmake_object_order_depends_target_propagation cmake_object_order_depends_target_spectrum cmake_object_order_depends_target_stats cmake_object_order_depends_target_traffic-control cmake_object_order_depends_target_virtual-net-device test-runner-examples-as-tests
+
+build utils/CMakeFiles/test-runner.dir/test-runner.cc.obj: CXX_COMPILER__test-runner_unscanned_Release C$:/ns3-dev-link/utils/test-runner.cc || cmake_object_order_depends_target_test-runner
+  CONFIG = Release
+  DEFINES = -DNS3_BUILD_PROFILE_RELEASE -DPROJECT_SOURCE_PATH=\"C:/ns3-dev-link\" -D_USE_MATH_DEFINES
+  DEP_FILE = utils\CMakeFiles\test-runner.dir\test-runner.cc.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++23   -fno-semantic-interposition -Wall -Werror -Wno-error=deprecated-declarations
+  INCLUDES = -IC:/ns3-dev-link/build/include
+  OBJECT_DIR = utils\CMakeFiles\test-runner.dir
+  OBJECT_FILE_DIR = utils\CMakeFiles\test-runner.dir
+  TARGET_SUPPORT_DIR = utils\CMakeFiles\test-runner.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test-runner
+
+
+#############################################
+# Link the executable C:\ns3-dev-link\build\utils\ns3-dev-test-runner.exe
+
+build C$:/ns3-dev-link/build/utils/ns3-dev-test-runner.exe: CXX_EXECUTABLE_LINKER__test-runner_Release src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-configurations.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-numerology-delay.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-fdm-of-numerologies.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-sched.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-rr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-pf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-tdma-mr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-rr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-pf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-system-test-schedulers-ofdma-mr.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-antenna-3gpp-model-conf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-l2sm-eesm.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-lte-pattern-generation.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-phy-patterns.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-sfnsf.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-timings.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-spectrum-phy-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-cc-bwp-configuration.cc.obj src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-mac-short-bsr-ce-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-notching.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-realistic-beamforming-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-uplink-power-control-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-power-allocation.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-harq.cc.obj src/nr/CMakeFiles/nr-test.dir/utils/traffic-generators/test/traffic-generator-test.cc.obj src/nr/CMakeFiles/nr-test.dir/test/system-scheduler-test-qos.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-entities.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-gtpu.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-downlink.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-epc-test-s1u-uplink.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-tft-classifier.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-simple-helper.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-simple-net-device.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-simple-spectrum-phy.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-asn1-encoding.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-header.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-e2e.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-am-transmitter.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-e2e.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rlc-um-transmitter.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-rrc.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-ipv6-routing.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-epc-e2e-data.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-deactivate-bearer.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-handover-kpi-traces.cc.obj src/nr/CMakeFiles/nr-test.dir/test/nr-test-tn-ntn-handover-algorithm.cc.obj utils/CMakeFiles/test-runner.dir/test-runner.cc.obj || C$:/ns3-dev-link/build/lib/libns3-dev-antenna.dll C$:/ns3-dev-link/build/lib/libns3-dev-applications.dll C$:/ns3-dev-link/build/lib/libns3-dev-bridge.dll C$:/ns3-dev-link/build/lib/libns3-dev-buildings.dll C$:/ns3-dev-link/build/lib/libns3-dev-config-store.dll C$:/ns3-dev-link/build/lib/libns3-dev-core.dll C$:/ns3-dev-link/build/lib/libns3-dev-csma.dll C$:/ns3-dev-link/build/lib/libns3-dev-flow-monitor.dll C$:/ns3-dev-link/build/lib/libns3-dev-internet-apps.dll C$:/ns3-dev-link/build/lib/libns3-dev-internet.dll C$:/ns3-dev-link/build/lib/libns3-dev-mobility.dll C$:/ns3-dev-link/build/lib/libns3-dev-network.dll C$:/ns3-dev-link/build/lib/libns3-dev-nr.dll C$:/ns3-dev-link/build/lib/libns3-dev-point-to-point.dll C$:/ns3-dev-link/build/lib/libns3-dev-propagation.dll C$:/ns3-dev-link/build/lib/libns3-dev-spectrum.dll C$:/ns3-dev-link/build/lib/libns3-dev-stats.dll C$:/ns3-dev-link/build/lib/libns3-dev-traffic-control.dll C$:/ns3-dev-link/build/lib/libns3-dev-virtual-net-device.dll src/nr/nr-test test-runner-examples-as-tests
+  CONFIG = Release
+  FLAGS = -O3 -DNDEBUG
+  LINK_LIBRARIES = C:/ns3-dev-link/build/lib/libns3-dev-nr.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-flow-monitor.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-config-store.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-buildings.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-applications.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-csma.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-virtual-net-device.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-internet-apps.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-spectrum.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-point-to-point.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-propagation.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-mobility.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-antenna.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-internet.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-traffic-control.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-bridge.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-network.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-stats.dll.a  C:/ns3-dev-link/build/lib/libns3-dev-core.dll.a  -lwsock32  -lws2_32  -Wl,--no-as-needed  -Wl,--as-needed  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_PATH = -LC:/ns3-dev-link/build/lib
+  OBJECT_DIR = utils\CMakeFiles\test-runner.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = C:\ns3-dev-link\build\utils\ns3-dev-test-runner.exe
+  TARGET_IMPLIB = C:\ns3-dev-link\build\lib\libtest-runner.dll.a
+  TARGET_PDB = ns3-dev-test-runner.exe.dbg
+  TARGET_SUPPORT_DIR = utils\CMakeFiles\test-runner.dir
+
+# =============================================================================
 # Object build statements for EXECUTABLE target bench-scheduler
 
 
@@ -9637,6 +10188,8 @@ build nr: phony C$:/ns3-dev-link/build/lib/libns3-dev-nr.dll
 
 build nr-print-introspected-doxygen: phony C$:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen.exe
 
+build nr-test: phony src/nr/nr-test
+
 build ns3-dev-bench-packets.exe: phony C$:/ns3-dev-link/build/utils/ns3-dev-bench-packets.exe
 
 build ns3-dev-bench-scheduler.exe: phony C$:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler.exe
@@ -9652,6 +10205,8 @@ build ns3-dev-scratch-nested-subdir-executable.exe: phony C$:/ns3-dev-link/build
 build ns3-dev-scratch-simulator.exe: phony C$:/ns3-dev-link/build/scratch/ns3-dev-scratch-simulator.exe
 
 build ns3-dev-scratch-subdir.exe: phony C$:/ns3-dev-link/build/scratch/subdir/ns3-dev-scratch-subdir.exe
+
+build ns3-dev-test-runner.exe: phony C$:/ns3-dev-link/build/utils/ns3-dev-test-runner.exe
 
 build perf-io: phony C$:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io.exe
 
@@ -9672,6 +10227,8 @@ build scratch_subdir_scratch-subdir: phony C$:/ns3-dev-link/build/scratch/subdir
 build spectrum: phony C$:/ns3-dev-link/build/lib/libns3-dev-spectrum.dll
 
 build stats: phony C$:/ns3-dev-link/build/lib/libns3-dev-stats.dll
+
+build test-runner: phony C$:/ns3-dev-link/build/utils/ns3-dev-test-runner.exe
 
 build traffic-control: phony C$:/ns3-dev-link/build/lib/libns3-dev-traffic-control.dll
 
@@ -9804,7 +10361,7 @@ build src/network/all: phony C$:/ns3-dev-link/build/lib/libns3-dev-network.dll
 #############################################
 # Folder: C:/ns3-dev-link/build-runner-nr/src/nr
 
-build src/nr/all: phony C$:/ns3-dev-link/build/lib/libns3-dev-nr.dll C$:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen.exe
+build src/nr/all: phony C$:/ns3-dev-link/build/lib/libns3-dev-nr.dll src/nr/nr-test C$:/ns3-dev-link/build/src/nr/ns3-dev-nr-print-introspected-doxygen.exe
 
 # =============================================================================
 
@@ -9853,7 +10410,7 @@ build src/virtual-net-device/all: phony C$:/ns3-dev-link/build/lib/libns3-dev-vi
 #############################################
 # Folder: C:/ns3-dev-link/build-runner-nr/utils
 
-build utils/all: phony C$:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-packets.exe C$:/ns3-dev-link/build/utils/ns3-dev-print-introspected-doxygen.exe C$:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io.exe
+build utils/all: phony C$:/ns3-dev-link/build/utils/ns3-dev-test-runner.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-scheduler.exe C$:/ns3-dev-link/build/utils/ns3-dev-bench-packets.exe C$:/ns3-dev-link/build/utils/ns3-dev-print-introspected-doxygen.exe C$:/ns3-dev-link/build/utils/perf/ns3-dev-perf-io.exe
 
 # =============================================================================
 # Built-in targets

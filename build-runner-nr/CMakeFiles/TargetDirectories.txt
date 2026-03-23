@@ -1,6 +1,9 @@
 C:/ns3-dev-link/build-runner-nr/CMakeFiles/uninstall.dir
 C:/ns3-dev-link/build-runner-nr/CMakeFiles/copy_all_headers.dir
 C:/ns3-dev-link/build-runner-nr/CMakeFiles/check-version.dir
+C:/ns3-dev-link/build-runner-nr/CMakeFiles/test-runner-examples-as-tests.dir
+C:/ns3-dev-link/build-runner-nr/CMakeFiles/all-test-targets.dir
+C:/ns3-dev-link/build-runner-nr/CMakeFiles/run_test_py.dir
 C:/ns3-dev-link/build-runner-nr/CMakeFiles/run-print-introspected-doxygen.dir
 C:/ns3-dev-link/build-runner-nr/CMakeFiles/run-introspected-command-line.dir
 C:/ns3-dev-link/build-runner-nr/CMakeFiles/assemble-introspected-command-line.dir
@@ -108,6 +111,7 @@ C:/ns3-dev-link/build-runner-nr/src/network/CMakeFiles/install.dir
 C:/ns3-dev-link/build-runner-nr/src/network/CMakeFiles/install/local.dir
 C:/ns3-dev-link/build-runner-nr/src/network/CMakeFiles/install/strip.dir
 C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr.dir
+C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-test.dir
 C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/nr-print-introspected-doxygen.dir
 C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/edit_cache.dir
 C:/ns3-dev-link/build-runner-nr/src/nr/CMakeFiles/rebuild_cache.dir
@@ -200,6 +204,7 @@ C:/ns3-dev-link/build-runner-nr/scratch/nested-subdir/CMakeFiles/list_install_co
 C:/ns3-dev-link/build-runner-nr/scratch/nested-subdir/CMakeFiles/install.dir
 C:/ns3-dev-link/build-runner-nr/scratch/nested-subdir/CMakeFiles/install/local.dir
 C:/ns3-dev-link/build-runner-nr/scratch/nested-subdir/CMakeFiles/install/strip.dir
+C:/ns3-dev-link/build-runner-nr/utils/CMakeFiles/test-runner.dir
 C:/ns3-dev-link/build-runner-nr/utils/CMakeFiles/bench-scheduler.dir
 C:/ns3-dev-link/build-runner-nr/utils/CMakeFiles/bench-packets.dir
 C:/ns3-dev-link/build-runner-nr/utils/CMakeFiles/print-introspected-doxygen.dir
