@@ -7,7 +7,7 @@
 
 # =============================================================================
 # Project: NS3
-# Configurations: Release
+# Configurations: release
 # =============================================================================
 # =============================================================================
 
@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__antenna_Release
+rule CXX_SCAN__antenna_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -31,8 +31,8 @@ rule CXX_SCAN__antenna_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__antenna_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\antenna\CMakeFiles\antenna.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__antenna_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\antenna\CMakeFiles\antenna.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -42,7 +42,7 @@ rule CXX_DYNDEP__antenna_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__antenna_scanned_Release
+rule CXX_COMPILER__antenna_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -52,7 +52,7 @@ rule CXX_COMPILER__antenna_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__antenna_unscanned_Release
+rule CXX_COMPILER__antenna_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -62,7 +62,7 @@ rule CXX_COMPILER__antenna_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__antenna_Release
+rule CXX_SHARED_LIBRARY_LINKER__antenna_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -71,7 +71,7 @@ rule CXX_SHARED_LIBRARY_LINKER__antenna_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__applications_Release
+rule CXX_SCAN__applications_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -80,8 +80,8 @@ rule CXX_SCAN__applications_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__applications_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\applications\CMakeFiles\applications.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__applications_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\applications\CMakeFiles\applications.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -91,7 +91,7 @@ rule CXX_DYNDEP__applications_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__applications_scanned_Release
+rule CXX_COMPILER__applications_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -101,7 +101,7 @@ rule CXX_COMPILER__applications_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__applications_unscanned_Release
+rule CXX_COMPILER__applications_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -111,7 +111,7 @@ rule CXX_COMPILER__applications_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__applications_Release
+rule CXX_SHARED_LIBRARY_LINKER__applications_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -120,7 +120,7 @@ rule CXX_SHARED_LIBRARY_LINKER__applications_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__buildings_Release
+rule CXX_SCAN__buildings_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -129,8 +129,8 @@ rule CXX_SCAN__buildings_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__buildings_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\buildings\CMakeFiles\buildings.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__buildings_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\buildings\CMakeFiles\buildings.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -140,7 +140,7 @@ rule CXX_DYNDEP__buildings_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__buildings_scanned_Release
+rule CXX_COMPILER__buildings_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -150,7 +150,7 @@ rule CXX_COMPILER__buildings_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__buildings_unscanned_Release
+rule CXX_COMPILER__buildings_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -160,7 +160,7 @@ rule CXX_COMPILER__buildings_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__buildings_Release
+rule CXX_SHARED_LIBRARY_LINKER__buildings_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -169,7 +169,7 @@ rule CXX_SHARED_LIBRARY_LINKER__buildings_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__config-store_Release
+rule CXX_SCAN__config-store_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -178,8 +178,8 @@ rule CXX_SCAN__config-store_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__config-store_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\config-store\CMakeFiles\config-store.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__config-store_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\config-store\CMakeFiles\config-store.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -189,7 +189,7 @@ rule CXX_DYNDEP__config-store_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__config-store_scanned_Release
+rule CXX_COMPILER__config-store_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -199,7 +199,7 @@ rule CXX_COMPILER__config-store_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__config-store_unscanned_Release
+rule CXX_COMPILER__config-store_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -209,7 +209,7 @@ rule CXX_COMPILER__config-store_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__config-store_Release
+rule CXX_SHARED_LIBRARY_LINKER__config-store_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -218,7 +218,7 @@ rule CXX_SHARED_LIBRARY_LINKER__config-store_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__core_Release
+rule CXX_SCAN__core_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -227,8 +227,8 @@ rule CXX_SCAN__core_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__core_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\core\CMakeFiles\core.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__core_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\core\CMakeFiles\core.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -238,7 +238,7 @@ rule CXX_DYNDEP__core_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__core_scanned_Release
+rule CXX_COMPILER__core_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -248,7 +248,7 @@ rule CXX_COMPILER__core_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__core_unscanned_Release
+rule CXX_COMPILER__core_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -258,7 +258,7 @@ rule CXX_COMPILER__core_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__core_Release
+rule CXX_SHARED_LIBRARY_LINKER__core_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -267,7 +267,7 @@ rule CXX_SHARED_LIBRARY_LINKER__core_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__flow-monitor_Release
+rule CXX_SCAN__flow-monitor_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -276,8 +276,8 @@ rule CXX_SCAN__flow-monitor_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__flow-monitor_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\flow-monitor\CMakeFiles\flow-monitor.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__flow-monitor_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\flow-monitor\CMakeFiles\flow-monitor.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -287,7 +287,7 @@ rule CXX_DYNDEP__flow-monitor_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__flow-monitor_scanned_Release
+rule CXX_COMPILER__flow-monitor_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -297,7 +297,7 @@ rule CXX_COMPILER__flow-monitor_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__flow-monitor_unscanned_Release
+rule CXX_COMPILER__flow-monitor_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -307,7 +307,7 @@ rule CXX_COMPILER__flow-monitor_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__flow-monitor_Release
+rule CXX_SHARED_LIBRARY_LINKER__flow-monitor_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -316,7 +316,7 @@ rule CXX_SHARED_LIBRARY_LINKER__flow-monitor_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__internet_Release
+rule CXX_SCAN__internet_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -325,8 +325,8 @@ rule CXX_SCAN__internet_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__internet_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\internet\CMakeFiles\internet.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__internet_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\internet\CMakeFiles\internet.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -336,7 +336,7 @@ rule CXX_DYNDEP__internet_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__internet_scanned_Release
+rule CXX_COMPILER__internet_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -346,7 +346,7 @@ rule CXX_COMPILER__internet_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__internet_unscanned_Release
+rule CXX_COMPILER__internet_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -356,7 +356,7 @@ rule CXX_COMPILER__internet_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__internet_Release
+rule CXX_SHARED_LIBRARY_LINKER__internet_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 @$RSP_FILE && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   rspfile = $RSP_FILE
@@ -367,7 +367,7 @@ rule CXX_SHARED_LIBRARY_LINKER__internet_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__mobility_Release
+rule CXX_SCAN__mobility_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -376,8 +376,8 @@ rule CXX_SCAN__mobility_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__mobility_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\mobility\CMakeFiles\mobility.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__mobility_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\mobility\CMakeFiles\mobility.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -387,7 +387,7 @@ rule CXX_DYNDEP__mobility_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__mobility_scanned_Release
+rule CXX_COMPILER__mobility_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -397,7 +397,7 @@ rule CXX_COMPILER__mobility_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__mobility_unscanned_Release
+rule CXX_COMPILER__mobility_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -407,7 +407,7 @@ rule CXX_COMPILER__mobility_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__mobility_Release
+rule CXX_SHARED_LIBRARY_LINKER__mobility_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -416,7 +416,7 @@ rule CXX_SHARED_LIBRARY_LINKER__mobility_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__network_Release
+rule CXX_SCAN__network_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -425,8 +425,8 @@ rule CXX_SCAN__network_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__network_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\network\CMakeFiles\network.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__network_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\network\CMakeFiles\network.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -436,7 +436,7 @@ rule CXX_DYNDEP__network_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__network_scanned_Release
+rule CXX_COMPILER__network_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -446,7 +446,7 @@ rule CXX_COMPILER__network_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__network_unscanned_Release
+rule CXX_COMPILER__network_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -456,7 +456,7 @@ rule CXX_COMPILER__network_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__network_Release
+rule CXX_SHARED_LIBRARY_LINKER__network_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -465,7 +465,7 @@ rule CXX_SHARED_LIBRARY_LINKER__network_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__nr_Release
+rule CXX_SCAN__nr_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -474,8 +474,8 @@ rule CXX_SCAN__nr_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__nr_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\nr\CMakeFiles\nr.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__nr_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\nr\CMakeFiles\nr.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -485,7 +485,7 @@ rule CXX_DYNDEP__nr_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__nr_scanned_Release
+rule CXX_COMPILER__nr_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -495,7 +495,7 @@ rule CXX_COMPILER__nr_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__nr_unscanned_Release
+rule CXX_COMPILER__nr_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -505,7 +505,7 @@ rule CXX_COMPILER__nr_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__nr_Release
+rule CXX_SHARED_LIBRARY_LINKER__nr_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 @$RSP_FILE && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   rspfile = $RSP_FILE
@@ -516,7 +516,7 @@ rule CXX_SHARED_LIBRARY_LINKER__nr_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__nr-test_Release
+rule CXX_SCAN__nr-print-introspected-doxygen_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -525,8 +525,8 @@ rule CXX_SCAN__nr-test_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__nr-test_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\nr\CMakeFiles\nr-test.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__nr-print-introspected-doxygen_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\nr\CMakeFiles\nr-print-introspected-doxygen.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -536,7 +536,7 @@ rule CXX_DYNDEP__nr-test_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__nr-test_scanned_Release
+rule CXX_COMPILER__nr-print-introspected-doxygen_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -546,47 +546,7 @@ rule CXX_COMPILER__nr-test_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__nr-test_unscanned_Release
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for generating CXX dependencies.
-
-rule CXX_SCAN__nr-print-introspected-doxygen_Release
-  depfile = $DEP_FILE
-  command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
-  description = Scanning $in for CXX dependencies
-
-
-#############################################
-# Rule to generate ninja dyndep files for CXX.
-
-rule CXX_DYNDEP__nr-print-introspected-doxygen_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\nr\CMakeFiles\nr-print-introspected-doxygen.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
-  description = Generating CXX dyndep file $out
-  rspfile = $out.rsp
-  rspfile_content = $in
-  restat = 1
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__nr-print-introspected-doxygen_scanned_Release
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__nr-print-introspected-doxygen_unscanned_Release
+rule CXX_COMPILER__nr-print-introspected-doxygen_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -596,7 +556,7 @@ rule CXX_COMPILER__nr-print-introspected-doxygen_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__nr-print-introspected-doxygen_Release
+rule CXX_EXECUTABLE_LINKER__nr-print-introspected-doxygen_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -605,7 +565,7 @@ rule CXX_EXECUTABLE_LINKER__nr-print-introspected-doxygen_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__point-to-point_Release
+rule CXX_SCAN__point-to-point_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -614,8 +574,8 @@ rule CXX_SCAN__point-to-point_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__point-to-point_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\point-to-point\CMakeFiles\point-to-point.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__point-to-point_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\point-to-point\CMakeFiles\point-to-point.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -625,7 +585,7 @@ rule CXX_DYNDEP__point-to-point_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__point-to-point_scanned_Release
+rule CXX_COMPILER__point-to-point_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -635,7 +595,7 @@ rule CXX_COMPILER__point-to-point_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__point-to-point_unscanned_Release
+rule CXX_COMPILER__point-to-point_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -645,7 +605,7 @@ rule CXX_COMPILER__point-to-point_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__point-to-point_Release
+rule CXX_SHARED_LIBRARY_LINKER__point-to-point_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -654,7 +614,7 @@ rule CXX_SHARED_LIBRARY_LINKER__point-to-point_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__propagation_Release
+rule CXX_SCAN__propagation_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -663,8 +623,8 @@ rule CXX_SCAN__propagation_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__propagation_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\propagation\CMakeFiles\propagation.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__propagation_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\propagation\CMakeFiles\propagation.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -674,7 +634,7 @@ rule CXX_DYNDEP__propagation_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__propagation_scanned_Release
+rule CXX_COMPILER__propagation_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -684,7 +644,7 @@ rule CXX_COMPILER__propagation_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__propagation_unscanned_Release
+rule CXX_COMPILER__propagation_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -694,7 +654,7 @@ rule CXX_COMPILER__propagation_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__propagation_Release
+rule CXX_SHARED_LIBRARY_LINKER__propagation_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -703,7 +663,7 @@ rule CXX_SHARED_LIBRARY_LINKER__propagation_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__spectrum_Release
+rule CXX_SCAN__spectrum_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -712,8 +672,8 @@ rule CXX_SCAN__spectrum_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__spectrum_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\spectrum\CMakeFiles\spectrum.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__spectrum_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\spectrum\CMakeFiles\spectrum.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -723,7 +683,7 @@ rule CXX_DYNDEP__spectrum_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__spectrum_scanned_Release
+rule CXX_COMPILER__spectrum_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -733,7 +693,7 @@ rule CXX_COMPILER__spectrum_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__spectrum_unscanned_Release
+rule CXX_COMPILER__spectrum_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -743,7 +703,7 @@ rule CXX_COMPILER__spectrum_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__spectrum_Release
+rule CXX_SHARED_LIBRARY_LINKER__spectrum_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -752,7 +712,7 @@ rule CXX_SHARED_LIBRARY_LINKER__spectrum_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__stats_Release
+rule CXX_SCAN__stats_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -761,8 +721,8 @@ rule CXX_SCAN__stats_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__stats_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\stats\CMakeFiles\stats.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__stats_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\stats\CMakeFiles\stats.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -772,7 +732,7 @@ rule CXX_DYNDEP__stats_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__stats_scanned_Release
+rule CXX_COMPILER__stats_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -782,7 +742,7 @@ rule CXX_COMPILER__stats_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__stats_unscanned_Release
+rule CXX_COMPILER__stats_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -792,7 +752,7 @@ rule CXX_COMPILER__stats_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__stats_Release
+rule CXX_SHARED_LIBRARY_LINKER__stats_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -801,7 +761,7 @@ rule CXX_SHARED_LIBRARY_LINKER__stats_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__bridge_Release
+rule CXX_SCAN__bridge_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -810,8 +770,8 @@ rule CXX_SCAN__bridge_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__bridge_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\bridge\CMakeFiles\bridge.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__bridge_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\bridge\CMakeFiles\bridge.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -821,7 +781,7 @@ rule CXX_DYNDEP__bridge_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__bridge_scanned_Release
+rule CXX_COMPILER__bridge_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -831,7 +791,7 @@ rule CXX_COMPILER__bridge_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__bridge_unscanned_Release
+rule CXX_COMPILER__bridge_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -841,7 +801,7 @@ rule CXX_COMPILER__bridge_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__bridge_Release
+rule CXX_SHARED_LIBRARY_LINKER__bridge_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -850,7 +810,7 @@ rule CXX_SHARED_LIBRARY_LINKER__bridge_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__traffic-control_Release
+rule CXX_SCAN__traffic-control_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -859,8 +819,8 @@ rule CXX_SCAN__traffic-control_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__traffic-control_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\traffic-control\CMakeFiles\traffic-control.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__traffic-control_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\traffic-control\CMakeFiles\traffic-control.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -870,7 +830,7 @@ rule CXX_DYNDEP__traffic-control_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__traffic-control_scanned_Release
+rule CXX_COMPILER__traffic-control_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -880,7 +840,7 @@ rule CXX_COMPILER__traffic-control_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__traffic-control_unscanned_Release
+rule CXX_COMPILER__traffic-control_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -890,7 +850,7 @@ rule CXX_COMPILER__traffic-control_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__traffic-control_Release
+rule CXX_SHARED_LIBRARY_LINKER__traffic-control_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -899,7 +859,7 @@ rule CXX_SHARED_LIBRARY_LINKER__traffic-control_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__internet-apps_Release
+rule CXX_SCAN__internet-apps_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -908,8 +868,8 @@ rule CXX_SCAN__internet-apps_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__internet-apps_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\internet-apps\CMakeFiles\internet-apps.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__internet-apps_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\internet-apps\CMakeFiles\internet-apps.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -919,7 +879,7 @@ rule CXX_DYNDEP__internet-apps_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__internet-apps_scanned_Release
+rule CXX_COMPILER__internet-apps_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -929,7 +889,7 @@ rule CXX_COMPILER__internet-apps_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__internet-apps_unscanned_Release
+rule CXX_COMPILER__internet-apps_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -939,7 +899,7 @@ rule CXX_COMPILER__internet-apps_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__internet-apps_Release
+rule CXX_SHARED_LIBRARY_LINKER__internet-apps_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -948,7 +908,7 @@ rule CXX_SHARED_LIBRARY_LINKER__internet-apps_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__virtual-net-device_Release
+rule CXX_SCAN__virtual-net-device_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -957,8 +917,8 @@ rule CXX_SCAN__virtual-net-device_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__virtual-net-device_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\virtual-net-device\CMakeFiles\virtual-net-device.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__virtual-net-device_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\virtual-net-device\CMakeFiles\virtual-net-device.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -968,7 +928,7 @@ rule CXX_DYNDEP__virtual-net-device_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__virtual-net-device_scanned_Release
+rule CXX_COMPILER__virtual-net-device_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -978,7 +938,7 @@ rule CXX_COMPILER__virtual-net-device_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__virtual-net-device_unscanned_Release
+rule CXX_COMPILER__virtual-net-device_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -988,7 +948,7 @@ rule CXX_COMPILER__virtual-net-device_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__virtual-net-device_Release
+rule CXX_SHARED_LIBRARY_LINKER__virtual-net-device_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -997,7 +957,7 @@ rule CXX_SHARED_LIBRARY_LINKER__virtual-net-device_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__csma_Release
+rule CXX_SCAN__csma_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1006,8 +966,8 @@ rule CXX_SCAN__csma_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__csma_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=src\csma\CMakeFiles\csma.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__csma_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=src\csma\CMakeFiles\csma.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1017,7 +977,7 @@ rule CXX_DYNDEP__csma_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__csma_scanned_Release
+rule CXX_COMPILER__csma_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1027,7 +987,7 @@ rule CXX_COMPILER__csma_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__csma_unscanned_Release
+rule CXX_COMPILER__csma_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1037,7 +997,7 @@ rule CXX_COMPILER__csma_unscanned_Release
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__csma_Release
+rule CXX_SHARED_LIBRARY_LINKER__csma_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -1046,7 +1006,7 @@ rule CXX_SHARED_LIBRARY_LINKER__csma_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__scratch_scratch-simulator_Release
+rule CXX_SCAN__scratch_scratch-simulator_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1055,8 +1015,8 @@ rule CXX_SCAN__scratch_scratch-simulator_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__scratch_scratch-simulator_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=scratch\CMakeFiles\scratch_scratch-simulator.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__scratch_scratch-simulator_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=scratch\CMakeFiles\scratch_scratch-simulator.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1066,7 +1026,7 @@ rule CXX_DYNDEP__scratch_scratch-simulator_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch_scratch-simulator_scanned_Release
+rule CXX_COMPILER__scratch_scratch-simulator_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1076,7 +1036,7 @@ rule CXX_COMPILER__scratch_scratch-simulator_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch_scratch-simulator_unscanned_Release
+rule CXX_COMPILER__scratch_scratch-simulator_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1086,7 +1046,7 @@ rule CXX_COMPILER__scratch_scratch-simulator_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__scratch_scratch-simulator_Release
+rule CXX_EXECUTABLE_LINKER__scratch_scratch-simulator_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1095,7 +1055,7 @@ rule CXX_EXECUTABLE_LINKER__scratch_scratch-simulator_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__scratch_subdir_scratch-subdir_Release
+rule CXX_SCAN__scratch_subdir_scratch-subdir_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1104,8 +1064,8 @@ rule CXX_SCAN__scratch_subdir_scratch-subdir_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__scratch_subdir_scratch-subdir_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=scratch\CMakeFiles\scratch_subdir_scratch-subdir.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__scratch_subdir_scratch-subdir_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=scratch\CMakeFiles\scratch_subdir_scratch-subdir.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1115,7 +1075,7 @@ rule CXX_DYNDEP__scratch_subdir_scratch-subdir_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch_subdir_scratch-subdir_scanned_Release
+rule CXX_COMPILER__scratch_subdir_scratch-subdir_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1125,7 +1085,7 @@ rule CXX_COMPILER__scratch_subdir_scratch-subdir_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch_subdir_scratch-subdir_unscanned_Release
+rule CXX_COMPILER__scratch_subdir_scratch-subdir_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1135,7 +1095,7 @@ rule CXX_COMPILER__scratch_subdir_scratch-subdir_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__scratch_subdir_scratch-subdir_Release
+rule CXX_EXECUTABLE_LINKER__scratch_subdir_scratch-subdir_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1144,7 +1104,7 @@ rule CXX_EXECUTABLE_LINKER__scratch_subdir_scratch-subdir_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__scratch-nested-subdir-lib_Release
+rule CXX_SCAN__scratch-nested-subdir-lib_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1153,8 +1113,8 @@ rule CXX_SCAN__scratch-nested-subdir-lib_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__scratch-nested-subdir-lib_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=scratch\nested-subdir\CMakeFiles\scratch-nested-subdir-lib.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__scratch-nested-subdir-lib_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=scratch\nested-subdir\CMakeFiles\scratch-nested-subdir-lib.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1164,7 +1124,7 @@ rule CXX_DYNDEP__scratch-nested-subdir-lib_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch-nested-subdir-lib_scanned_Release
+rule CXX_COMPILER__scratch-nested-subdir-lib_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1174,7 +1134,7 @@ rule CXX_COMPILER__scratch-nested-subdir-lib_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch-nested-subdir-lib_unscanned_Release
+rule CXX_COMPILER__scratch-nested-subdir-lib_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1184,8 +1144,8 @@ rule CXX_COMPILER__scratch-nested-subdir-lib_unscanned_Release
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__scratch-nested-subdir-lib_Release
-  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && "C:\Program Files\CMake\bin\cmake.exe" -E rm -f $TARGET_FILE && C:\msys64\ucrt64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\msys64\ucrt64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+rule CXX_STATIC_LIBRARY_LINKER__scratch-nested-subdir-lib_release
+  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\PROGRA~1\CMake\bin\cmake.exe -E rm -f $TARGET_FILE && C:\msys64\ucrt64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\msys64\ucrt64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -1193,7 +1153,7 @@ rule CXX_STATIC_LIBRARY_LINKER__scratch-nested-subdir-lib_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__scratch_nested-subdir_scratch-nested-subdir-executable_Release
+rule CXX_SCAN__scratch_nested-subdir_scratch-nested-subdir-executable_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1202,8 +1162,8 @@ rule CXX_SCAN__scratch_nested-subdir_scratch-nested-subdir-executable_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__scratch_nested-subdir_scratch-nested-subdir-executable_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=scratch\nested-subdir\CMakeFiles\scratch_nested-subdir_scratch-nested-subdir-executable.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__scratch_nested-subdir_scratch-nested-subdir-executable_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=scratch\nested-subdir\CMakeFiles\scratch_nested-subdir_scratch-nested-subdir-executable.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1213,7 +1173,7 @@ rule CXX_DYNDEP__scratch_nested-subdir_scratch-nested-subdir-executable_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch_nested-subdir_scratch-nested-subdir-executable_scanned_Release
+rule CXX_COMPILER__scratch_nested-subdir_scratch-nested-subdir-executable_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1223,7 +1183,7 @@ rule CXX_COMPILER__scratch_nested-subdir_scratch-nested-subdir-executable_scanne
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__scratch_nested-subdir_scratch-nested-subdir-executable_unscanned_Release
+rule CXX_COMPILER__scratch_nested-subdir_scratch-nested-subdir-executable_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1233,7 +1193,7 @@ rule CXX_COMPILER__scratch_nested-subdir_scratch-nested-subdir-executable_unscan
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__scratch_nested-subdir_scratch-nested-subdir-executable_Release
+rule CXX_EXECUTABLE_LINKER__scratch_nested-subdir_scratch-nested-subdir-executable_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1242,7 +1202,7 @@ rule CXX_EXECUTABLE_LINKER__scratch_nested-subdir_scratch-nested-subdir-executab
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__test-runner_Release
+rule CXX_SCAN__bench-scheduler_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1251,8 +1211,8 @@ rule CXX_SCAN__test-runner_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__test-runner_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\test-runner.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__bench-scheduler_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\bench-scheduler.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1262,7 +1222,7 @@ rule CXX_DYNDEP__test-runner_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__test-runner_scanned_Release
+rule CXX_COMPILER__bench-scheduler_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1272,7 +1232,7 @@ rule CXX_COMPILER__test-runner_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__test-runner_unscanned_Release
+rule CXX_COMPILER__bench-scheduler_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1282,7 +1242,7 @@ rule CXX_COMPILER__test-runner_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__test-runner_Release
+rule CXX_EXECUTABLE_LINKER__bench-scheduler_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1291,7 +1251,7 @@ rule CXX_EXECUTABLE_LINKER__test-runner_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__bench-scheduler_Release
+rule CXX_SCAN__bench-packets_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1300,8 +1260,8 @@ rule CXX_SCAN__bench-scheduler_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__bench-scheduler_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\bench-scheduler.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__bench-packets_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\bench-packets.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1311,7 +1271,7 @@ rule CXX_DYNDEP__bench-scheduler_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__bench-scheduler_scanned_Release
+rule CXX_COMPILER__bench-packets_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1321,7 +1281,7 @@ rule CXX_COMPILER__bench-scheduler_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__bench-scheduler_unscanned_Release
+rule CXX_COMPILER__bench-packets_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1331,7 +1291,7 @@ rule CXX_COMPILER__bench-scheduler_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__bench-scheduler_Release
+rule CXX_EXECUTABLE_LINKER__bench-packets_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1340,7 +1300,7 @@ rule CXX_EXECUTABLE_LINKER__bench-scheduler_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__bench-packets_Release
+rule CXX_SCAN__print-introspected-doxygen_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1349,8 +1309,8 @@ rule CXX_SCAN__bench-packets_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__bench-packets_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\bench-packets.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__print-introspected-doxygen_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\print-introspected-doxygen.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1360,7 +1320,7 @@ rule CXX_DYNDEP__bench-packets_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__bench-packets_scanned_Release
+rule CXX_COMPILER__print-introspected-doxygen_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1370,7 +1330,7 @@ rule CXX_COMPILER__bench-packets_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__bench-packets_unscanned_Release
+rule CXX_COMPILER__print-introspected-doxygen_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1380,7 +1340,7 @@ rule CXX_COMPILER__bench-packets_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__bench-packets_Release
+rule CXX_EXECUTABLE_LINKER__print-introspected-doxygen_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1389,7 +1349,7 @@ rule CXX_EXECUTABLE_LINKER__bench-packets_Release
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__print-introspected-doxygen_Release
+rule CXX_SCAN__perf-io_release
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -1398,8 +1358,8 @@ rule CXX_SCAN__print-introspected-doxygen_Release
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__print-introspected-doxygen_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\print-introspected-doxygen.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
+rule CXX_DYNDEP__perf-io_release
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\perf-io.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
   rspfile_content = $in
@@ -1409,7 +1369,7 @@ rule CXX_DYNDEP__print-introspected-doxygen_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__print-introspected-doxygen_scanned_Release
+rule CXX_COMPILER__perf-io_scanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -1419,7 +1379,7 @@ rule CXX_COMPILER__print-introspected-doxygen_scanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__print-introspected-doxygen_unscanned_Release
+rule CXX_COMPILER__perf-io_unscanned_release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1429,56 +1389,7 @@ rule CXX_COMPILER__print-introspected-doxygen_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__print-introspected-doxygen_Release
-  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
-  description = Linking CXX executable $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for generating CXX dependencies.
-
-rule CXX_SCAN__perf-io_Release
-  depfile = $DEP_FILE
-  command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
-  description = Scanning $in for CXX dependencies
-
-
-#############################################
-# Rule to generate ninja dyndep files for CXX.
-
-rule CXX_DYNDEP__perf-io_Release
-  command = "C:\Program Files\CMake\bin\cmake.exe" -E cmake_ninja_dyndep --tdi=utils\CMakeFiles\perf-io.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
-  description = Generating CXX dyndep file $out
-  rspfile = $out.rsp
-  rspfile_content = $in
-  restat = 1
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__perf-io_scanned_Release
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__perf-io_unscanned_Release
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX executable.
-
-rule CXX_EXECUTABLE_LINKER__perf-io_Release
+rule CXX_EXECUTABLE_LINKER__perf-io_release
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -1488,7 +1399,7 @@ rule CXX_EXECUTABLE_LINKER__perf-io_Release
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\ns3-dev-link -BC:\ns3-dev-link\build-runner-nr
+  command = C:\PROGRA~1\CMake\bin\cmake.exe --regenerate-during-build -S"C:\Users\jagar\OneDrive\NTT DOCOMO\SIM評価\TN_NTN周波数共用\周波数共用による全体最適化確認SIM\ns-3-dev" -B"C:\Users\jagar\OneDrive\NTT DOCOMO\SIM評価\TN_NTN周波数共用\周波数共用による全体最適化確認SIM\ns-3-dev\build-runner-nr"
   description = Re-running CMake...
   generator = 1
 
@@ -1497,7 +1408,7 @@ rule RERUN_CMAKE
 # Rule for re-checking globbed directories.
 
 rule VERIFY_GLOBS
-  command = "C:\Program Files\CMake\bin\cmake.exe" -P C:\ns3-dev-link\build-runner-nr\CMakeFiles\VerifyGlobs.cmake
+  command = C:\PROGRA~1\CMake\bin\cmake.exe -P "C:\Users\jagar\OneDrive\NTT DOCOMO\SIM評価\TN_NTN周波数共用\周波数共用による全体最適化確認SIM\ns-3-dev\build-runner-nr\CMakeFiles\VerifyGlobs.cmake"
   description = Re-checking globbed directories...
   generator = 1
 

@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-bridge ns3-traffic-control
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-internet-debug  -lns3-dev-bridge-debug -lns3-dev-traffic-control-debug -lstdc++exp
+Libs: -L"${libdir}" -lns3-dev-internet  -lns3-dev-bridge -lns3-dev-traffic-control -lstdc++exp
 Libs.private: -L"${libdir}" 

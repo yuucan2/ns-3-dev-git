@@ -8,6 +8,6 @@ URL:
 Version: 3.dev
 Requires:  ns3-core
 Requires.private: 
-Cflags: -I"${includedir}" 
+Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
 Libs: -L"${libdir}" -lns3-dev-config-store  -lns3-dev-core
 Libs.private: -L"${libdir}" 

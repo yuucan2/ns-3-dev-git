@@ -8,6 +8,6 @@ URL:
 Version: 3.dev
 Requires:  ns3-mobility
 Requires.private: 
-Cflags: -I"${includedir}" 
+Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
 Libs: -L"${libdir}" -lns3-dev-propagation  -lns3-dev-mobility
 Libs.private: -L"${libdir}" 

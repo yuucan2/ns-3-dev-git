@@ -59,8 +59,8 @@ endif()
 add_library(ns3::antenna SHARED IMPORTED)
 
 set_target_properties(ns3::antenna PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;-Wl,--as-needed"
 )
 
@@ -68,8 +68,8 @@ set_target_properties(ns3::antenna PROPERTIES
 add_library(ns3::applications SHARED IMPORTED)
 
 set_target_properties(ns3::applications PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet;-Wl,--as-needed"
 )
 
@@ -77,8 +77,8 @@ set_target_properties(ns3::applications PROPERTIES
 add_library(ns3::buildings SHARED IMPORTED)
 
 set_target_properties(ns3::buildings PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::propagation;-Wl,--as-needed"
 )
 
@@ -86,8 +86,8 @@ set_target_properties(ns3::buildings PROPERTIES
 add_library(ns3::config-store SHARED IMPORTED)
 
 set_target_properties(ns3::config-store PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;-Wl,--as-needed"
 )
 
@@ -95,8 +95,8 @@ set_target_properties(ns3::config-store PROPERTIES
 add_library(ns3::core SHARED IMPORTED)
 
 set_target_properties(ns3::core PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;wsock32;ws2_32;-Wl,--as-needed"
 )
 
@@ -104,8 +104,8 @@ set_target_properties(ns3::core PROPERTIES
 add_library(ns3::flow-monitor SHARED IMPORTED)
 
 set_target_properties(ns3::flow-monitor PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet;-Wl,--as-needed"
 )
 
@@ -113,8 +113,8 @@ set_target_properties(ns3::flow-monitor PROPERTIES
 add_library(ns3::internet SHARED IMPORTED)
 
 set_target_properties(ns3::internet PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::bridge;ns3::traffic-control;-Wl,--as-needed"
 )
 
@@ -122,8 +122,8 @@ set_target_properties(ns3::internet PROPERTIES
 add_library(ns3::mobility SHARED IMPORTED)
 
 set_target_properties(ns3::mobility PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::antenna;ns3::network;-Wl,--as-needed"
 )
 
@@ -131,8 +131,8 @@ set_target_properties(ns3::mobility PROPERTIES
 add_library(ns3::network SHARED IMPORTED)
 
 set_target_properties(ns3::network PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::stats;-Wl,--as-needed"
 )
 
@@ -140,8 +140,8 @@ set_target_properties(ns3::network PROPERTIES
 add_library(ns3::nr SHARED IMPORTED)
 
 set_target_properties(ns3::nr PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet-apps;ns3::flow-monitor;ns3::spectrum;ns3::buildings;ns3::virtual-net-device;ns3::point-to-point;ns3::applications;ns3::csma;ns3::config-store;-Wl,--as-needed"
 )
 
@@ -149,8 +149,8 @@ set_target_properties(ns3::nr PROPERTIES
 add_library(ns3::point-to-point SHARED IMPORTED)
 
 set_target_properties(ns3::point-to-point PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
@@ -158,8 +158,8 @@ set_target_properties(ns3::point-to-point PROPERTIES
 add_library(ns3::propagation SHARED IMPORTED)
 
 set_target_properties(ns3::propagation PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::mobility;-Wl,--as-needed"
 )
 
@@ -167,8 +167,8 @@ set_target_properties(ns3::propagation PROPERTIES
 add_library(ns3::spectrum SHARED IMPORTED)
 
 set_target_properties(ns3::spectrum PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::propagation;ns3::antenna;-Wl,--as-needed"
 )
 
@@ -176,17 +176,17 @@ set_target_properties(ns3::spectrum PROPERTIES
 add_library(ns3::stats SHARED IMPORTED)
 
 set_target_properties(ns3::stats PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;-Wl,--as-needed"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
+  INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::core;C:/msys64/ucrt64/lib/libsqlite3.dll.a;-Wl,--as-needed"
 )
 
 # Create imported target ns3::bridge
 add_library(ns3::bridge SHARED IMPORTED)
 
 set_target_properties(ns3::bridge PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
@@ -194,8 +194,8 @@ set_target_properties(ns3::bridge PROPERTIES
 add_library(ns3::traffic-control SHARED IMPORTED)
 
 set_target_properties(ns3::traffic-control PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
@@ -203,8 +203,8 @@ set_target_properties(ns3::traffic-control PROPERTIES
 add_library(ns3::internet-apps SHARED IMPORTED)
 
 set_target_properties(ns3::internet-apps PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::internet;-Wl,--as-needed"
 )
 
@@ -212,8 +212,8 @@ set_target_properties(ns3::internet-apps PROPERTIES
 add_library(ns3::virtual-net-device SHARED IMPORTED)
 
 set_target_properties(ns3::virtual-net-device PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 
@@ -221,8 +221,8 @@ set_target_properties(ns3::virtual-net-device PROPERTIES
 add_library(ns3::csma SHARED IMPORTED)
 
 set_target_properties(ns3::csma PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/ns3-dev-link\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_COMPILE_DEFINITIONS "PROJECT_SOURCE_PATH=\"C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev\";_USE_MATH_DEFINES;NS3_BUILD_PROFILE_RELEASE;HAVE_SQLITE3"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/msys64/ucrt64/include"
   INTERFACE_LINK_LIBRARIES "-Wl,--no-as-needed;ns3::network;-Wl,--as-needed"
 )
 

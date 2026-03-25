@@ -1,0 +1,13 @@
+exec_prefix="C:/Program Files (x86)/NS3/bin"
+libdir="C:/Program Files (x86)/NS3/lib"
+includedir="C:/Program Files (x86)/NS3/include"
+
+Name: ns3-lte
+Description: 
+URL: 
+Version: 3.dev
+Requires:  ns3-spectrum ns3-buildings ns3-virtual-net-device ns3-point-to-point ns3-applications ns3-csma ns3-config-store
+Requires.private: 
+Cflags: -I"${includedir}" 
+Libs: -L"${libdir}" -lns3-dev-lte  -lns3-dev-spectrum -lns3-dev-buildings -lns3-dev-virtual-net-device -lns3-dev-point-to-point -lns3-dev-applications -lns3-dev-csma -lns3-dev-config-store
+Libs.private: -L"${libdir}" 

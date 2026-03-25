@@ -8,6 +8,6 @@ URL:
 Version: 3.dev
 Requires:  ns3-bridge ns3-traffic-control
 Requires.private: 
-Cflags: -I"${includedir}" 
+Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
 Libs: -L"${libdir}" -lns3-dev-internet  -lns3-dev-bridge -lns3-dev-traffic-control
 Libs.private: -L"${libdir}" 

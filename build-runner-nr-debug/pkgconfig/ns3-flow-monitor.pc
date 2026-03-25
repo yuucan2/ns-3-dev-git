@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-internet
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-flow-monitor-debug  -lns3-dev-internet-debug -lstdc++exp
+Libs: -L"${libdir}" -lns3-dev-flow-monitor  -lns3-dev-internet -lstdc++exp
 Libs.private: -L"${libdir}" 

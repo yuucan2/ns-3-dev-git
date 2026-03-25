@@ -1,4 +1,4 @@
-# Install script for directory: C:/ns3-dev-link/src/propagation
+# Install script for directory: C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -37,44 +37,49 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/msys64/ucrt64/bin/objdump.exe")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/ns3-dev-link/build/lib/libns3-dev-propagation-debug.dll.a")
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr-debug/src/propagation/examples/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "C:/ns3-dev-link/build/lib/libns3-dev-propagation-debug.dll")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-propagation-debug.dll" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-propagation-debug.dll")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build/lib/libns3-dev-propagation.dll.a")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build/lib/libns3-dev-propagation.dll")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-propagation.dll" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-propagation.dll")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/msys64/ucrt64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-propagation-debug.dll")
+      execute_process(COMMAND "C:/msys64/ucrt64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-propagation.dll")
     endif()
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ns3" TYPE FILE FILES
-    "C:/ns3-dev-link/src/propagation/model/channel-condition-model.h"
-    "C:/ns3-dev-link/src/propagation/model/cost231-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/itu-r-1411-los-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/itu-r-1411-nlos-over-rooftop-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/jakes-process.h"
-    "C:/ns3-dev-link/src/propagation/model/jakes-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/kun-2600-mhz-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/okumura-hata-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/probabilistic-v2v-channel-condition-model.h"
-    "C:/ns3-dev-link/src/propagation/model/propagation-cache.h"
-    "C:/ns3-dev-link/src/propagation/model/propagation-delay-model.h"
-    "C:/ns3-dev-link/src/propagation/model/propagation-environment.h"
-    "C:/ns3-dev-link/src/propagation/model/propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/three-gpp-propagation-loss-model.h"
-    "C:/ns3-dev-link/src/propagation/model/three-gpp-v2v-propagation-loss-model.h"
-    "C:/ns3-dev-link/build/include/ns3/propagation-module.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/channel-condition-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/cost231-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/itu-r-1411-los-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/itu-r-1411-nlos-over-rooftop-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/jakes-process.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/jakes-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/kun-2600-mhz-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/okumura-hata-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/probabilistic-v2v-channel-condition-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/propagation-cache.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/propagation-delay-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/propagation-environment.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/three-gpp-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/propagation/model/three-gpp-v2v-propagation-loss-model.h"
+    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build/include/ns3/propagation-module.h"
     )
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/ns3-dev-link/build-runner-nr-debug/src/propagation/install_local_manifest.txt"
+  file(WRITE "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr-debug/src/propagation/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

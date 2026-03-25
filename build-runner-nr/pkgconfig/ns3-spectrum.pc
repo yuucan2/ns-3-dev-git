@@ -8,6 +8,6 @@ URL:
 Version: 3.dev
 Requires:  ns3-propagation ns3-antenna
 Requires.private: 
-Cflags: -I"${includedir}" 
+Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
 Libs: -L"${libdir}" -lns3-dev-spectrum  -lns3-dev-propagation -lns3-dev-antenna
 Libs.private: -L"${libdir}" 

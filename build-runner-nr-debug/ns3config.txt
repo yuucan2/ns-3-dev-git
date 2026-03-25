@@ -1,14 +1,14 @@
 ---- Summary of ns-3 settings:
-Build profile                 : debug
-Build directory               : C:/ns3-dev-link/build
-Build with runtime asserts    : ON
-Build with runtime logging    : ON
+Build profile                 : release
+Build directory               : C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build
+Build with runtime asserts    : OFF (not requested)
+Build with runtime logging    : OFF (not requested)
 Build version embedding       : OFF (not requested)
 BRITE Integration             : OFF (missing dependency)
 DES Metrics event collection  : OFF (not requested)
 DPDK NetDevice                : OFF (not requested)
 Emulation FdNetDevice         : OFF (not requested)
-Examples                      : OFF (not requested)
+Examples                      : ON
 File descriptor NetDevice     : OFF (missing dependency)
 GNU Scientific Library (GSL)  : OFF (GSL was not found)
 GtkConfigStore                : OFF (Harfbuzz is required by GTK3 and was not found)

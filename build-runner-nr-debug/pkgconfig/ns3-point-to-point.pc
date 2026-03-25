@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-network
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-point-to-point-debug  -lns3-dev-network-debug -lstdc++exp
+Libs: -L"${libdir}" -lns3-dev-point-to-point  -lns3-dev-network -lstdc++exp
 Libs.private: -L"${libdir}" 

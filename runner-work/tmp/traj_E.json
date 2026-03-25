@@ -1,0 +1,1 @@
+{"schema_version": "ns3_runner_ntn_trajectory_state_v1", "scenario_mode": "RuleBased", "operation": "create_and_connect_nodes", "payload": {"schema_version": "runner_ntn_trajectory_v1", "enabled": false, "update_period_sec": 0.1, "tracks": {}}}

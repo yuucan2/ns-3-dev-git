@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-internet-apps ns3-flow-monitor ns3-spectrum ns3-buildings ns3-virtual-net-device ns3-point-to-point ns3-applications ns3-csma ns3-config-store
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-nr-debug  -lns3-dev-internet-apps-debug -lns3-dev-flow-monitor-debug -lns3-dev-spectrum-debug -lns3-dev-buildings-debug -lns3-dev-virtual-net-device-debug -lns3-dev-point-to-point-debug -lns3-dev-applications-debug -lns3-dev-csma-debug -lns3-dev-config-store-debug -lstdc++exp
+Libs: -L"${libdir}" -lns3-dev-nr  -lns3-dev-internet-apps -lns3-dev-flow-monitor -lns3-dev-spectrum -lns3-dev-buildings -lns3-dev-virtual-net-device -lns3-dev-point-to-point -lns3-dev-applications -lns3-dev-csma -lns3-dev-config-store -lstdc++exp
 Libs.private: -L"${libdir}" 

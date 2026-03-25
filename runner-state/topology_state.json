@@ -4,13 +4,17 @@
   "operation": "create_and_connect_nodes",
   "payload": {
     "scenario_mode": "RuleBased",
-    "num_cells": 3,
+    "num_cells": 5,
     "current_bandwidth_per_cell_hz": [
+      20000000.0,
+      20000000.0,
       20000000.0,
       20000000.0,
       0
     ],
     "current_carrier_frequency_per_cell_hz": [
+      2000000000.0,
+      2000000000.0,
       2000000000.0,
       2000000000.0,
       2000000000.0
@@ -32,18 +36,63 @@
         3
       ],
       [
-        8913,
-        483,
+        -537,
+        -296,
         3
       ],
       [
-        8810,
-        -58,
+        -640,
+        -837,
         3
       ],
       [
-        9475,
-        -130,
+        25,
+        -909,
+        3
+      ],
+      [
+        632,
+        -830,
+        3
+      ],
+      [
+        127,
+        -750,
+        3
+      ],
+      [
+        599,
+        -1234,
+        3
+      ],
+      [
+        925,
+        -91,
+        3
+      ],
+      [
+        1346,
+        -116,
+        3
+      ],
+      [
+        630,
+        -401,
+        3
+      ],
+      [
+        -3254,
+        -6774,
+        3
+      ],
+      [
+        472,
+        -9704,
+        3
+      ],
+      [
+        -214,
+        -4960,
         3
       ]
     ],
@@ -51,6 +100,15 @@
       1,
       1,
       1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      3,
       2,
       2,
       2
@@ -67,17 +125,29 @@
         true,
         true,
         true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
         true
       ],
-      "ntn_ta_supported_ue_count": 6,
+      "ntn_ta_supported_ue_count": 15,
       "ntn_ta_unsupported_ue_count": 0
     },
     "control_events": {
       "schema_version": "runner_control_events_v1",
-      "events": []
+      "events": [],
+      "event_count": 0
     },
     "profile": {
       "cell_type": [
+        "TN",
+        "TN",
         "TN",
         "TN",
         "NTN"
@@ -89,12 +159,22 @@
           35
         ],
         [
-          9000,
+          -450,
+          -779.4228634059947,
+          35
+        ],
+        [
+          450,
+          -779.4228634059947,
+          35
+        ],
+        [
+          900,
           0,
           35
         ],
         [
-          20000,
+          0,
           0,
           600000.0000000009
         ]
@@ -102,17 +182,23 @@
       "delay_offset_slots": [
         0,
         0,
-        8
+        0,
+        0,
+        0
       ],
       "subcarrier_spacing_hz": 30000,
-      "total_bandwidth_hz": 40000000.0,
+      "total_bandwidth_hz": 80000000.0,
       "carrier_frequency_hz": 2000000000.0,
       "transmit_power_dbm": [
+        40,
+        40,
         40,
         40,
         45
       ],
       "allowed_serving_cells": [
+        true,
+        true,
         true,
         true,
         true
@@ -122,13 +208,173 @@
       "enable_tn_ntn_channel_split": true,
       "enable_fixed_channel_seed": false,
       "channel_seed": 0,
+      "enable_ntn_position_update": true,
+      "ntn_position_update_period_sec": 0.1,
+      "ntn_trajectory_mode": "precomputed",
+      "tn_area_radius_m": 500,
+      "ntn_area_radius_at_elevation90_deg_m": 12000,
+      "rrc_control_period_sec": 0.1,
+      "bwp_ack_timeout_min_sec": 0.02,
+      "bwp_ack_timeout_propagation_factor": 4,
+      "bwp_ack_timeout_guard_sec": 0.005,
+      "enable_cu_distress_bandwidth_policy": true,
+      "enable_ntn_bootstrap_when_no_attached_ue": true,
+      "ntn_bootstrap_distress_threshold": 0.8,
+      "ntn_bootstrap_min_bandwidth_hz": 5000000.0,
+      "enable_adaptive_ntn_bootstrap_threshold": true,
+      "ntn_bootstrap_distress_threshold_min": 0.7,
+      "ntn_bootstrap_distress_threshold_max": 0.98,
+      "ntn_bootstrap_distress_threshold_nominal": 0.8,
+      "ntn_bootstrap_distress_threshold_step_up": 0.05,
+      "ntn_bootstrap_distress_threshold_step_down": 0.05,
+      "ntn_bootstrap_attach_hold_count": 2,
+      "ntn_bootstrap_no_attach_hold_count": 2,
+      "max_requests_per_second": 20,
+      "min_share_change_for_request": 0.05,
+      "enable_ns3_local_bwp_controller": true,
+      "ns3_local_bwp_policy_name": "matlab_legacy",
+      "enable_ns3_local_ho_controller": true,
+      "enable_ns3_runtime_control_loop": true,
+      "ns3_runtime_control_period_sec": 0.1,
+      "enable_ns3_control_authority": true,
+      "enable_ns3_authority_no_matlab_injection": false,
+      "enable_ns3_matlab_control_event_injection": false,
+      "a3_offset_db": 0.5,
+      "a3_ttt_ms": 100,
+      "a3_rsrp_min_dbm": -125,
+      "a3_rsrq_min_db": -20,
+      "a5_trigger_metric_tn_to_ntn": "rsrq",
+      "a5_trigger_metric_ntn_to_tn": "rsrp",
+      "a5_serving_rsrq_threshold_db_tn_to_ntn": -12,
+      "a5_neighbor_rsrq_threshold_db_tn_to_ntn": -11,
+      "a5_serving_rsrq_threshold_db_ntn_to_tn": -12,
+      "a5_neighbor_rsrq_threshold_db_ntn_to_tn": -11,
+      "a5_serving_rsrp_threshold_dbm_tn_to_ntn": -75,
+      "a5_neighbor_rsrp_threshold_dbm_tn_to_ntn": -90,
+      "a5_serving_rsrp_threshold_dbm_ntn_to_tn": -95,
+      "a5_neighbor_rsrp_threshold_dbm_ntn_to_tn": -70,
+      "a5_ttt_ms": 100,
+      "local_ho_max_requests_per_cycle": 3,
+      "local_ho_max_requests_source": "maxReq",
+      "local_ho_min_inter_request_sec": 0.005,
+      "allow_cross_type_ho_replay": false,
+      "cu_distress_level_thresholds": [
+        0.4,
+        0.4366666666666667,
+        0.47333333333333333,
+        0.51,
+        0.5466666666666666,
+        0.5833333333333333,
+        0.62,
+        0.6566666666666667,
+        0.6933333333333334,
+        0.73,
+        0.7666666666666666,
+        0.8033333333333332,
+        0.8400000000000001,
+        0.8766666666666667,
+        0.9133333333333333,
+        0.95
+      ],
+      "cu_ntn_bandwidth_levels_hz": [
+        0,
+        5000000.0,
+        6000000.0,
+        7000000.0,
+        8000000.0,
+        9000000.0,
+        10000000.0,
+        11000000.0,
+        12000000.0,
+        13000000.0,
+        14000000.0,
+        15000000.0,
+        16000000.0,
+        17000000.0,
+        18000000.0,
+        19000000.0,
+        20000000.0
+      ],
+      "gnb_tx_antenna_gain_dbi": [
+        17,
+        17,
+        17,
+        17,
+        45
+      ],
+      "gnb_rx_antenna_gain_dbi": [
+        17,
+        17,
+        17,
+        17,
+        45
+      ],
+      "gnb_tx_feeder_loss_db": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "gnb_rx_feeder_loss_db": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ue_tx_antenna_gain_dbi": 0,
+      "ue_rx_antenna_gain_dbi": 0,
+      "ue_tx_feeder_loss_db": 0,
+      "ue_rx_feeder_loss_db": 0,
+      "noise_figure_db": 7,
+      "enable_antenna_pattern": false,
+      "gnb_azimuth_deg": [
+        0,
+        0,
+        0,
+        0,
+        90
+      ],
+      "gnb_downtilt_deg": [
+        8,
+        8,
+        8,
+        8,
+        90
+      ],
+      "horiz_beamwidth_deg": [
+        360,
+        360,
+        360,
+        360,
+        360
+      ],
+      "vert_beamwidth_deg": [
+        20,
+        20,
+        20,
+        20,
+        40
+      ],
+      "max_attenuation_db": 30,
+      "side_lobe_attenuation_db": 30,
+      "apply_directional_pattern_cell_mask": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
       "runner_control_delay_model": {
         "schema_version": "runner_control_delay_model_v1",
         "enable_unified_ntn_link_model": true,
         "delay_offset_slots": [
           0,
           0,
-          8
+          0,
+          0,
+          0
         ],
         "base_scheduling_delay_k1": 8,
         "base_scheduling_delay_k2": 8,
@@ -144,6 +390,8 @@
         "cu_du_propagation_delay_sec": [
           0,
           0,
+          0,
+          0,
           0
         ],
         "prb_delay_path_count": 3,
@@ -154,47 +402,81 @@
     "ntn_trajectory": {
       "schema_version": "runner_ntn_trajectory_v1",
       "enabled": true,
-      "update_period_sec": 0.25,
-      "tracks": [
-        {
-          "cell_idx": 3,
-          "source": "fallback_circular",
-          "time_sec": [
-            0.0,
-            0.25,
-            0.5,
-            0.75,
-            1.0
+      "update_period_sec": 0.1,
+      "tracks": {
+        "cell_idx": 5,
+        "source": "fallback_circular",
+        "time_sec": [
+          0,
+          0.1,
+          0.2,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1
+        ],
+        "positions_m": [
+          [
+            0,
+            0,
+            600000.0000000009
           ],
-          "positions_m": [
-            [
-              20000.0,
-              0.0,
-              600000.0
-            ],
-            [
-              20200.0,
-              100.0,
-              600000.0
-            ],
-            [
-              20400.0,
-              220.0,
-              600000.0
-            ],
-            [
-              20600.0,
-              340.0,
-              600000.0
-            ],
-            [
-              20800.0,
-              460.0,
-              600000.0
-            ]
+          [
+            300.0872571878135,
+            551.9280738369562,
+            599999.9999999991
+          ],
+          [
+            600.1897027269006,
+            1103.8561453213915,
+            600000
+          ],
+          [
+            900.2769330702722,
+            1655.784212101251,
+            600000
+          ],
+          [
+            1200.379403963685,
+            2207.7122718249448,
+            600000.0000000009
+          ],
+          [
+            1500.4667118676007,
+            2759.6403221399523,
+            600000
+          ],
+          [
+            1800.569186333567,
+            3311.5683606951497,
+            599999.9999999991
+          ],
+          [
+            2100.656550016254,
+            3863.496385136619,
+            599999.9999999991
+          ],
+          [
+            2400.759132463485,
+            4415.424393114168,
+            600000
+          ],
+          [
+            2700.8465301431715,
+            4967.352382273879,
+            600000
+          ],
+          [
+            3000.949198797345,
+            5519.2803502646275,
+            600000.0000000009
           ]
-        }
-      ]
+        ]
+      }
     }
   }
 }

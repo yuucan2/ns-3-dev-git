@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-propagation ns3-antenna
 Requires.private: 
 Cflags: -I"${includedir}" 
-Libs: -L"${libdir}" -lns3-dev-spectrum-debug  -lns3-dev-propagation-debug -lns3-dev-antenna-debug -lstdc++exp
+Libs: -L"${libdir}" -lns3-dev-spectrum  -lns3-dev-propagation -lns3-dev-antenna -lstdc++exp
 Libs.private: -L"${libdir}" 
