@@ -1,9 +1,9 @@
 {
   "schema_version": "ns3_runner_topology_state_v1",
-  "scenario_mode": "RuleBased",
+  "scenario_mode": "Baseline",
   "operation": "create_and_connect_nodes",
   "payload": {
-    "scenario_mode": "RuleBased",
+    "scenario_mode": "Baseline",
     "num_cells": 5,
     "current_bandwidth_per_cell_hz": [
       20000000.0,
@@ -201,7 +201,7 @@
         true,
         true,
         true,
-        true
+        false
       ],
       "channel_model": "3GPP TR 38.901",
       "channel_scenario": "RMa",

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum
+# Install script for directory: C:/ns3-dev-link/src/spectrum
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "release")
+    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,66 +38,66 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr/lib/libns3-dev-spectrum.dll.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/ns3-dev-link/build/lib/libns3-dev-spectrum-relwithdebinfo.dll.a")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr/lib/libns3-dev-spectrum.dll")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-spectrum.dll" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-spectrum.dll")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "C:/ns3-dev-link/build/lib/libns3-dev-spectrum-relwithdebinfo.dll")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-spectrum-relwithdebinfo.dll" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-spectrum-relwithdebinfo.dll")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/msys64/ucrt64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-spectrum.dll")
+      execute_process(COMMAND "C:/msys64/ucrt64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libns3-dev-spectrum-relwithdebinfo.dll")
     endif()
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ns3" TYPE FILE FILES
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/helper/adhoc-aloha-noack-ideal-phy-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/helper/spectrum-analyzer-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/helper/spectrum-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/helper/tv-spectrum-transmitter-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/helper/waveform-generator-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/aloha-noack-mac-header.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/aloha-noack-net-device.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/constant-spectrum-propagation-loss.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/friis-spectrum-propagation-loss.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/half-duplex-ideal-phy-signal-parameters.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/half-duplex-ideal-phy.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/ism-spectrum-value-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/matrix-based-channel-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/microwave-oven-spectrum-value-helper.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/two-ray-spectrum-propagation-loss-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/multi-model-spectrum-channel.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/non-communicating-net-device.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/single-model-spectrum-channel.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-analyzer.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-channel.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-converter.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-error-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-interference.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-model-300kHz-300GHz-log.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-model-ism2400MHz-res1MHz.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-phy.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-propagation-loss-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-transmit-filter.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/phased-array-spectrum-propagation-loss-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-signal-parameters.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/spectrum-value.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/three-gpp-channel-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/three-gpp-spectrum-propagation-loss-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/trace-fading-loss-model.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/tv-spectrum-transmitter.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/model/waveform-generator.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/src/spectrum/test/spectrum-test.h"
-    "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr/include/ns3/spectrum-module.h"
+    "C:/ns3-dev-link/src/spectrum/helper/adhoc-aloha-noack-ideal-phy-helper.h"
+    "C:/ns3-dev-link/src/spectrum/helper/spectrum-analyzer-helper.h"
+    "C:/ns3-dev-link/src/spectrum/helper/spectrum-helper.h"
+    "C:/ns3-dev-link/src/spectrum/helper/tv-spectrum-transmitter-helper.h"
+    "C:/ns3-dev-link/src/spectrum/helper/waveform-generator-helper.h"
+    "C:/ns3-dev-link/src/spectrum/model/aloha-noack-mac-header.h"
+    "C:/ns3-dev-link/src/spectrum/model/aloha-noack-net-device.h"
+    "C:/ns3-dev-link/src/spectrum/model/constant-spectrum-propagation-loss.h"
+    "C:/ns3-dev-link/src/spectrum/model/friis-spectrum-propagation-loss.h"
+    "C:/ns3-dev-link/src/spectrum/model/half-duplex-ideal-phy-signal-parameters.h"
+    "C:/ns3-dev-link/src/spectrum/model/half-duplex-ideal-phy.h"
+    "C:/ns3-dev-link/src/spectrum/model/ism-spectrum-value-helper.h"
+    "C:/ns3-dev-link/src/spectrum/model/matrix-based-channel-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/microwave-oven-spectrum-value-helper.h"
+    "C:/ns3-dev-link/src/spectrum/model/two-ray-spectrum-propagation-loss-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/multi-model-spectrum-channel.h"
+    "C:/ns3-dev-link/src/spectrum/model/non-communicating-net-device.h"
+    "C:/ns3-dev-link/src/spectrum/model/single-model-spectrum-channel.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-analyzer.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-channel.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-converter.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-error-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-interference.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-model-300kHz-300GHz-log.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-model-ism2400MHz-res1MHz.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-phy.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-propagation-loss-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-transmit-filter.h"
+    "C:/ns3-dev-link/src/spectrum/model/phased-array-spectrum-propagation-loss-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-signal-parameters.h"
+    "C:/ns3-dev-link/src/spectrum/model/spectrum-value.h"
+    "C:/ns3-dev-link/src/spectrum/model/three-gpp-channel-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/three-gpp-spectrum-propagation-loss-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/trace-fading-loss-model.h"
+    "C:/ns3-dev-link/src/spectrum/model/tv-spectrum-transmitter.h"
+    "C:/ns3-dev-link/src/spectrum/model/waveform-generator.h"
+    "C:/ns3-dev-link/src/spectrum/test/spectrum-test.h"
+    "C:/ns3-dev-link/build/include/ns3/spectrum-module.h"
     )
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr/src/spectrum/install_local_manifest.txt"
+  file(WRITE "C:/ns3-dev-link/build-runner-nr/src/spectrum/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

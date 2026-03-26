@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-bridge ns3-traffic-control
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-internet  -lns3-dev-bridge -lns3-dev-traffic-control
+Libs: -L"${libdir}" -lns3-dev-internet-relwithdebinfo  -lns3-dev-bridge-relwithdebinfo -lns3-dev-traffic-control-relwithdebinfo -lstdc++exp
 Libs.private: -L"${libdir}" 

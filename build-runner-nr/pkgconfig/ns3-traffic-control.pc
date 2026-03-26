@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-network
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-traffic-control  -lns3-dev-network
+Libs: -L"${libdir}" -lns3-dev-traffic-control-relwithdebinfo  -lns3-dev-network-relwithdebinfo -lstdc++exp
 Libs.private: -L"${libdir}" 

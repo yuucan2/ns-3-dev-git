@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-core
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-config-store  -lns3-dev-core
+Libs: -L"${libdir}" -lns3-dev-config-store-relwithdebinfo  -lns3-dev-core-relwithdebinfo -lstdc++exp
 Libs.private: -L"${libdir}" 

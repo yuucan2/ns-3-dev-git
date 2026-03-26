@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-core
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-stats  -lns3-dev-core C:/msys64/ucrt64/lib/libsqlite3.dll.a
+Libs: -L"${libdir}" -lns3-dev-stats-relwithdebinfo  -lns3-dev-core-relwithdebinfo C:/msys64/ucrt64/lib/libsqlite3.dll.a -lstdc++exp
 Libs.private: -L"${libdir}" 

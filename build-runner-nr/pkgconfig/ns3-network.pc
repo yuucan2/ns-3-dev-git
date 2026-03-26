@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-stats
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-network  -lns3-dev-stats
+Libs: -L"${libdir}" -lns3-dev-network-relwithdebinfo  -lns3-dev-stats-relwithdebinfo -lstdc++exp
 Libs.private: -L"${libdir}" 

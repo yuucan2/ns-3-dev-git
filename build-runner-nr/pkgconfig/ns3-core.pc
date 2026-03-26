@@ -9,5 +9,5 @@ Version: 3.dev
 Requires: 
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-core  -lwsock32 -lws2_32
+Libs: -L"${libdir}" -lns3-dev-core-relwithdebinfo  -lwsock32 -lws2_32 -lstdc++exp
 Libs.private: -L"${libdir}" 

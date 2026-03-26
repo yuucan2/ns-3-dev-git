@@ -9,5 +9,5 @@ Version: 3.dev
 Requires:  ns3-internet
 Requires.private: 
 Cflags: -I"${includedir}"  -IC:/msys64/ucrt64/include
-Libs: -L"${libdir}" -lns3-dev-flow-monitor  -lns3-dev-internet
+Libs: -L"${libdir}" -lns3-dev-flow-monitor-relwithdebinfo  -lns3-dev-internet-relwithdebinfo -lstdc++exp
 Libs.private: -L"${libdir}" 

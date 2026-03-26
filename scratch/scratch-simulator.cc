@@ -4066,6 +4066,44 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
                 Simulator::Schedule(Seconds(scheduledHoTimeSec),
                                     [nrHelper, ueDev, srcGnb, dstGnb, ueId, sourceCellId, targetCellId, &metrics]() {
                                         ++metrics.debugHoRequestDispatchCount;
+                                        Ptr<NrUeNetDevice> ueNrDev = DynamicCast<NrUeNetDevice>(ueDev);
+                                        Ptr<NrGnbNetDevice> srcNrDev = DynamicCast<NrGnbNetDevice>(srcGnb);
+                                        if (!ueNrDev || !ueNrDev->GetRrc() || !srcNrDev || !srcNrDev->GetRrc())
+                                        {
+                                            ++metrics.debugHoRequestRejectedPrecheckCount;
+                                            ++metrics.debugHoRequestRejectMissingSourceCount;
+                                            NS_LOG_UNCOND("[NS3LocalHoReq] skip reason=missing_rrc ueId=" << ueId
+                                                          << " srcCell=" << sourceCellId
+                                                          << " dstCell=" << targetCellId
+                                                          << " now=" << Simulator::Now().GetSeconds());
+                                            return;
+                                        }
+                                        const uint16_t rnti = ueNrDev->GetRrc()->GetRnti();
+                                        Ptr<NrGnbRrc> srcRrc = srcNrDev->GetRrc();
+                                        if (!srcRrc->HasUeManager(rnti))
+                                        {
+                                            ++metrics.debugHoRequestRejectedPrecheckCount;
+                                            ++metrics.debugHoRequestRejectMissingSourceCount;
+                                            NS_LOG_UNCOND("[NS3LocalHoReq] skip reason=missing_ue_manager ueId="
+                                                          << ueId << " rnti=" << rnti
+                                                          << " srcCell=" << sourceCellId
+                                                          << " dstCell=" << targetCellId
+                                                          << " now=" << Simulator::Now().GetSeconds());
+                                            return;
+                                        }
+                                        const auto ueState = srcRrc->GetUeManager(rnti)->GetState();
+                                        if (ueState != NrUeManager::CONNECTED_NORMALLY &&
+                                            ueState != NrUeManager::CONNECTION_RECONFIGURATION)
+                                        {
+                                            ++metrics.debugHoRequestRejectedPrecheckCount;
+                                            NS_LOG_UNCOND("[NS3LocalHoReq] skip reason=ue_not_connected ueId=" << ueId
+                                                          << " rnti=" << rnti
+                                                          << " srcCell=" << sourceCellId
+                                                          << " dstCell=" << targetCellId
+                                                          << " state=" << static_cast<int>(ueState)
+                                                          << " now=" << Simulator::Now().GetSeconds());
+                                            return;
+                                        }
                                         NS_LOG_UNCOND("[NS3LocalHoReq] dispatch ueId=" << ueId
                                                       << " srcCell=" << sourceCellId
                                                       << " dstCell=" << targetCellId
@@ -4247,6 +4285,44 @@ RunMinimalTnNrScenario(const ScenarioPlan& plan, const std::string& requestPath)
                                              targetCellId,
                                              &metrics]() {
                                                 ++metrics.debugHoRequestDispatchCount;
+                                                Ptr<NrUeNetDevice> ueNrDev = DynamicCast<NrUeNetDevice>(ueDev);
+                                                Ptr<NrGnbNetDevice> srcNrDev = DynamicCast<NrGnbNetDevice>(srcGnb);
+                                                if (!ueNrDev || !ueNrDev->GetRrc() || !srcNrDev || !srcNrDev->GetRrc())
+                                                {
+                                                    ++metrics.debugHoRequestRejectedPrecheckCount;
+                                                    ++metrics.debugHoRequestRejectMissingSourceCount;
+                                                    NS_LOG_UNCOND("[NS3LocalHoReq] skip(runtime) reason=missing_rrc ueId="
+                                                                  << ueId << " srcCell=" << sourceCellId
+                                                                  << " dstCell=" << targetCellId
+                                                                  << " now=" << Simulator::Now().GetSeconds());
+                                                    return;
+                                                }
+                                                const uint16_t rnti = ueNrDev->GetRrc()->GetRnti();
+                                                Ptr<NrGnbRrc> srcRrc = srcNrDev->GetRrc();
+                                                if (!srcRrc->HasUeManager(rnti))
+                                                {
+                                                    ++metrics.debugHoRequestRejectedPrecheckCount;
+                                                    ++metrics.debugHoRequestRejectMissingSourceCount;
+                                                    NS_LOG_UNCOND("[NS3LocalHoReq] skip(runtime) reason=missing_ue_manager ueId="
+                                                                  << ueId << " rnti=" << rnti
+                                                                  << " srcCell=" << sourceCellId
+                                                                  << " dstCell=" << targetCellId
+                                                                  << " now=" << Simulator::Now().GetSeconds());
+                                                    return;
+                                                }
+                                                const auto ueState = srcRrc->GetUeManager(rnti)->GetState();
+                                                if (ueState != NrUeManager::CONNECTED_NORMALLY &&
+                                                    ueState != NrUeManager::CONNECTION_RECONFIGURATION)
+                                                {
+                                                    ++metrics.debugHoRequestRejectedPrecheckCount;
+                                                    NS_LOG_UNCOND("[NS3LocalHoReq] skip(runtime) reason=ue_not_connected ueId="
+                                                                  << ueId << " rnti=" << rnti
+                                                                  << " srcCell=" << sourceCellId
+                                                                  << " dstCell=" << targetCellId
+                                                                  << " state=" << static_cast<int>(ueState)
+                                                                  << " now=" << Simulator::Now().GetSeconds());
+                                                    return;
+                                                }
                                                 NS_LOG_UNCOND("[NS3LocalHoReq] dispatch(runtime) ueId=" << ueId
                                                               << " srcCell=" << sourceCellId
                                                               << " dstCell=" << targetCellId

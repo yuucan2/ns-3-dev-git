@@ -1,10 +1,10 @@
 ---- Summary of ns-3 settings:
-Build profile                 : release
-Build directory               : C:/Users/jagar/OneDrive/NTT DOCOMO/SIM評価/TN_NTN周波数共用/周波数共用による全体最適化確認SIM/ns-3-dev/build-runner-nr
+Build profile                 : relwithdebinfo
+Build directory               : C:/ns3-dev-link/build
 Build with runtime asserts    : OFF (not requested)
 Build with runtime logging    : OFF (not requested)
 Build version embedding       : OFF (not requested)
-BRITE Integration             : OFF (missing dependency)
+BRITE Integration             : OFF (Missing headers: "Brite.h" and missing libraries: "brite")
 DES Metrics event collection  : OFF (not requested)
 DPDK NetDevice                : OFF (not requested)
 Emulation FdNetDevice         : OFF (not requested)
@@ -14,8 +14,8 @@ GNU Scientific Library (GSL)  : OFF (GSL was not found)
 GtkConfigStore                : OFF (Harfbuzz is required by GTK3 and was not found)
 LibXml2 support               : OFF (LibXML2 was not found)
 MPI Support                   : OFF (not requested)
-ns-3 Click Integration        : OFF (missing dependency)
-ns-3 OpenFlow Integration     : OFF (missing dependency)
+ns-3 Click Integration        : OFF (Missing headers: "simclick.h" and missing libraries: "nsclickclick")
+ns-3 OpenFlow Integration     : OFF (Missing headers: "openflow.h" and missing libraries: "openflow")
 Netmap emulation FdNetDevice  : OFF (not requested)
 PyViz visualizer              : OFF (Python Bindings are disabled)
 Python Bindings               : OFF (not requested)
@@ -27,14 +27,22 @@ Tests                         : OFF (not requested)
 
 
 Modules configured to be built:
-antenna                   applications              bridge                    
-buildings                 config-store              core                      
-csma                      flow-monitor              internet                  
-internet-apps             mobility                  network                   
-nr                        point-to-point            propagation               
-spectrum                  stats                     traffic-control           
-virtual-net-device        
+antenna                   aodv                      applications              
+bridge                    buildings                 config-store              
+core                      csma                      csma-layout               
+dsdv                      dsr                       energy                    
+flow-monitor              internet                  internet-apps             
+lr-wpan                   lte                       mesh                      
+mobility                  netanim                   network                   
+nix-vector-routing        nr                        olsr                      
+point-to-point            point-to-point-layout     propagation               
+sixlowpan                 spectrum                  stats                     
+topology-read             traffic-control           uan                       
+virtual-net-device        wifi                      wimax                     
+zigbee                    
 
 Modules that cannot be built:
-mpi                       
+brite                     click                     fd-net-device             
+mpi                       openflow                  tap-bridge                
+test                      visualizer                
 
